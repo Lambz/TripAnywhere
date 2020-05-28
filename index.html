@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Home</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/stylesheet.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo_div">
+                <img src="images/logo-black.png"/>
+                <p>We makes it easy for you</p>
+            </div>
+            <div class="mobile"></div>
+            <div class="login-signup">
+                <button class="menu_button" onclick="toggleLogin()">
+                    <img src="images/account.png"/>
+                    <div class="login-signup-links">
+                        <a href="login.html">Login</a> / 
+                        <a href="signup.html">Sign-up</a>
+                    </div>
+                </button>
+            </div>
+            <div class="login-signup-buttons" id="login-signup-buttons">
+                <div class="button">
+                    <a href="login.html">Login</a>
+                </div>
+                <div class="button">
+                    <a href="signup.html">Sign-up</a>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <div class="nav_card">
+                <div class="nav_button">
+                    <a href="flights.html">
+                        <img src="images/flight.png" />
+                        <p>Flights</p>
+                    </a>
+                </div>
+                <div class="nav_button">
+                    <a href="trains.html">
+                        <img src="images/train.png" />
+                        <p>Trains</p>
+                    </a>
+                </div>
+                <div class="nav_button">
+                    <a href="hotels.html">
+                        <img src="images/hotel.png" />
+                        <p>Hotels</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <p class="section-title">Travel during Pandemic</p>
+            <div class="safety">
+                <div class="safety-card">
+                    <p class="card-title">
+                        Test yourself
+                    </p>
+                    <p class="card-info">
+                        The first thing that you need to do is get yourself tested for the virus to ensure that you are not a carrier. 
+                        Anyone exhibiting mild signs of illness and is unable to provide a report showing that he isn't infected can't travel.
+                    </p>
+                </div>
+                <div class="safety-card">
+                    <p class="card-title">
+                        Get medical history
+                    </p>
+                    <p class="card-info">
+                        Your medical history is your best friend under these circumstances. Make sure that you have all the necessary paperwork to 
+                        prove that you haven't faced an illness that might indicate that you were a carrier of the virus.
+                    </p>
+                </div>
+                <div class="safety-card">
+                    <p class="card-title">
+                        Get travel history
+                    </p>
+                    <p class="card-info">
+                        The most common way of contracting this virus is by  traveling  from one place to another and coming in contact with different people. 
+                        Any person who has been in another part of the world in the past 14 days have the same risks.
+                    </p>
+                </div>
+                <div class="safety-card">
+                    <p class="card-title">
+                        Carry all essentials
+                    </p>
+                    <p class="card-info">
+                        Make sure that you have all the necessary things that you need to ensure exceptional hygiene. Wear a pair of gloves, carry alcohol wipes 
+                        and hand sanitizers, and remember that the face mask isn't must to wear. 
+                    </p>
+                </div>
+                <div class="safety-card">
+                    <p class="card-title">
+                        Remember the guidelines
+                    </p>
+                    <p class="card-info">
+                        And on top of all this, remember the  fundamental guidelines  issued to ensure your safety. Maintain a safe distance of about two meters from everyone, 
+                        avoid touching things or people, and don't step into crowded places. 
+                    </p>
+                </div>
+            </div>
+            <div class="personal_info">
+                
+            </div>
+            <p class="section-title">Blog</p>
+            <div class="rss" id="rss">
+            </div>
+        </main>
+        <footer>
+            <p>&copy; Copyright 2020. All Rights Reserved.</p>
+        </footer>
+        <script>
+            function toggleLogin() 
+            {
+                var x = document.getElementById("login-signup-buttons");
+                if (x.style.display === "none")
+                {
+                    x.style.display = "block";
+                } else 
+                {
+                    x.style.display = "none";
+                }
+            }
+        </script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function() {
+                //feed to parse
+                var feed = "https://www.statravel.com/blog/feed/";
+                
+                $.ajax(feed, {
+                    accepts:{
+                        xml:"application/rss+xml"
+                    },
+                    dataType:"xml",
+                    success:function(data) {
+                        //Credit: http://stackoverflow.com/questions/10943544/how-to-parse-an-rss-feed-using-javascript
+
+                        $(data).find("item").each(function () { // or "item" or whatever suits your feed
+                            var el = $(this);
+                            console.log("------------------------");
+                            console.log("title      : " + el.find("title").text());
+                            console.log("link       : " + el.find("link").text());
+                            console.log("description: " + el.find("description").text());
+                            console.log("image: "+el.find("image").text());
+                            $('#rss').append("<div class=\"rss-story\">"+el.find("description").text()+"</div>")
+                        });
+                
+
+                    }	
+                });
+                
+            });
+        </script>
+    </body>
+</html>
