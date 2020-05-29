@@ -61,14 +61,6 @@ header
     color: grey;
 }
 
-.login-signup-buttons
-{
-    clear: right;
-    width: 100%;
-    padding: 2%;
-    display: none;
-}
-
 .button
 {
     display: inline-block;
