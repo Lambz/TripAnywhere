@@ -123,11 +123,6 @@ header div span
     width: 100%;
 }
 
-main
-{
-    padding-top: 5%;
-}
-
 .inputs
 {
     padding-bottom: 5vh;
@@ -330,19 +325,21 @@ main
         float: right;
         vertical-align: middle;
         z-index: 999;
+        padding-top: 0;
+        padding-right: 2%;
     }
 
     .login-signup img
     {
-        width: 2vw;
-        height: 2vw;
+        width: 1.5vw;
+        height: 1.5vw;
         font-size: 0;
         vertical-align: middle;
     }
 
     .login-signup-links
     {
-        font-size: 2vw;
+        font-size: 1.5vw;
         vertical-align: middle;
     }
 
@@ -351,24 +348,22 @@ main
         color: grey;
     }
 
-    .nav_card
+    #nav_card
     {
-        width: 80%;
+        width: 90%;
         margin-left: auto;
         margin-right: auto;
         background-color: white;
-        border-radius: 2%;
+        border-radius: 2em;
         box-shadow: 0 0 0.5em grey;
         text-align: center;
-        overflow: auto;
-        margin-top: 5%;
         padding: 2%;
+        /* padding: 2% 0 1% 0; */
     }
 
     .nav_button
     {
         padding: 0;
-        margin-top: 1.5em;
         display: inline-block;
         width: 30%;
         margin-left: auto;
@@ -385,8 +380,21 @@ main
 
     .nav_button a img
     {
-        width: 12vh;
-        height: 12vh;
+        width: 5vw;
+        height: 5vw;
+    }
+
+    .flight-nav
+    {
+        width: 80%;
+        float: right;
+        margin-top: -15vw;
+        padding: 2%;
+    }
+
+    .nav_button p
+    {
+        margin-bottom: 0;
     }
 
 }

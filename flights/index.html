@@ -34,33 +34,43 @@
                 <div class="login-signup">
                     <img src="../images/account.png"/>
                     <div class="login-signup-links">
-                        <a href="login.html">Login</a> / 
+                        <a href="login.html">Login</a>
                         <a href="signup.html">Sign-up</a>
                     </div>
                 </div>
-                <div class="nav_card">
-                    <div class="nav_button">
-                        <a href="index.html">
-                            <img src="../images/flight.png" />
-                            <p>Flights</p>
-                        </a>
-                    </div>
-                    <div class="nav_button">
-                        <a href="../trains/index.html">
-                            <img src="../images/train.png" />
-                            <p>Trains</p>
-                        </a>
-                    </div>
-                    <div class="nav_button">
-                        <a href="../hotels/index.html">
-                            <img src="../images/hotel.png" />
-                            <p>Hotels</p>
-                        </a>
-                    </div>
-                </div>
+                
             </div>
         </header>
-        <nav>
+        <nav class="flight-nav">
+            <div id="nav_card" class="desktop">
+                <div class="nav_button">
+                    <a href="index.html">
+                        <img src="../images/flight.png" />
+                        <p>Flights</p>
+                    </a>
+                </div>
+                <div class="nav_button">
+                    <a href="../trains/index.html">
+                        <img src="../images/train.png" />
+                        <p>Trains</p>
+                    </a>
+                </div>
+                <div class="nav_button">
+                    <a href="../hotels/index.html">
+                        <img src="../images/hotel.png" />
+                        <p>Hotels</p>
+                    </a>
+                </div>
+            </div>
+                <!-- <div id="multi" class="flight-search-type-inactive">
+                    <button onclick="updateSearch('multi')">
+                        <img src="images/tick.png"/>
+                        <p>MULTICITY</p>
+                    </button>
+                </div> -->
+            <!-- </div> -->
+        </nav>
+        <main>
             <div class="flight-search-types">
                 <div id="one" class="flight-search-type-active">
                     <button onclick="updateSearch('one')">
@@ -74,15 +84,7 @@
                         <p>ROUNDTRIP</p>
                     </button>
                 </div>
-                <!-- <div id="multi" class="flight-search-type-inactive">
-                    <button onclick="updateSearch('multi')">
-                        <img src="images/tick.png"/>
-                        <p>MULTICITY</p>
-                    </button>
-                </div> -->
             </div>
-        </nav>
-        <main>
             <div class="main_container">
                 <div class="inputs">
                     <p class="heading">From</p>
