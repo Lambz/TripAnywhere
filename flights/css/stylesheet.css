@@ -1,0 +1,392 @@
+body
+{
+    margin: 0;
+    padding: 0 0 5% 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+footer
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 0.7em;
+}
+
+header
+{
+    padding: 4% 4% 6% 4%;
+    text-align: center;
+    box-shadow: 0 0 0.5vh grey;
+}
+
+header img
+{
+    width: 8vw;
+    height: 8vw;
+}
+
+header a
+{
+    vertical-align: middle;
+    float: left;
+}
+
+header div
+{
+    vertical-align: middle;
+    font-size: 8vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header div span
+{
+    font-weight: bold;
+}
+
+.flight-search-types
+{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 1%;
+    border-radius: 2em;
+    margin-top: -2vh;
+    box-shadow: 0 0 1em grey;
+    background-color: white;
+    vertical-align: middle;
+}
+
+.flight-search-type-active, .flight-search-type-inactive
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 46%;
+    padding: 1.5%;
+}
+
+.flight-search-type-active img, .flight-search-type-inactive img
+{
+    width: 3vw;
+    height: 3vw;
+    vertical-align: middle;
+}
+
+.flight-search-type-inactive img
+{
+    display: none;
+}
+
+.flight-search-type-active
+{
+    background-image: -webkit-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:    -moz-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:     -ms-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:      -o-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:         linear-gradient(left, #3f9ffc, #075bf3);
+    border-radius: 2em;
+}
+
+.flight-search-types p
+{   
+    display: inline;
+    margin-left: 10%;
+}
+
+.flight-search-types button
+{
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.flight-search-type-active button
+{
+    width: 100%;
+    color: white;
+}
+
+.flight-search-type-inactive button
+{
+    width: 100%;
+}
+
+main
+{
+    padding-top: 5%;
+}
+
+.inputs
+{
+    padding-bottom: 5vh;
+    border-radius: 7vh;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.main_container p
+{
+    font-size: 1.5em;
+    padding: 0 2% 0 2%;
+    margin: 0;
+    color: grey;
+}
+
+.main_container input, .main_container select
+{
+    margin-top: 2%;
+    width: 100%;
+    font-size: 1em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    margin-bottom: 4%;
+}
+
+.inner-div
+{
+    display: inline-block;
+    width: 49%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-section
+{
+    padding-bottom: 2%;
+}
+
+.button-div
+{
+    text-align: center;
+}
+
+.button-div button
+{
+    color: white;
+    background-image: -webkit-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:    -moz-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:     -ms-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:      -o-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:         linear-gradient(left, #3f9ffc, #075bf3);
+    border: none;
+    border-radius: 50%;
+    width: 18vw;
+    height: 18vw;
+    font-size: 2.5vw;
+    margin-top: -5vh;
+    outline: none;
+}
+
+
+.section-title
+{
+    margin: 5% 2% 0 2%;
+    padding: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.safety 
+{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */ 
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.safety-card
+{
+    padding: 1% 2% 1% 2%;
+    flex: 0 0 auto;
+    width: 40%;
+    box-shadow: 0 0 0.5em grey;
+    margin: 2% 2% 5% 2%;
+    border-radius: 0.5em;
+}
+
+.login-signup img
+{
+    height: 4vw;
+    width: 4vw;
+    vertical-align: middle;
+}
+
+.login-signup
+{
+    text-align: right;
+}
+
+.login-signup-links
+{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 4vw;
+}
+
+.login-signup-links a:hover
+{
+    color: grey;
+}
+
+.login-signup-links a
+{
+    margin-left: 2vw;
+    text-decoration: none;
+    color: black;
+}
+
+.desktop
+{
+    display: none;
+}
+
+@media (orientation: landscape)
+{
+    .mobile
+    {
+        display: none;
+    }
+
+    .desktop
+    {
+        display: inline-block;
+        margin: 0;
+        width: 100%;
+    }
+
+    header
+    {
+        overflow: auto;
+        padding: 0;
+        box-shadow: none;
+        background-image: -webkit-linear-gradient(left, #3f9ffc, #075bf3); 
+        background-image:    -moz-linear-gradient(left, #3f9ffc, #075bf3); 
+        background-image:     -ms-linear-gradient(left, #3f9ffc, #075bf3); 
+        background-image:      -o-linear-gradient(left, #3f9ffc, #075bf3); 
+        background-image:         linear-gradient(left, #3f9ffc, #075bf3);
+    }
+
+    header div
+    {
+        padding-top: 1vh;
+        font-size: 0;
+    }
+
+    nav
+    {
+        margin: 0;
+    }
+    
+    .flight-search-types
+    {
+        background-color: transparent;
+        margin: 1%;
+        box-shadow: none;
+        text-align: left;
+    }
+
+    .flight-search-type-inactive, .flight-search-type-active
+    {
+        width: 10vw;
+        margin: 0;
+        padding: 1%;
+    }
+
+    .flight-search-type-inactive img, .flight-search-type-active img
+    {
+        width: 2.5vh;
+        height: 2.5vh;
+    }
+    
+    .logo_div 
+    {
+        float: left;
+        padding: 2%;
+        margin-top: 2%;
+        vertical-align: initial;
+        font-size: 1.5vh;
+        text-align: center;
+    }
+
+    .login-signup
+    {
+        text-align: left;
+        float: right;
+        vertical-align: middle;
+        z-index: 999;
+    }
+
+    .login-signup img
+    {
+        width: 2vw;
+        height: 2vw;
+        font-size: 0;
+        vertical-align: middle;
+    }
+
+    .login-signup-links
+    {
+        font-size: 2vw;
+        vertical-align: middle;
+    }
+
+    .login-signup-links a:hover
+    {
+        color: grey;
+    }
+
+    .nav_card
+    {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+        border-radius: 2%;
+        box-shadow: 0 0 0.5em grey;
+        text-align: center;
+        overflow: auto;
+        margin-top: 5%;
+        padding: 2%;
+    }
+
+    .nav_button
+    {
+        padding: 0;
+        margin-top: 1.5em;
+        display: inline-block;
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: bold;
+    }
+
+    .nav_button a
+    {
+        float: none;
+        text-decoration: none;
+        color: black;
+    }
+
+    .nav_button a img
+    {
+        width: 12vh;
+        height: 12vh;
+    }
+
+}

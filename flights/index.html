@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Flight Search</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/stylesheet.css">
+    </head>
+    <body>
+        <header>
+            <div class="mobile">
+                <a href="../index.html" >
+                    <img src="../images/back.png"/>
+                </a>
+                <div>Flight <span>Search</span></div>
+                <div class="login-signup">
+                    <img src="../images/account.png"/>
+                    <div class="login-signup-links">
+                        <a href="../login.html">Login</a>
+                        <a href="../signup.html">Sign-up</a>
+                    </div>
+                </div>
+            </div>
+            <div class="desktop">
+                <div class="logo_div">
+                    <img src="../images/logo-black.png"/>
+                    <p>We makes it easy for you</p>
+                </div>
+                <div class="login-signup">
+                    <img src="../images/account.png"/>
+                    <div class="login-signup-links">
+                        <a href="login.html">Login</a> / 
+                        <a href="signup.html">Sign-up</a>
+                    </div>
+                </div>
+                <div class="nav_card">
+                    <div class="nav_button">
+                        <a href="index.html">
+                            <img src="../images/flight.png" />
+                            <p>Flights</p>
+                        </a>
+                    </div>
+                    <div class="nav_button">
+                        <a href="../trains/index.html">
+                            <img src="../images/train.png" />
+                            <p>Trains</p>
+                        </a>
+                    </div>
+                    <div class="nav_button">
+                        <a href="../hotels/index.html">
+                            <img src="../images/hotel.png" />
+                            <p>Hotels</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <div class="flight-search-types">
+                <div id="one" class="flight-search-type-active">
+                    <button onclick="updateSearch('one')">
+                        <img src="images/tick.png"/>
+                        <p>ONE WAY</p>
+                    </button>
+                </div>
+                <div id="round" class="flight-search-type-inactive">
+                    <button onclick="updateSearch('round')">
+                        <img src="images/tick.png"/>
+                        <p>ROUNDTRIP</p>
+                    </button>
+                </div>
+                <!-- <div id="multi" class="flight-search-type-inactive">
+                    <button onclick="updateSearch('multi')">
+                        <img src="images/tick.png"/>
+                        <p>MULTICITY</p>
+                    </button>
+                </div> -->
+            </div>
+        </nav>
+        <main>
+            <div class="main_container">
+                <div class="inputs">
+                    <p class="heading">From</p>
+                    <p class="input"><input id="from_city" /></p>
+                    <p class="heading">TO</p>
+                    <p class="input"><input id="to_city" /></p>
+                    <div class="input-section">
+                        <div class="inner-div">
+                            <p class="heading">DEPARTURE</p>
+                            <p class="input"><input id="departure" type="date"/></p>
+                        </div>
+                        <div class="inner-div">
+                            <p class="heading">RETURN</p>
+                            <p class="input"><input id="return" type="date" disabled  /></p>
+                        </div>
+                    </div>
+                    <div class="input-section">
+                        <div class="inner-div">
+                            <p class="heading">TRAVELLERS</p>
+                            <p class="input"><input id="travellers" type="number" max="10"/></p>
+                        </div>
+                        <div class="inner-div">
+                            <p class="heading">CABIN CLASS</p>
+                            <p class="input">
+                                <select id="class" >
+                                    <option value="economy">Economy</option>
+                                    <option value="premium-eco">Premium Economy</option>
+                                    <option value="bisuness">Business</option>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-div">
+                    <button onclick="search()">SEARCH</button>
+                </div>
+            </div>
+            <div class="recent-flights" id="recent-flights"></div>
+            <p class="section-title">Travel during Pandemic</p>
+            <div class="safety">
+                <div class="safety-card">
+                    <p class="card-title">
+                        Test yourself
+                    </p>
+                    <p class="card-info">
+                        The first thing that you need to do is get yourself tested for the virus to ensure that you are not a carrier. 
+                        Anyone exhibiting mild signs of illness and is unable to provide a report showing that he isn't infected can't travel.
+                    </p>
+                </div>
+                <div class="safety-card">
+                    <p class="card-title">
+                        Get medical history
+                    </p>
+                    <p class="card-info">
+                        Your medical history is your best friend under these circumstances. Make sure that you have all the necessary paperwork to 
+                        prove that you haven't faced an illness that might indicate that you were a carrier of the virus.
+                    </p>
+                </div>
+                <div class="safety-card">
+                    <p class="card-title">
+                        Get travel history
+                    </p>
+                    <p class="card-info">
+                        The most common way of contracting this virus is by  traveling  from one place to another and coming in contact with different people. 
+                        Any person who has been in another part of the world in the past 14 days have the same risks.
+                    </p>
+                </div>
+                <div class="safety-card">
+                    <p class="card-title">
+                        Carry all essentials
+                    </p>
+                    <p class="card-info">
+                        Make sure that you have all the necessary things that you need to ensure exceptional hygiene. Wear a pair of gloves, carry alcohol wipes 
+                        and hand sanitizers, and remember that the face mask isn't must to wear. 
+                    </p>
+                </div>
+                <div class="safety-card">
+                    <p class="card-title">
+                        Remember the guidelines
+                    </p>
+                    <p class="card-info">
+                        And on top of all this, remember the  fundamental guidelines  issued to ensure your safety. Maintain a safe distance of about two meters from everyone, 
+                        avoid touching things or people, and don't step into crowded places. 
+                    </p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; Copyright 2020. All Rights Reserved.</p>
+        </footer>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script>
+            function updateSearch(type)
+            {
+                if(type == "one")
+                {
+                    var element = document.getElementById("one");
+                    element.classList.remove(element.classList);
+                    element.classList.add('flight-search-type-active');
+                    element = document.getElementById("round");
+                    element.classList.remove(element.classList);
+                    element.classList.add("flight-search-type-inactive");
+                    // var element = document.getElementById("multi");
+                    // element.classList.remove(element.classList);
+                    // element.classList.add("flight-search-type-inactive");
+                    element = document.getElementById("return");
+                    element.disabled = true;
+                }
+                else if(type == "round")
+                {
+                    var element = document.getElementById("round");
+                    element.classList.remove(element.classList);
+                    element.classList.add("flight-search-type-active");
+                    element = document.getElementById("return");
+                    element.disabled = false;
+                    element = document.getElementById("one");
+                    element.classList.remove(element.classList);
+                    element.classList.add("flight-search-type-inactive");
+                    // element = document.getElementById("multi");
+                    // element.classList.remove(element.classList);
+                    // element.classList.add("flight-search-type-inactive");
+                }
+                // else if(type == "multi")
+                // {
+                //     var element = document.getElementById("multi");
+                //     element.classList.remove(element.classList);
+                //     element.classList.add("flight-search-type-active");
+                //     var element = document.getElementById("round");
+                //     element.classList.remove(element.classList);
+                //     element.classList.add("flight-search-type-inactive");
+                //     var element = document.getElementById("one");
+                //     element.classList.remove(element.classList);
+                //     element.classList.add("flight-search-type-inactive");
+                // }
+            }
+
+            function search()
+            {
+                var cond = true;
+                var from_city = document.getElementById("from_city").value;
+                console.log(from_city);
+                if(from_city == "")
+                {
+                    document.getElementById("from_city").style.borderBottom = "0.1em solid red";
+                    cond = false;
+                }
+                var to_city = document.getElementById("to_city").value;
+                console.log(to_city);
+                if(to_city == "")
+                {
+                    document.getElementById("to_city").style.borderBottom = "0.1em solid red";
+                    cond = false;
+                }
+                var departure = document.getElementById("departure").value;
+                console.log(departure);
+                if(departure == "")
+                {
+                    document.getElementById("departure").style.borderBottom = "0.1em solid red";
+                    cond = false;
+                }
+                if(!document.getElementById("return").disabled)
+                {
+                    var vreturn = document.getElementById("return").value;
+                    console.log(vreturn);
+                    if(vreturn == "")
+                    {
+                        document.getElementById("return").style.borderBottom = "0.1em solid red";
+                        cond = false;
+                    }
+                }
+                var travellers = document.getElementById("travellers").value;
+                console.log(travellers);
+                if(travellers == "")
+                {
+                    document.getElementById("travellers").style.borderBottom = "0.1em solid red";
+                    cond = false;
+                }
+                var vclass = document.getElementById("class").value;
+                console.log(vclass);
+                if(cond)
+                {
+
+                }
+            }
+        </script>
+        <!-- <script>
+            function activatePlacesSearch()
+            {
+                var input = document.getElementById('from_city');
+                var autocomplete = new google.maps.places.Autocomplete(input);
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJoB9abmip914aBti5-Vsa8Lb_Ha23PqY&libraries=places&callback=activatePlacesSearch"
+        async defer></script> -->
+    </body>
+</html>
