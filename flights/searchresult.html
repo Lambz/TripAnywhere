@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Flight Search</title>
+        <title>Search Result</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/stylesheet.css">
@@ -17,7 +17,8 @@
                 <a href="../index.html" >
                     <img src="../images/back.png"/>
                 </a>
-                <div>Flight <span>Search</span></div>
+                <div id="to-from"></div>
+                <div id="search-info"></div>
                 <div class="login-signup">
                     <img src="../images/account.png"/>
                     <div class="login-signup-links">
@@ -71,7 +72,7 @@
             <!-- </div> -->
         </nav>
         <main>
-            <div class="flight-search-types">
+            <div class="flight-search-types desktop">
                 <div id="one" class="flight-search-type-active">
                     <button onclick="updateSearch('one')">
                         <img src="images/tick.png"/>
@@ -85,7 +86,7 @@
                     </button>
                 </div>
             </div>
-            <div class="main_container">
+            <div class="main_container desktop">
                 <div class="inputs">
                     <div class="full-section">
                         <p class="heading">From</p>
@@ -114,9 +115,9 @@
                             <p class="heading">CABIN CLASS</p>
                             <p class="input">
                                 <select id="class" >
-                                    <option value="Economy">Economy</option>
-                                    <option value="Premium-Economy">Premium Economy</option>
-                                    <option value="Business">Business</option>
+                                    <option value="economy">Economy</option>
+                                    <option value="premium-eco">Premium Economy</option>
+                                    <option value="bisuness">Business</option>
                                 </select>
                             </p>
                         </div>
@@ -126,6 +127,14 @@
                     <button onclick="search()">SEARCH</button>
                 </div>
             </div>
+            <div class="progres_div" id="progres_div">
+                <progress>Loading...</progress>
+            </div>
+            <div id="no_flights" class="no_flights mobile">
+                <img src="../images/world-problem.png" />
+                <p>No Flights Found</p>
+            </div>
+            <div id="flight_info" class="flight_info"></div>
             <div class="recent-flights" id="recent-flights"></div>
             <div class="custom-info" id="custom-info"></div>
             <p class="section-title">Travel during Pandemic</p>
@@ -183,7 +192,8 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
+        <script type="text/javascript" src="../scripts/basicFunctions.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script>
             function updateSearch(type)
             {
@@ -274,6 +284,115 @@
                     window.location.href = "searchresult.html?from_city="+from_city+"&to_city="+to_city+"&departure="+departure+"&vreturn="+vreturn+"&travellers="+travellers+"&vclass="+vclass;
                 }
             }
+
+            window.onload = function onLoadFunction()
+            {
+                var url = new URL(window.location.href.toLowerCase());
+                var from_city = url.searchParams.get("from_city");
+                var to_city = url.searchParams.get("to_city");
+                var departure = url.searchParams.get("departure");
+                var vreturn = url.searchParams.get("vreturn");
+                var travellers = url.searchParams.get("travellers");
+                var vclass = url.searchParams.get("vclass");
+                var to_from_div = document.getElementById("to-from");
+                var search_info_div = document.getElementById("search-info");
+                console.log(from_city+" to "+to_city);
+                to_from_div.append(capitalizeFirstLetter(from_city)+" to "+capitalizeFirstLetter(to_city));
+                if(vreturn == "")
+                {
+                    search_info_div.append(getDateMonth(departure)+" | "+travellers+" travellers | "+capitalizeFirstLetter(vclass));
+                }
+                else
+                {
+                    search_info_div.append(getDateMonth(departure)+" - "+getDateMonth(vreturn)+" | "+travellers+" travellers | "+capitalizeFirstLetter(vclass));
+                }
+
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/CA/CAD/en-US/?query="+from_city,
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+                        "x-rapidapi-key": "4b0e3726ffmshfe15b9274723e0ep136f01jsnc71cc4821441"
+                    }
+                }
+
+                $.ajax(settings).done(function (response) {
+                    console.log(JSON.stringify(response));
+                    getToCity(response.Places[0], to_city,departure,vreturn);
+                });
+            }
+
+            function getToCity(json, to_city, departure, vreturn)
+            {
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/CA/CAD/en-US/?query="+to_city,
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+                        "x-rapidapi-key": "4b0e3726ffmshfe15b9274723e0ep136f01jsnc71cc4821441"
+                    }
+                }
+
+                $.ajax(settings).done(function (response) {
+                    console.log(JSON.stringify(response));
+                    getFlightInfo(json, response.Places[0],departure,vreturn);
+                });
+            }
+
+            function getFlightInfo(json, json1, departure, vreturn)
+            {
+                if(vreturn == "")
+                {
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/CA/CAD/en-US/"+json.PlaceId+"/"+json1.PlaceId+"/"+departure,
+                        "method": "GET",
+                        "headers": {
+                            "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+                            "x-rapidapi-key": "4b0e3726ffmshfe15b9274723e0ep136f01jsnc71cc4821441"
+                        }
+                    }
+
+                    $.ajax(settings).done(function (response) {
+                        document.getElementById("progres_div").style.display = "none";
+                        console.log(response);
+                        var quotes = response.Quotes;
+                        if(quotes.length == 0)
+                        {
+                            document.getElementById("no_flights").style.display = "block";
+                        }
+                    });
+                }
+                else
+                {
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/CA/CAD/en-US/"+json.PlaceId+"/"+json1.PlaceId+"/"+departure+"?inboundpartialdate="+vreturn,
+                        "method": "GET",
+                        "headers": {
+                            "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+                            "x-rapidapi-key": "4b0e3726ffmshfe15b9274723e0ep136f01jsnc71cc4821441"
+                        }
+                    }
+
+                    $.ajax(settings).done(function (response) {
+                        document.getElementById("progres_div").style.display = "none";
+                        console.log(response);
+                        var quotes = response.Quotes;
+                        if(quotes.length == 0)
+                        {
+                            document.getElementById("no_flights").style.display = "block";
+                        }
+                    });
+                }
+            }
+            
         </script>
         <!-- <script>
             function activatePlacesSearch()

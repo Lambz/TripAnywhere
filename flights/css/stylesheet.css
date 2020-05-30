@@ -251,6 +251,48 @@ header div span
     display: none;
 }
 
+#to-from
+{
+    font-size: 5vw;
+}
+
+#search-info
+{
+    font-size: 3vw;
+}
+
+.no_flights
+{
+    text-align: center;
+    margin-top: 12vh;
+    display: none;
+}
+
+.no_flights img
+{
+    width: 25vw;
+    height: 25vw;
+}
+
+.no_flights p
+{
+    font-size: 7vw;
+}
+
+.progres_div
+{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+}
+
+.progres_div progress
+{
+    width: 100%;
+    height: 2vh;
+}
+
 @media (orientation: landscape)
 {
     .mobile
@@ -270,11 +312,11 @@ header div span
         overflow: auto;
         padding: 0;
         box-shadow: none;
-        background-image: -webkit-linear-gradient(left, #3f9ffc, #075bf3); 
-        background-image:    -moz-linear-gradient(left, #3f9ffc, #075bf3); 
-        background-image:     -ms-linear-gradient(left, #3f9ffc, #075bf3); 
-        background-image:      -o-linear-gradient(left, #3f9ffc, #075bf3); 
-        background-image:         linear-gradient(left, #3f9ffc, #075bf3);
+        background-image: -webkit-linear-gradient(top, #051323, #134278); 
+        background-image:    -moz-linear-gradient(top, #051323, #134278);
+        background-image:     -ms-linear-gradient(top, #051323, #134278);
+        background-image:      -o-linear-gradient(top, #051323, #134278);
+        background-image:         linear-gradient(top, #051323, #134278);
     }
 
     header div
@@ -292,13 +334,14 @@ header div span
     {
         background-color: transparent;
         margin: 1%;
+        padding: 0;
         box-shadow: none;
         text-align: left;
     }
 
     .flight-search-type-inactive, .flight-search-type-active
     {
-        width: 10vw;
+        width: 8vw;
         margin: 0;
         padding: 1%;
     }
@@ -317,6 +360,11 @@ header div span
         vertical-align: initial;
         font-size: 1.5vh;
         text-align: center;
+    }
+
+    .logo_div p
+    {
+        color: white;
     }
 
     .login-signup
@@ -341,6 +389,11 @@ header div span
     {
         font-size: 1.5vw;
         vertical-align: middle;
+    }
+
+    .login-signup-links a
+    {
+        color: white;
     }
 
     .login-signup-links a:hover
@@ -395,6 +448,46 @@ header div span
     .nav_button p
     {
         margin-bottom: 0;
+    }
+
+    .full-section
+    {
+        width: 16vw;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .input-section
+    {
+        width: 32vw;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .main_container
+    {
+        text-align: center;
+    }
+
+    .main_container p
+    {
+        text-align: left;
+    }
+
+    .button-div button
+    {
+        border-radius: 2vw;
+        height: auto;
+        padding: 1%;
+        font-size: 1.5vw;
+    }
+
+    .safety-card
+    {
+        width: 20%;
+        margin: 2% 1% 5% 2%;
     }
 
 }
