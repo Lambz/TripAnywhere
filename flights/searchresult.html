@@ -115,9 +115,9 @@
                             <p class="heading">CABIN CLASS</p>
                             <p class="input">
                                 <select id="class" >
-                                    <option value="economy">Economy</option>
-                                    <option value="premium-eco">Premium Economy</option>
-                                    <option value="bisuness">Business</option>
+                                    <option value="Economy">Economy</option>
+                                    <option value="Premium-economy">Premium-economy</option>
+                                    <option value="Business">Business</option>
                                 </select>
                             </p>
                         </div>
@@ -134,7 +134,9 @@
                 <img src="../images/world-problem.png" />
                 <p>No Flights Found</p>
             </div>
-            <div id="flight_info" class="flight_info"></div>
+            <div id="flight_info_container" name="flight_info_container" class="flight_info_container">
+                <!-- <div class='flight_info' onclick='flightInfoClicked("0",false)'><p>Alaska Airlines</p><div class='side_info'><div>00:00</div><div class='lower_info'>San Francisco</div></div><div class='side_info'><div>Non Stop</div><div class='lower_info'>New York</div></div><div class='side_info price'>$252</div></div> -->
+            </div>
             <div class="recent-flights" id="recent-flights"></div>
             <div class="custom-info" id="custom-info"></div>
             <p class="section-title">Travel during Pandemic</p>
@@ -297,31 +299,55 @@
                 var to_from_div = document.getElementById("to-from");
                 var search_info_div = document.getElementById("search-info");
                 console.log(from_city+" to "+to_city);
-                to_from_div.append(capitalizeFirstLetter(from_city)+" to "+capitalizeFirstLetter(to_city));
-                if(vreturn == "")
+                if(from_city == "" || to_city == "" || departure == "" || travellers == "" || vclass == "" || from_city == null || to_city == null || departure == null || travellers == null || vclass == null)
                 {
-                    search_info_div.append(getDateMonth(departure)+" | "+travellers+" travellers | "+capitalizeFirstLetter(vclass));
+                    window.location.href = "index.html";
                 }
                 else
-                {
-                    search_info_div.append(getDateMonth(departure)+" - "+getDateMonth(vreturn)+" | "+travellers+" travellers | "+capitalizeFirstLetter(vclass));
-                }
-
-                var settings = {
-                    "async": true,
-                    "crossDomain": true,
-                    "url": "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/CA/CAD/en-US/?query="+from_city,
-                    "method": "GET",
-                    "headers": {
-                        "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-                        "x-rapidapi-key": "4b0e3726ffmshfe15b9274723e0ep136f01jsnc71cc4821441"
+                {   
+                    document.getElementById("from_city").value = from_city;
+                    document.getElementById("to_city").value = to_city;
+                    document.getElementById("departure").value = departure;
+                    document.getElementById("travellers").value = travellers;
+                    // console.log("vclass: "+capitalizeFirstLetter(vclass)+" "+typeof(capitalizeFirstLetter(vclass))+" "+typeof("Economy"));
+                    // var string = capitalizeFirstLetter(vclass);
+                    // document.getElementById("class").value = string;
+                    //document.getElementById("class").value = "Economy";
+                    to_from_div.append(capitalizeFirstLetter(from_city)+" to "+capitalizeFirstLetter(to_city));
+                    // to_from_div.append(from_city.toCamelCase()+" to "+capitalizeFirstLetter(to_city));
+                    if(vreturn == "")
+                    {
+                        search_info_div.append(getDateMonth(departure)+" | "+travellers+" travellers | "+capitalizeFirstLetter(vclass));
                     }
-                }
+                    else
+                    {
+                        document.getElementById("return").value = vreturn;
+                        document.getElementById("return").disabled = false;
+                        var element = document.getElementById("round");
+                        element.classList.remove(element.classList);
+                        element.classList.add("flight-search-type-active");
+                        element = document.getElementById("one");
+                        element.classList.remove(element.classList);
+                        element.classList.add("flight-search-type-inactive");
+                        search_info_div.append(getDateMonth(departure)+" - "+getDateMonth(vreturn)+" | "+travellers+" travellers | "+capitalizeFirstLetter(vclass));
+                    }
 
-                $.ajax(settings).done(function (response) {
-                    console.log(JSON.stringify(response));
-                    getToCity(response.Places[0], to_city,departure,vreturn);
-                });
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/CA/CAD/en-US/?query="+from_city,
+                        "method": "GET",
+                        "headers": {
+                            "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+                            "x-rapidapi-key": "4b0e3726ffmshfe15b9274723e0ep136f01jsnc71cc4821441"
+                        }
+                    }
+
+                    $.ajax(settings).done(function (response) {
+                        //console.log(JSON.stringify(response));
+                        getToCity(response.Places[0], to_city,departure,vreturn);
+                    });
+                }
             }
 
             function getToCity(json, to_city, departure, vreturn)
@@ -360,11 +386,41 @@
 
                     $.ajax(settings).done(function (response) {
                         document.getElementById("progres_div").style.display = "none";
-                        console.log(response);
+                        //console.log(response);
                         var quotes = response.Quotes;
                         if(quotes.length == 0)
                         {
                             document.getElementById("no_flights").style.display = "block";
+                        }
+                        else
+                        {
+                            var i = 0;
+                            quotes.forEach(element => {
+                                console.log(element);
+                                //if(element.Direct)
+                                //{
+                                    var carrier = getCarrierName(element.OutboundLeg.CarrierIds[0], response);
+                                    var price = element.MinPrice;
+                                    var dep = new Date(element.OutboundLeg.DepartureDate);
+                                    var from = getPlace(element.OutboundLeg.OriginId, response);
+                                    var to= getPlace(element.OutboundLeg.DestinationId, response);
+                                    var is_direct;
+                                    if(element.Direct)
+                                    {
+                                        is_direct = "Non Stop"
+                                    }
+                                    else
+                                    {
+                                        is_direct = "Stoppage in Between"
+                                    }
+                                    console.log("carrier: "+carrier+" price: "+price+" dep: "+dep+" from: "+from+" to: "+to);
+                                    // console.log("<div class='flight_info' onclick='flightInfoClicked(\""+i+"\")'><p>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div>"+from+"</div></div><div class='side_info'><div>Non Stop</div><div>"+to+"</div></div><div class='side_info'>$"+price+"</div></div>");
+                                    // $("flight_info_container").append('<div class="flight_info" onclick="flightInfoClicked(\''+i+'\')"><p>'+carrier+'</p><div class="side_info"><div>'+("0" + dep.getHours()).slice(-2)+':'+("0" + dep.getMinutes()).slice(-2)+'</div><div>'+from+'</div></div><div class="side_info"><div>Non Stop</div><div>'+to+'</div></div><div class="side_info">$'+price+'</div></div>');
+                                    const div = "<div class='flight_info' onclick='flightInfoClicked(\""+i+"\",false)'><p>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div class='lower_info'>"+from+"</div></div><div class='side_info'><div>"+is_direct+"</div><div class='lower_info'>"+to+"</div></div><div class='side_info price'>$"+price+"</div></div>";
+                                    document.getElementById("flight_info_container").innerHTML = document.getElementById("flight_info_container").innerHTML + div;
+                                //}
+                                i+=1;
+                            });
                         }
                     });
                 }
@@ -389,10 +445,45 @@
                         {
                             document.getElementById("no_flights").style.display = "block";
                         }
+                        else
+                        {
+                            var i = 0;
+                            quotes.forEach(element => {
+                                //if(element.Direct)
+                                //{
+                                    var carrier = getCarrierName(element.OutboundLeg.CarrierIds[0], response);
+                                    var rcarrier = getNotCarrierName(element.OutboundLeg.CarrierIds[0], response);
+                                    console.log(rcarrier);
+                                    var price = element.MinPrice;
+                                    var dep = new Date(element.OutboundLeg.DepartureDate);
+                                    var from = getPlace(element.OutboundLeg.OriginId, response);
+                                    var to= getPlace(element.OutboundLeg.DestinationId, response);
+                                    var is_direct;
+                                    if(element.Direct)
+                                    {
+                                        is_direct = "Non Stop"
+                                    }
+                                    else
+                                    {
+                                        is_direct = "Stoppage in Between"
+                                    }
+                                    // console.log("<div class='flight_info' onclick='flightInfoClicked(\""+i+"\")'><p>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div>"+from+"</div></div><div class='side_info'><div>Non Stop</div><div>"+to+"</div></div><div class='side_info'>$"+price+"</div></div>");
+                                    // $("flight_info_container").append('<div class="flight_info" onclick="flightInfoClicked(\''+i+'\')"><p>'+carrier+'</p><div class="side_info"><div>'+("0" + dep.getHours()).slice(-2)+':'+("0" + dep.getMinutes()).slice(-2)+'</div><div>'+from+'</div></div><div class="side_info"><div>Non Stop</div><div>'+to+'</div></div><div class="side_info">$'+price+'</div></div>');
+                                    const div = "<div class='flight_info' onclick='flightInfoClicked(\""+i+"\",true)'><p>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div class='lower_info'>"+from+"</div></div><div class='side_info'><div>"+is_direct+"</div><div class='lower_info'>"+to+"</div></div><div class='side_info price'>$"+(price/2)+"</div>"+
+                                    "<div><div class='return_flight'>Return</div><p class='return_flight_name'>"+rcarrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div class='lower_info'>"+to+"</div></div><div class='side_info'><div>"+is_direct+"</div><div class='lower_info'>"+from+"</div></div><div class='side_info price'>$"+(price/2)+"</div></div>"+"</div>";
+                                    document.getElementById("flight_info_container").innerHTML = document.getElementById("flight_info_container").innerHTML + div;
+                                //}
+                                i+=1;
+                            });
+                        }
                     });
                 }
             }
-            
+
+            function flightInfoClicked(index, isreturning)
+            {
+                console.log(index+isreturning);
+            }
         </script>
         <!-- <script>
             function activatePlacesSearch()

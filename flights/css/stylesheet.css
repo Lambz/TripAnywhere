@@ -3,6 +3,8 @@ body
     margin: 0;
     padding: 0 0 5% 0;
     font-family: 'Times New Roman', Times, serif;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 footer
@@ -293,6 +295,54 @@ header div span
     height: 2vh;
 }
 
+.flight_info
+{
+    padding: 2%;
+    text-align: center;
+    margin-top: 2%;
+    box-shadow: 0 0 1vw grey;
+}
+
+.flight_info p
+{
+    text-align: left;
+    font-size: 6vw;
+    margin-bottom: 1vh;
+}
+
+.side_info
+{
+    margin-top: 0;
+    display: inline-block;
+    width: 33%;
+    font-size: 5vw;
+}
+
+.lower_info
+{
+    font-size: 2.5vw;
+    color: grey;
+}
+
+.price
+{
+    vertical-align: top;
+}
+
+.return_flight
+{
+    padding: 2.5% 0 0 0;
+    margin-top: 0;
+    font-size: 2vw;
+    text-align: left;
+    color: grey;
+}
+
+.return_flight_name
+{
+    margin-top: 0;
+}
+
 @media (orientation: landscape)
 {
     .mobile
@@ -488,6 +538,47 @@ header div span
     {
         width: 20%;
         margin: 2% 1% 5% 2%;
+    }
+
+    .flight_info_container
+    {
+        margin-top: 2%;
+    }
+
+    .flight_info
+    {
+        padding: 1%;
+        margin-top: 1%;
+        width: 85%;
+        border-radius: 1em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .flight_info p
+    {
+        font-size: 3vw;
+        margin-bottom: 1vh;
+        display: inline-block;
+        width: 25%;
+        text-align: center;
+    }
+
+    .side_info
+    {
+        margin-top: 0;
+        width: 25%;
+        font-size: 2vw;
+    }
+
+    .lower_info
+    {
+        font-size: 1.25vw;
+    }
+
+    .price
+    {
+        font-size: 4vw;
     }
 
 }
