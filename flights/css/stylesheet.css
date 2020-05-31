@@ -343,6 +343,122 @@ header div span
     margin-top: 0;
 }
 
+.flight_review
+{
+    padding: 2%;
+    text-align: center;
+    /* margin-top: 2%;
+    box-shadow: 0 0 1vw grey; */
+}
+
+.top_info
+{
+    font-size: 3.5vw;
+    text-align: left;
+}
+
+.top_info ~ .top_info
+{
+    padding-bottom: 2%;
+}
+
+.fare_type_box
+{
+    margin: 4%;
+    padding: 0 4% 0 4%;
+    border: 0.05em solid grey;
+    border-radius: 2em;
+}
+
+#fare_type
+{
+    font-size: 4vw;
+    text-align: left;
+}
+
+#fare_type ~ p img, .baggage_div p img
+{
+    vertical-align: middle;
+    width: 4vw;
+    height: 4vw;
+}
+
+#fare_type ~ p, .baggage_div p
+{
+    vertical-align: middle;
+    font-size: 3vw;
+    text-align: left;
+}
+
+.seperator
+{
+    overflow: unset;
+    font-size: 2em;
+    background-color: #f0f0f0;
+}
+
+.carrier_name
+{
+    font-size: 6vw;
+    text-align: left;
+    margin: 2%;
+}
+
+.continue_button_div
+{
+    padding:2%;
+    background-color: black;
+    overflow: auto;
+    text-align: right;
+}
+
+.continue_button_div button
+{
+    font-size: 4vw;
+    border: 0;
+    padding: 2% 10% 2% 10%;
+    background-image: -webkit-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:    -moz-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:     -ms-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:      -o-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:         linear-gradient(left, #3f9ffc, #075bf3);
+    border-radius: 1em;
+    color: white;
+}
+
+.cost_span
+{
+    float: left;
+    text-align: left;
+}
+
+.cost_span p
+{
+    white-space: normal;
+    margin: 0;
+    color: white;
+}
+
+.continue_span
+{
+    text-align: right;
+}
+
+.review_flight_main
+{
+    overflow: auto;
+}
+
+.cost
+{
+    font-size: 4vw;
+}
+
+.travellers
+{
+    font-size: 2.5vw;
+}
+
 @media (orientation: landscape)
 {
     .mobile
@@ -581,4 +697,118 @@ header div span
         font-size: 4vw;
     }
 
+    .flight_review
+    {
+        width: 60%;
+        margin-left: 2%;
+        box-shadow: 0 0 2em grey;
+        border-radius: 2em;
+        margin-top: 2%;
+    }
+
+    .top_info
+    {
+        font-size: 1vw;
+        font-weight: bold;
+    }
+
+    .top_info ~ .top_info
+    {
+        padding-bottom: 0.5%;
+    }
+
+    .carrier_name
+    {
+        width: 15%;
+        font-size: 3vw;
+        float: left;
+    }
+
+    .side_info
+    {
+        width: 27%;
+        font-size: 3vw;
+    }
+
+    #fare_type
+    {
+        font-size: 1.5vw;
+        margin-bottom: 1vw;
+    }
+
+    #fare_type ~ p, .baggage_div p {
+        vertical-align: middle;
+        font-size: 1vw;
+        text-align: left;
+    }
+
+    #fare_type ~ p img, .baggage_div p img {
+        vertical-align: middle;
+        width: 1vw;
+        height: 1vw;
+    }
+    
+    .flight_review .seperator
+    {
+        display: none;
+    }
+
+    .flight_review ~ .flight_review
+    {
+        margin-bottom: 2%;
+    }
+
+    .continue_button_div
+    {
+        width: 24%;
+        float: right;
+        margin-top: -75vw;
+        margin-right: 2%;
+        border-radius: 2em;
+    }
+
+    .cost_span
+    {
+        float: none;
+    }
+
+    .continue_button_div dt, .continue_button_div dd
+    {
+        color: white;
+    }
+
+    .continue_button_div dt
+    {
+        text-align: left;
+        font-weight: bold;
+        font-size: 2vw;
+    }
+
+    .continue_button_div dd
+    {
+        text-align: right;
+        margin-bottom: 2%;
+        font-size: 1.5vw;
+    }
+
+    .continue_button_div button
+    {
+        font-size: 2vw;
+        /* font-size: 4vw;
+        border: 0;
+        padding: 2% 10% 2% 10%;
+        background-image: -webkit-linear-gradient(left, #3f9ffc, #075bf3); 
+        background-image:    -moz-linear-gradient(left, #3f9ffc, #075bf3); 
+        background-image:     -ms-linear-gradient(left, #3f9ffc, #075bf3); 
+        background-image:      -o-linear-gradient(left, #3f9ffc, #075bf3); 
+        background-image:         linear-gradient(left, #3f9ffc, #075bf3);
+        border-radius: 1em;
+        color: white; */
+        outline: none;
+    }
+
+    .continue_span
+    {
+        margin-top: 10%;
+    }
 }

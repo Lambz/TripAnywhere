@@ -5,7 +5,7 @@ function capitalizeFirstLetter(string)
 	st.forEach(element => {
         str += element.charAt(0).toUpperCase()+element.slice(1)+" ";
     });
-    console.log(str);
+    //console.log(str);
 	return str;
 }
 
@@ -45,6 +45,7 @@ function getCarrierName(id, response)
 function getNotCarrierName(id, response)
 {
     var carrier;
+    var backup;
     response.Carriers.forEach(element => {
         //console.log("id: "+id+" element.CarrierId: "+element.CarrierId);
         if(id != element.CarrierId)
@@ -52,8 +53,21 @@ function getNotCarrierName(id, response)
             //console.log("returning: "+element.Name);
             carrier = element.Name;
         }
+        else if( id == element.CarrierId)
+        {
+            backup = element.Name;
+        }
     });
-    return carrier;
+    var returning;
+    if(carrier!=null)
+    {
+        returning = carrier;
+    }
+    else
+    {
+        returning = backup;
+    }
+    return returning;
 }
 
 function getPlace(id, response)
@@ -63,6 +77,32 @@ function getPlace(id, response)
         if(id == element.PlaceId)
         {
             place = element.CityName;
+        }
+    });
+    return place;
+}
+
+function getIataCode(id, response)
+{
+    var place;
+    response.Places.forEach(element => {
+        //console.log("id: "+id+" element.PlaceId: "+element.PlaceId+" element.IataCode: "+element.IataCode);
+        if(id == element.PlaceId)
+        {
+            place = element.IataCode;
+        }
+    });
+    return place;
+}
+
+function getName(id, response)
+{
+    var place;
+    response.Places.forEach(element => {
+        //console.log("id: "+id+" element.PlaceId: "+element.PlaceId+" element.Name: "+element.Name);
+        if(id == element.PlaceId)
+        {
+            place = element.Name;
         }
     });
     return place;

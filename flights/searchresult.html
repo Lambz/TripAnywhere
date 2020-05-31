@@ -191,12 +191,11 @@
         <footer>
             <p>&copy; Copyright 2020. All Rights Reserved.</p>
         </footer>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
         <script type="text/javascript" src="../scripts/basicFunctions.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script>
+            var response1;
+            
             function updateSearch(type)
             {
                 if(type == "one")
@@ -245,42 +244,42 @@
             {
                 var cond = true;
                 var from_city = document.getElementById("from_city").value;
-                console.log(from_city);
+                //console.log(from_city);
                 if(from_city == "")
                 {
                     document.getElementById("from_city").style.borderBottom = "0.1em solid red";
                     cond = false;
                 }
                 var to_city = document.getElementById("to_city").value;
-                console.log(to_city);
+                //console.log(to_city);
                 if(to_city == "")
                 {
                     document.getElementById("to_city").style.borderBottom = "0.1em solid red";
                     cond = false;
                 }
                 var departure = document.getElementById("departure").value;
-                console.log(departure);
+                //console.log(departure);
                 if(departure == "")
                 {
                     document.getElementById("departure").style.borderBottom = "0.1em solid red";
                     cond = false;
                 }
                 var vreturn = document.getElementById("return").value;
-                console.log(vreturn);
+                //console.log(vreturn);
                 if(!document.getElementById("return").disabled && vreturn == "")
                 {
                     document.getElementById("return").style.borderBottom = "0.1em solid red";
                     cond = false;
                 }
                 var travellers = document.getElementById("travellers").value;
-                console.log(travellers);
+                //console.log(travellers);
                 if(travellers == "")
                 {
                     document.getElementById("travellers").style.borderBottom = "0.1em solid red";
                     cond = false;
                 }
                 var vclass = document.getElementById("class").value;
-                console.log(vclass);
+                //console.log(vclass);
                 if(cond)
                 {
                     window.location.href = "searchresult.html?from_city="+from_city+"&to_city="+to_city+"&departure="+departure+"&vreturn="+vreturn+"&travellers="+travellers+"&vclass="+vclass;
@@ -298,7 +297,7 @@
                 var vclass = url.searchParams.get("vclass");
                 var to_from_div = document.getElementById("to-from");
                 var search_info_div = document.getElementById("search-info");
-                console.log(from_city+" to "+to_city);
+                //console.log(from_city+" to "+to_city);
                 if(from_city == "" || to_city == "" || departure == "" || travellers == "" || vclass == "" || from_city == null || to_city == null || departure == null || travellers == null || vclass == null)
                 {
                     window.location.href = "index.html";
@@ -309,12 +308,7 @@
                     document.getElementById("to_city").value = to_city;
                     document.getElementById("departure").value = departure;
                     document.getElementById("travellers").value = travellers;
-                    // console.log("vclass: "+capitalizeFirstLetter(vclass)+" "+typeof(capitalizeFirstLetter(vclass))+" "+typeof("Economy"));
-                    // var string = capitalizeFirstLetter(vclass);
-                    // document.getElementById("class").value = string;
-                    //document.getElementById("class").value = "Economy";
                     to_from_div.append(capitalizeFirstLetter(from_city)+" to "+capitalizeFirstLetter(to_city));
-                    // to_from_div.append(from_city.toCamelCase()+" to "+capitalizeFirstLetter(to_city));
                     if(vreturn == "")
                     {
                         search_info_div.append(getDateMonth(departure)+" | "+travellers+" travellers | "+capitalizeFirstLetter(vclass));
@@ -344,7 +338,6 @@
                     }
 
                     $.ajax(settings).done(function (response) {
-                        //console.log(JSON.stringify(response));
                         getToCity(response.Places[0], to_city,departure,vreturn);
                     });
                 }
@@ -364,7 +357,7 @@
                 }
 
                 $.ajax(settings).done(function (response) {
-                    console.log(JSON.stringify(response));
+                    //console.log(JSON.stringify(response));
                     getFlightInfo(json, response.Places[0],departure,vreturn);
                 });
             }
@@ -378,6 +371,7 @@
                         "crossDomain": true,
                         "url": "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/CA/CAD/en-US/"+json.PlaceId+"/"+json1.PlaceId+"/"+departure,
                         "method": "GET",
+                        "dataType": "json",
                         "headers": {
                             "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
                             "x-rapidapi-key": "4b0e3726ffmshfe15b9274723e0ep136f01jsnc71cc4821441"
@@ -385,8 +379,11 @@
                     }
 
                     $.ajax(settings).done(function (response) {
+                        console.log("response: "+response+" "+typeof(response));
+                        var v = JSON.stringify(response);
+                        console.log("v: "+v+" "+typeof(v));
+                        response1 = JSON.parse(v);
                         document.getElementById("progres_div").style.display = "none";
-                        //console.log(response);
                         var quotes = response.Quotes;
                         if(quotes.length == 0)
                         {
@@ -396,9 +393,7 @@
                         {
                             var i = 0;
                             quotes.forEach(element => {
-                                console.log(element);
-                                //if(element.Direct)
-                                //{
+                                //console.log(element);
                                     var carrier = getCarrierName(element.OutboundLeg.CarrierIds[0], response);
                                     var price = element.MinPrice;
                                     var dep = new Date(element.OutboundLeg.DepartureDate);
@@ -413,12 +408,9 @@
                                     {
                                         is_direct = "Stoppage in Between"
                                     }
-                                    console.log("carrier: "+carrier+" price: "+price+" dep: "+dep+" from: "+from+" to: "+to);
-                                    // console.log("<div class='flight_info' onclick='flightInfoClicked(\""+i+"\")'><p>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div>"+from+"</div></div><div class='side_info'><div>Non Stop</div><div>"+to+"</div></div><div class='side_info'>$"+price+"</div></div>");
-                                    // $("flight_info_container").append('<div class="flight_info" onclick="flightInfoClicked(\''+i+'\')"><p>'+carrier+'</p><div class="side_info"><div>'+("0" + dep.getHours()).slice(-2)+':'+("0" + dep.getMinutes()).slice(-2)+'</div><div>'+from+'</div></div><div class="side_info"><div>Non Stop</div><div>'+to+'</div></div><div class="side_info">$'+price+'</div></div>');
+                                    //console.log("carrier: "+carrier+" price: "+price+" dep: "+dep+" from: "+from+" to: "+to);
                                     const div = "<div class='flight_info' onclick='flightInfoClicked(\""+i+"\",false)'><p>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div class='lower_info'>"+from+"</div></div><div class='side_info'><div>"+is_direct+"</div><div class='lower_info'>"+to+"</div></div><div class='side_info price'>$"+price+"</div></div>";
                                     document.getElementById("flight_info_container").innerHTML = document.getElementById("flight_info_container").innerHTML + div;
-                                //}
                                 i+=1;
                             });
                         }
@@ -431,6 +423,7 @@
                         "crossDomain": true,
                         "url": "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/CA/CAD/en-US/"+json.PlaceId+"/"+json1.PlaceId+"/"+departure+"?inboundpartialdate="+vreturn,
                         "method": "GET",
+                        "dataType": "json",
                         "headers": {
                             "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
                             "x-rapidapi-key": "4b0e3726ffmshfe15b9274723e0ep136f01jsnc71cc4821441"
@@ -438,8 +431,12 @@
                     }
 
                     $.ajax(settings).done(function (response) {
+                        console.log("response: "+response+" "+typeof(response));
+                        var v = JSON.stringify(response);
+                        console.log("v: "+v+" "+typeof(v));
+                        response1 = JSON.parse(v);
                         document.getElementById("progres_div").style.display = "none";
-                        console.log(response);
+                        //console.log(response);
                         var quotes = response.Quotes;
                         if(quotes.length == 0)
                         {
@@ -449,30 +446,25 @@
                         {
                             var i = 0;
                             quotes.forEach(element => {
-                                //if(element.Direct)
-                                //{
-                                    var carrier = getCarrierName(element.OutboundLeg.CarrierIds[0], response);
-                                    var rcarrier = getNotCarrierName(element.OutboundLeg.CarrierIds[0], response);
-                                    console.log(rcarrier);
-                                    var price = element.MinPrice;
-                                    var dep = new Date(element.OutboundLeg.DepartureDate);
-                                    var from = getPlace(element.OutboundLeg.OriginId, response);
-                                    var to= getPlace(element.OutboundLeg.DestinationId, response);
-                                    var is_direct;
-                                    if(element.Direct)
-                                    {
-                                        is_direct = "Non Stop"
-                                    }
-                                    else
-                                    {
-                                        is_direct = "Stoppage in Between"
-                                    }
-                                    // console.log("<div class='flight_info' onclick='flightInfoClicked(\""+i+"\")'><p>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div>"+from+"</div></div><div class='side_info'><div>Non Stop</div><div>"+to+"</div></div><div class='side_info'>$"+price+"</div></div>");
-                                    // $("flight_info_container").append('<div class="flight_info" onclick="flightInfoClicked(\''+i+'\')"><p>'+carrier+'</p><div class="side_info"><div>'+("0" + dep.getHours()).slice(-2)+':'+("0" + dep.getMinutes()).slice(-2)+'</div><div>'+from+'</div></div><div class="side_info"><div>Non Stop</div><div>'+to+'</div></div><div class="side_info">$'+price+'</div></div>');
-                                    const div = "<div class='flight_info' onclick='flightInfoClicked(\""+i+"\",true)'><p>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div class='lower_info'>"+from+"</div></div><div class='side_info'><div>"+is_direct+"</div><div class='lower_info'>"+to+"</div></div><div class='side_info price'>$"+(price/2)+"</div>"+
-                                    "<div><div class='return_flight'>Return</div><p class='return_flight_name'>"+rcarrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div class='lower_info'>"+to+"</div></div><div class='side_info'><div>"+is_direct+"</div><div class='lower_info'>"+from+"</div></div><div class='side_info price'>$"+(price/2)+"</div></div>"+"</div>";
-                                    document.getElementById("flight_info_container").innerHTML = document.getElementById("flight_info_container").innerHTML + div;
-                                //}
+                                var carrier = getCarrierName(element.OutboundLeg.CarrierIds[0], response);
+                                //var rcarrier = getNotCarrierName(element.OutboundLeg.CarrierIds[0], response);
+                                //console.log(rcarrier);
+                                var price = element.MinPrice;
+                                var dep = new Date(element.OutboundLeg.DepartureDate);
+                                var from = getPlace(element.OutboundLeg.OriginId, response);
+                                var to= getPlace(element.OutboundLeg.DestinationId, response);
+                                var is_direct;
+                                if(element.Direct)
+                                {
+                                    is_direct = "Non Stop"
+                                }
+                                else
+                                {
+                                    is_direct = "Stoppage in Between"
+                                }
+                                const div = "<div class='flight_info' onclick='flightInfoClicked(\""+i+"\",true)'><p>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div class='lower_info'>"+from+"</div></div><div class='side_info'><div>"+is_direct+"</div><div class='lower_info'>"+to+"</div></div><div class='side_info price'>$"+price+"</div>"+
+                                "<div><div class='return_flight'>Return</div><p class='return_flight_name'>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div class='lower_info'>"+to+"</div></div><div class='side_info'><div>"+is_direct+"</div><div class='lower_info'>"+from+"</div></div><div class='side_info price'>$"+price+"</div></div>"+"</div>";
+                                document.getElementById("flight_info_container").innerHTML = document.getElementById("flight_info_container").innerHTML + div;
                                 i+=1;
                             });
                         }
@@ -482,17 +474,13 @@
 
             function flightInfoClicked(index, isreturning)
             {
-                console.log(index+isreturning);
+                var url = new URL(window.location.href);
+                var vreturn = url.searchParams.get("vreturn");
+                var travellers = url.searchParams.get("travellers");
+                var vclass = url.searchParams.get("vclass");
+                window.location.href = "flight_info.html?data="+JSON.stringify(response1)+"&index="+index+"&isreturning="+isreturning+"&vclass="+vclass+"&vreturn="+vreturn+"&travellers="+travellers;
             }
+
         </script>
-        <!-- <script>
-            function activatePlacesSearch()
-            {
-                var input = document.getElementById('from_city');
-                var autocomplete = new google.maps.places.Autocomplete(input);
-            }
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJoB9abmip914aBti5-Vsa8Lb_Ha23PqY&libraries=places&callback=activatePlacesSearch"
-        async defer></script> -->
     </body>
 </html>
