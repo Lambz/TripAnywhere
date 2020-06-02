@@ -63,13 +63,6 @@
                     </a>
                 </div>
             </div>
-                <!-- <div id="multi" class="flight-search-type-inactive">
-                    <button onclick="updateSearch('multi')">
-                        <img src="images/tick.png"/>
-                        <p>MULTICITY</p>
-                    </button>
-                </div> -->
-            <!-- </div> -->
         </nav>
         <main>
             <div class="flight-search-types desktop">
@@ -206,9 +199,6 @@
                     element = document.getElementById("round");
                     element.classList.remove(element.classList);
                     element.classList.add("flight-search-type-inactive");
-                    // var element = document.getElementById("multi");
-                    // element.classList.remove(element.classList);
-                    // element.classList.add("flight-search-type-inactive");
                     element = document.getElementById("return");
                     element.disabled = true;
                 }
@@ -222,22 +212,7 @@
                     element = document.getElementById("one");
                     element.classList.remove(element.classList);
                     element.classList.add("flight-search-type-inactive");
-                    // element = document.getElementById("multi");
-                    // element.classList.remove(element.classList);
-                    // element.classList.add("flight-search-type-inactive");
                 }
-                // else if(type == "multi")
-                // {
-                //     var element = document.getElementById("multi");
-                //     element.classList.remove(element.classList);
-                //     element.classList.add("flight-search-type-active");
-                //     var element = document.getElementById("round");
-                //     element.classList.remove(element.classList);
-                //     element.classList.add("flight-search-type-inactive");
-                //     var element = document.getElementById("one");
-                //     element.classList.remove(element.classList);
-                //     element.classList.add("flight-search-type-inactive");
-                // }
             }
 
             function search()
@@ -414,7 +389,6 @@
                         {
                             var i = 0;
                             quotes.forEach(element => {
-                                //console.log(element);
                                     var carrier = getCarrierName(element.OutboundLeg.CarrierIds[0], response);
                                     var price = element.MinPrice;
                                     var dep = new Date(element.OutboundLeg.DepartureDate);
@@ -429,7 +403,6 @@
                                     {
                                         is_direct = "Stoppage in Between"
                                     }
-                                    //console.log("carrier: "+carrier+" price: "+price+" dep: "+dep+" from: "+from+" to: "+to);
                                     const div = "<div class='flight_info' onclick='flightInfoClicked(\""+i+"\",false)'><p>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div class='lower_info'>"+from+"</div></div><div class='side_info'><div>"+is_direct+"</div><div class='lower_info'>"+to+"</div></div><div class='side_info price'>$"+price+"</div></div>";
                                     document.getElementById("flight_info_container").innerHTML = document.getElementById("flight_info_container").innerHTML + div;
                                 i+=1;
@@ -462,7 +435,6 @@
                         console.log("v: "+v+" "+typeof(v));
                         response1 = JSON.parse(v);
                         document.getElementById("progres_div").style.display = "none";
-                        //console.log(response);
                         var quotes = response.Quotes;
                         if(quotes.length == 0)
                         {
@@ -473,8 +445,6 @@
                             var i = 0;
                             quotes.forEach(element => {
                                 var carrier = getCarrierName(element.OutboundLeg.CarrierIds[0], response);
-                                //var rcarrier = getNotCarrierName(element.OutboundLeg.CarrierIds[0], response);
-                                //console.log(rcarrier);
                                 var price = element.MinPrice;
                                 var dep = new Date(element.OutboundLeg.DepartureDate);
                                 var from = getPlace(element.OutboundLeg.OriginId, response);

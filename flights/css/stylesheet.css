@@ -196,7 +196,7 @@ header div span
     font-weight: bold;
 }
 
-.safety 
+.safety, .recent-flights
 {
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
@@ -207,7 +207,7 @@ header div span
     overflow-x: auto;
 }
 
-.safety-card
+.safety-card, .recent_flight_card
 {
     padding: 1% 2% 1% 2%;
     flex: 0 0 auto;
@@ -531,7 +531,45 @@ header div span
     padding: 1% 0 1% 0;
 }
 
+.recent_flight_card
+{
+    display: inline-block;
+    margin: 2%;
+    padding: 2%;
+    width: 40%;
+}
 
+.recent_flight_card_top_info
+{
+    font-size: 1.25em;
+}
+
+.recent_flight_card_confirmed_name
+{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.recent_flight_card_carrier_name
+{
+    font-size: 2em;
+    margin: 1%;
+}
+
+.recent_flight_card_lower_info
+{
+    font-size: 1.5em;
+}
+
+.recent_flight_card_side_info
+{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 45%;
+}
 
 
 @media (orientation: landscape)

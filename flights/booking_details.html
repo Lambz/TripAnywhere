@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Booking Confirmed</title>
+        <title>Booking Details</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/stylesheet.css">
@@ -17,7 +17,7 @@
                 <a href="index.html" >
                     <img src="../images/back.png"/>
                 </a>
-                <div id="to-from">Booking Confirmed</div>
+                <div id="to-from">Booking Details</div>
                 <div id="search-info"></div>
                 <div class="login-signup">
                     <img src="../images/account.png"/>
@@ -76,14 +76,14 @@
             window.onload = function()
             {
                 var url = new URL(window.location.href);
-                var travellers= url.searchParams.get("travellers");
-                if(travellers == null || travellers == "")
+                var index= url.searchParams.get("index");
+                if(index == null || index == "")
                 {
                     window.location.href = "index.html";
                 }
                 var details = []
                 window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
-                let request = window.indexedDB.open("TripAnywhere",1), db, tx, store, index;
+                let request = window.indexedDB.open("TripAnywhere",1), db, tx, store;
                 request.onupgradeneeded = function(e)
                 {
                     let db = request.result,
@@ -107,13 +107,14 @@
                     var allrecords = store.getAll();
                     allrecords.onsuccess = function()
                     {
-                        var n = allrecords.result.length;
-                        //console.log(allrecords.result[5]);
-                        for(i=n-travellers;i<n;i++)
-                        {
-                            console.log(allrecords.result[i]);
-                            printRecord(allrecords.result[i]);
-                        }
+                        printRecord(allrecords.result[index]);
+                        // var n = allrecords.result.length;
+                        // //console.log(allrecords.result[5]);
+                        // for(i=n-travellers;i<n;i++)
+                        // {
+                        //     console.log(allrecords.result[i]);
+                        //     printRecord(allrecords.result[i]);
+                        // }
                     }
                 }
             }
