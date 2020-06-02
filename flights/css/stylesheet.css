@@ -16,7 +16,7 @@ footer
     color: white;
     text-align: center;
     width: 100%;
-    padding: 0;
+    padding: 0.2%;
     margin: 0;
     font-size: 0.7em;
 }
@@ -571,6 +571,21 @@ header div span
     width: 45%;
 }
 
+footer p
+{
+    margin: 0.2%;
+    padding: 0;
+}
+
+footer p a
+{
+    color: white;
+}
+
+footer p a:hover
+{
+    color: grey;
+}
 
 @media (orientation: landscape)
 {
@@ -960,5 +975,10 @@ header div span
         background: transparent;
         margin-left: 20vw;
         margin-bottom: 4vw;
+    }
+
+    .recent_flight_card
+    {
+        width: 34%;
     }
 }
