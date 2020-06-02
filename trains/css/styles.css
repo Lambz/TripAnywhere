@@ -1,0 +1,227 @@
+/* @font-face {
+  font-family: HeaderFont;
+  src: url('../resources/fonts/OleoScript-Bold.ttf')
+} */
+
+.mobile {
+  display: inline;
+}
+
+.tablet {
+  display: none;
+}
+
+.desktop {
+  display: none;
+}
+
+/* styling for elements */
+body {
+  margin: 0;
+}
+/* to give height to navbar */
+.navigation {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(rgba(0, 255, 255, 0.459), white, rgba(151, 250, 253, 0.87));
+}
+/* banner has logo and login/signup links */
+/* styles for banner */
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: stretch;
+  background-color: transparent;
+  padding: 1em;
+  margin: 0;
+  text-align: center;
+}
+
+.logo {
+  margin: 0;
+  width: 70%;.
+  justify-content: right;
+}
+
+.logo p {
+  font-size: x-large;
+  font-weight: bold;
+  margin: 0;
+  text-align: right;
+  font-family: HeaderFont;
+}
+/* for the login signup */
+.login_signup {
+  width: 30%;
+}
+
+/* need to change for tablet/desktop as arrow needs to be removed and links need to be added */
+.login_menu {
+  display: flex;
+  padding: 0.2em;
+  width: 50%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 10%;
+  box-shadow: 0em 0em 0.3em gray;
+  /*>>>>>>>>>>>>>>>>>>>Check while doing tablet/desktop margin added here for layout */
+  margin: 0em 3em;
+}
+
+.login_menu img {
+  max-width: 50%;
+  padding: 0.2em;
+}
+
+/* Upto here banner */
+/* now services menu, shows flights, hotels and trains */
+/* styles for all the elements */
+
+.services {
+  display: flex;
+  justify-content: space-between;
+  padding: 3%;
+  background-color: white;
+  border-radius: 5%;
+  box-shadow: 0em 0em 0.5em gray;
+}
+
+.service {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.service img {
+  max-width: 100%;
+}
+
+.service a {
+  font-size: large;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.service a:active {
+  color: lightskyblue;
+}
+
+/* Upto here services */
+/* Nav Links here */
+/* styles for the links here */
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  align-content: stretch;
+  padding: 0.3em;
+  background-color: transparent;
+}
+
+.tabs a {
+  color: black;
+  font-size: medium;
+  font-weight: bold;
+  padding: 0.2em;
+}
+
+/* navigation section finished */
+/* body starts here */
+/* form section starts here */
+/* styling for form */
+
+main {
+  height: 60%;
+}
+
+form {
+  padding: 5% 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  border: none;
+  border-bottom-color: lightgray;
+  border-bottom-width: 0.1em;
+  border-bottom-style: solid;
+  padding: 0.5em;
+}
+
+form label {
+  font-variant: small-caps;
+  color: gray;
+  padding: 0.5em;
+}
+
+.search {
+  border-radius: 75%;
+  border-bottom: 0.1em solid gray;
+  display: flex;
+  justify-content: center;
+}
+
+form button {
+  border: 0.1em solid white;
+  box-shadow: 0em 0em 0.1em lightgray;
+  border-radius: 50%;
+  background-image: linear-gradient(rgba(0, 255, 255, 0.459), rgba(110, 227, 231, 0.87), rgba(151, 250, 253, 0.87));
+  font-weight: bold;
+  height: 5em;
+  width: 5em;
+  margin: 1em auto;
+}
+
+
+.main_content {
+  display: flex;
+  flex-direction: column;
+}
+
+.main_content p{
+  text-align: center;
+}
+
+
+
+/* main content finished here */
+/* footer styling here */
+
+footer {
+  display: flex;
+  height: 10%;
+  background-color: lightgray;
+  justify-content: center;
+}
+
+footer p {
+  text-align: center;
+  font-size: small;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 500px) {
+  .banner {
+    background-image: url("./media/images/trains-banner.jpg");
+  }
+
+  .logo {
+    box-shadow: 0em 0em 0.3em lightgray;
+    padding: 0.2em;
+    display: inline-block;
+    max-height: 15em;
+    max-width:  15em;
+    margin: 0.5em;
+  }
+
+  .logo img {
+    max-width: 100%;
+  }
+  
+}

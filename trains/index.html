@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Trains Anywhere</title>
+        <meta name="description" content="trains booking services page">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+    <body>
+        <header>
+          <div class="banner">
+              <div class="desktop">
+                <div class="logo">
+                  <img src="./media/images/trains-logo.JPG" alt="Trains anywhere logo">
+                </div>
+              </div>
+              <div class="login_signup">
+                  <button class="menu_button" onclick="toggleLogin()">
+                      <img src="../images/account.png"/>
+                      <div class="mobile">
+                        <img src="./media/logos/down-arrow.png" alt="down arrow">
+                      </div>
+                      <div class="desktop">
+                        <div class="login-signup-links">
+                            <a href="login.html">Login</a> / 
+                            <a href="signup.html">Sign-up</a>
+                        </div>
+                      </div>
+                  </button>
+              </div>
+              
+           </div>
+        </header>
+        <nav>
+            <div class="nav_card">
+                <div class="nav_button">
+                    <a href="flights/index.html">
+                        <img src="images/flight.png" />
+                        <p>Flights</p>
+                    </a>
+                </div>
+                <div class="nav_button">
+                    <a href="trains/index.html">
+                        <img src="images/train.png" />
+                        <p>Trains</p>
+                    </a>
+                </div>
+                <div class="nav_button">
+                    <a href="hotels/index.html">
+                        <img src="images/hotel.png" />
+                        <p>Hotels</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <main></main>
+        <footer>
+            <p>&copy; Copyright 2020. All Rights Reserved.</p>
+        </footer>
+        <script>
+            function toggleLogin() 
+            {
+                var x = document.getElementById("login-signup-buttons");
+                if (x.style.display === "none")
+                {
+                    x.style.display = "block";
+                } else 
+                {
+                    x.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>
