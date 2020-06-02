@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/stylesheet.css">
     </head>
-    <body>
+    <body class="personal_details_body">
         <header>
             <div class="mobile">
                 <a href="index.html" >
@@ -86,6 +86,8 @@
             var mToName;
             var mPrice;
             var mCarrier;
+            var mDirect;
+            var mVclass;
             
             window.onload = function()
             {
@@ -102,6 +104,9 @@
                 mToName = url.searchParams.get("to_name");
                 mPrice = url.searchParams.get("price");
                 mCarrier = url.searchParams.get("carrier");
+                mDirect = url.searchParams.get("direct");
+                mVclass = url.searchParams.get("vclass");
+                
                 console.log("mFrom: "+mFrom+" mTo: "+mTo+" mDep: "+mDep+" mVreturn: "+mVreturn+" mTravellers: "+mTravellers);
                 if(mFrom == null || mTo == null || mDep == null || mTravellers == null)
                 {
@@ -125,7 +130,7 @@
                     div+=in_div;
                 }
                 container.innerHTML += div;
-                div = "<div class='travellers_details_button_div'><button onclick='simulatePayment()'>Simulate Payment Process</button></div>";
+                div = "<div class='travellers_details_button_div'><button onclick='simulatePayment()'>Simulate Payment Process</button><br/><br/></div>";
                 container.innerHTML += div;
             }
 
@@ -227,11 +232,12 @@
                         dob = document.getElementsByName("dob")[i].value;
                         passport_no = document.getElementsByName("passport_no")[i].value;
                         expiry = document.getElementsByName("expiry")[i].value;
-                        store.put({"name":name,"gender":gender,"nationality":nationality,"dob":dob,"passport_no":passport_no,"expiry":expiry, "dep":mDep,"vreturn":mVreturn, "from":mFrom, "to":mTo,"travellers":mTravellers,"fromIata":mFromIata,"toIata":mToIata,"fromName":mFromName,"toName":mToName,"price":mPrice,"carrier":mCarrier});
-                        tx.oncomplete = function()
-                        {
-                            db.close();
-                        }
+                        store.put({"name":name,"gender":gender,"nationality":nationality,"dob":dob,"passport_no":passport_no,"expiry":expiry, "dep":mDep,"vreturn":mVreturn, "from":mFrom, "to":mTo,"fromIata":mFromIata,"toIata":mToIata,"fromName":mFromName,"toName":mToName,"price":mPrice,"carrier":mCarrier,"direct":mDirect,"vclass":mVclass});
+                    }
+                    tx.oncomplete = function()
+                    {
+                        db.close();
+                        window.location.href = "booking_confirmed.html?travellers="+mTravellers;
                     }
                 }
             }

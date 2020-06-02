@@ -343,7 +343,7 @@ header div span
     margin-top: 0;
 }
 
-.flight_review
+.flight_review, .booking_confirmed
 {
     padding: 2%;
     text-align: center;
@@ -394,7 +394,7 @@ header div span
 {
     overflow: unset;
     font-size: 1em;
-    background-color: #f0f0f0;
+    background-color: #e0e0e0;
 }
 
 .carrier_name
@@ -523,6 +523,17 @@ header div span
     margin: 2%;
 }
 
+.confirmed_name
+{
+    font-size: 5vw;
+    font-weight: bold;
+    margin: 0;
+    padding: 1% 0 1% 0;
+}
+
+
+
+
 @media (orientation: landscape)
 {
     .mobile
@@ -553,11 +564,6 @@ header div span
     {
         padding-top: 1vh;
         font-size: 0;
-    }
-
-    nav
-    {
-        margin: 0;
     }
     
     .flight-search-types
@@ -629,55 +635,6 @@ header div span
     .login-signup-links a:hover
     {
         color: grey;
-    }
-
-    #nav_card
-    {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        background-color: white;
-        border-radius: 2em;
-        box-shadow: 0 0 0.5em grey;
-        text-align: center;
-        padding: 2%;
-        /* padding: 2% 0 1% 0; */
-    }
-
-    .nav_button
-    {
-        padding: 0;
-        display: inline-block;
-        width: 30%;
-        margin-left: auto;
-        margin-right: auto;
-        font-weight: bold;
-    }
-
-    .nav_button a
-    {
-        float: none;
-        text-decoration: none;
-        color: black;
-    }
-
-    .nav_button a img
-    {
-        width: 5vw;
-        height: 5vw;
-    }
-
-    .flight-nav
-    {
-        width: 80%;
-        float: right;
-        margin-top: -15vw;
-        padding: 2%;
-    }
-
-    .nav_button p
-    {
-        margin-bottom: 0;
     }
 
     .full-section
@@ -856,7 +813,7 @@ header div span
         font-size: 1.5vw;
     }
 
-    .continue_button_div button
+    .continue_button_div button, .travellers_details_button_div button
     {
         font-size: 2vw;
         /* font-size: 4vw;
@@ -875,5 +832,95 @@ header div span
     .continue_span
     {
         margin-top: 10%;
+    }
+
+    .personal_details_body
+    {
+        background-color: #e0e0e0;
+    }
+
+    .personal_details_top, .personal_info_div
+    {
+        background-color: white;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 0 0.25em grey;
+        border-radius: 1em;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        padding: 1%;
+    }
+
+    .personal_details_top .seperator, .personal_info_div .seperator, .booking_confirmed .seperator
+    {
+        display: none;
+    }
+
+    .to_from_info, .personal_info_div_top, .confirmed_name
+    {
+        font-size: 2vw;
+    }
+
+    .personal_details_top, .personal_info_div input, .personal_info_div select
+    {
+        font-size: 1vw;
+        margin-top: 1%;
+    }
+
+    .booking_confirmed
+    {
+        width: 80%;
+        margin-left: auto;
+        box-shadow: 0 0 2em grey;
+        border-radius: 2em;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-right: auto;
+        background-color: white;
+    }
+
+    #nav_card
+    {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+        border-radius: 1em;
+        box-shadow: 0 0 0.5em grey;
+        text-align: center;
+    }
+
+    .nav_button
+    {
+        display: inline-block;
+        margin-top: 4%;
+        width: 30%;
+        font-weight: bold;
+    }
+
+    .nav_button p:hover
+    {
+        color: grey;
+    }
+
+    .nav_button img
+    {
+        width: 5em;
+    }
+
+    .nav_button a
+    {
+        text-decoration: none;
+        color: black;
+    }
+
+    nav
+    {
+        width: 80%;
+        margin-top: -12vw;
+        background: transparent;
+        margin-left: 20vw;
+        margin-bottom: 4vw;
     }
 }

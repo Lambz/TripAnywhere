@@ -132,7 +132,7 @@
             </div>
             <div id="no_flights" class="no_flights mobile">
                 <img src="../images/world-problem.png" />
-                <p>No Flights Found</p>
+                <p id="paragraph_error">No Flights Found</p>
             </div>
             <div id="flight_info_container" name="flight_info_container" class="flight_info_container">
                 <!-- <div class='flight_info' onclick='flightInfoClicked("0",false)'><p>Alaska Airlines</p><div class='side_info'><div>00:00</div><div class='lower_info'>San Francisco</div></div><div class='side_info'><div>Non Stop</div><div class='lower_info'>New York</div></div><div class='side_info price'>$252</div></div> -->
@@ -350,6 +350,11 @@
 
                     $.ajax(settings).done(function (response) {
                         getToCity(response.Places[0], to_city,departure,vreturn);
+                    }).fail(function()
+                    {
+                        document.getElementById("progres_div").style.display = "none";
+                        document.getElementById("no_flights").style.display = "block";
+                        document.getElementById("paragraph_error").innerHTML = "An Error Occured!";
                     });
                 }
             }
@@ -370,6 +375,11 @@
                 $.ajax(settings).done(function (response) {
                     //console.log(JSON.stringify(response));
                     getFlightInfo(json, response.Places[0],departure,vreturn);
+                }).fail(function()
+                {
+                    document.getElementById("progres_div").style.display = "none";
+                    document.getElementById("no_flights").style.display = "block";
+                    document.getElementById("paragraph_error").innerHTML = "An Error Occured!";
                 });
             }
 
@@ -425,6 +435,11 @@
                                 i+=1;
                             });
                         }
+                    }).fail(function()
+                    {
+                        document.getElementById("progres_div").style.display = "none";
+                        document.getElementById("no_flights").style.display = "block";
+                        document.getElementById("paragraph_error").innerHTML = "An Error Occured!";
                     });
                 }
                 else
@@ -479,6 +494,11 @@
                                 i+=1;
                             });
                         }
+                    }).fail(function()
+                    {
+                        document.getElementById("progres_div").style.display = "none";
+                        document.getElementById("no_flights").style.display = "block";
+                        document.getElementById("paragraph_error").innerHTML = "An Error Occured!";
                     });
                 }
             }

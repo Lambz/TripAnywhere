@@ -84,6 +84,8 @@
             var mToName;
             var mPrice;
             var mCarrier;
+            var mDirect;
+            var mVclass;
 
             window.onload = function()
             {
@@ -124,6 +126,7 @@
                     mToName = to_Name;
                     mPrice = price;
                     mCarrier = carrier;
+                    mVclass = vclass;
                     var is_direct;
                     if(element.Direct)
                     {
@@ -133,6 +136,7 @@
                     {
                         is_direct = "Stoppage in Between"
                     }
+                    mDirect = is_direct;
                     if(isreturning)
                     {
                         var rcarrier = getNotCarrierName(element.OutboundLeg.CarrierIds[0], response);
@@ -155,7 +159,8 @@
 
             function continueButtonPressed()
             {
-                window.location.href = "personal_details.html?from="+mFrom+"&to="+mTo+"&dep="+mDep+"&vreturn="+mVreturn+"&travellers="+mTravellers+"&from_iata="+mFromIata+"&to_iata="+mToIata+"&from_name="+mFromName+"&to_name="+mToName+"&price="+mPrice+"&carrier="+mCarrier;
+                //console.log("personal_details.html?from="+mFrom+"&to="+mTo+"&dep="+mDep+"&vreturn="+mVreturn+"&travellers="+mTravellers+"&from_iata="+mFromIata+"&to_iata="+mToIata+"&from_name="+mFromName+"&to_name="+mToName+"&price="+mPrice+"&carrier="+mCarrier+"&direct="+mDirect+"&vclass="+mVclass);
+                window.location.href = "personal_details.html?from="+mFrom+"&to="+mTo+"&dep="+mDep+"&vreturn="+mVreturn+"&travellers="+mTravellers+"&from_iata="+mFromIata+"&to_iata="+mToIata+"&from_name="+mFromName+"&to_name="+mToName+"&price="+mPrice+"&carrier="+mCarrier+"&direct="+mDirect+"&vclass="+mVclass;
             }
         </script>
     </body>
