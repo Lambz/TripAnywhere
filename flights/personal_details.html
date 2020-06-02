@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Flight Review</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/stylesheet.css">
+    </head>
+    <body>
+        <header>
+            <div class="mobile">
+                <a href="index.html" >
+                    <img src="../images/back.png"/>
+                </a>
+                <div id="to-from">Traveller details</div>
+                <div id="search-info"></div>
+                <div class="login-signup">
+                    <img src="../images/account.png"/>
+                    <div class="login-signup-links">
+                        <a href="../login.html">Login</a>
+                        <a href="../signup.html">Sign-up</a>
+                    </div>
+                </div>
+            </div>
+            <div class="desktop">
+                <div class="logo_div">
+                    <img src="../images/logo-white.png"/>
+                    <p>We makes it easy for you</p>
+                </div>
+                <div class="login-signup">
+                    <img src="../images/account-white.png"/>
+                    <div class="login-signup-links">
+                        <a href="login.html">Login</a>
+                        <a href="signup.html">Sign-up</a>
+                    </div>
+                </div>
+                
+            </div>
+        </header>
+        <nav class="flight-nav">
+            <div id="nav_card" class="desktop">
+                <div class="nav_button">
+                    <a href="index.html">
+                        <img src="../images/flight.png" />
+                        <p>Flights</p>
+                    </a>
+                </div>
+                <div class="nav_button">
+                    <a href="../trains/index.html">
+                        <img src="../images/train.png" />
+                        <p>Trains</p>
+                    </a>
+                </div>
+                <div class="nav_button">
+                    <a href="../hotels/index.html">
+                        <img src="../images/hotel.png" />
+                        <p>Hotels</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <div id="travellers_details_container">
+                
+            </div>
+        </main>
+        <footer>
+            <p>&copy; Copyright 2020. All Rights Reserved.</p>
+        </footer>
+        <script type="text/javascript" src="../scripts/basicFunctions.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script>
+            var mDep;
+            var mVreturn;
+            var mFrom;
+            var mTo;
+            var mTravellers;
+            var mFromIata;
+            var mToIata;
+            var mFromName;
+            var mToName;
+            var mPrice;
+            var mCarrier;
+            
+            window.onload = function()
+            {
+                var url = new URL(window.location.href);
+                var to_from_div = document.getElementById("to-from");
+                mFrom = url.searchParams.get("from");
+                mTo = url.searchParams.get("to");
+                mDep = url.searchParams.get("dep");
+                mVreturn = url.searchParams.get("vreturn");
+                mTravellers = url.searchParams.get("travellers");
+                mFromIata = url.searchParams.get("from_iata");
+                mToIata = url.searchParams.get("to_iata");
+                mFromName = url.searchParams.get("from_name");
+                mToName = url.searchParams.get("to_name");
+                mPrice = url.searchParams.get("price");
+                mCarrier = url.searchParams.get("carrier");
+                console.log("mFrom: "+mFrom+" mTo: "+mTo+" mDep: "+mDep+" mVreturn: "+mVreturn+" mTravellers: "+mTravellers);
+                if(mFrom == null || mTo == null || mDep == null || mTravellers == null)
+                {
+                    window.location.href = "index.html";
+                }
+                var container = document.getElementById("travellers_details_container");
+                var div;
+                if(mVreturn == "")
+                {
+                    div = "<div class='personal_details_top'><div><p class='to_from_info'>"+mFrom+" - "+mTo+"</p><p>Departure "+getDateMonth(mDep)+"</p></div><div class='seperator'>&emsp;</div></div>";
+                }
+                else
+                {
+                    div = "<div class='personal_details_top'><div><p class='to_from_info'>"+mFrom+" - "+mTo+"</p><p>Departure "+getDateMonth(mDep)+" - "+getDateMonth(mVreturn)+"</p></div><div class='seperator'>&emsp;</div></div>";
+                }
+                container.innerHTML += div;
+                div = "";
+                for(i=0;i<parseInt(mTravellers);i++)
+                {
+                    let in_div = "<div class='personal_info_div'><p class='personal_info_div_top'>Traveller "+(i+1)+"</p><p><input name='name' placeholder='Full Name'/></p><p><select name='gender'><option value='Male'>Male</option><option value='Female'>Female</option></select></p><p><input name='nationality' placeholder='Nationality'/></p><p><input placeholder='Date of Birth' type='text' onfocus='(this.type=\"date\")' name='dob'/></p><p><input name='passport_no' placeholder='Passport No'/></p><p><input placeholder='Passport Expiry' type='text' onfocus='(this.type=\"month\")' name='expiry'/></p><div class='seperator'>&emsp;</div></div>";
+                    div+=in_div;
+                }
+                container.innerHTML += div;
+                div = "<div class='travellers_details_button_div'><button onclick='simulatePayment()'>Simulate Payment Process</button></div>";
+                container.innerHTML += div;
+            }
+
+            function simulatePayment()
+            {
+                var cond = true;
+                var name, gender, nationality, dob, passport_no, expiry;
+                for(i=0;i<mTravellers;i++)
+                {
+                    name = document.getElementsByName("name")[i];
+                    if(name.value == "" || name.value == null)
+                    {
+                        name.style.borderBottom = "0.1em solid red";
+                        cond = false;
+                    }
+                    else
+                    {
+                        name.style.borderBottom = "0.1em solid grey";
+                    }
+                    // gender = document.getElementsByName("gender")[i];
+                    nationality = document.getElementsByName("nationality")[i];
+                    if(nationality.value == "" || nationality.value == null)
+                    {
+                        nationality.style.borderBottom = "0.1em solid red";
+                        cond = false;
+                    }
+                    else
+                    {
+                        nationality.style.borderBottom = "0.1em solid grey";
+                    }
+                    dob = document.getElementsByName("dob")[i];
+                    if(dob.value == "" || dob.value == null)
+                    {
+                        dob.style.borderBottom = "0.1em solid red";
+                        cond = false;
+                    }
+                    else
+                    {
+                        dob.style.borderBottom = "0.1em solid grey";
+                    }
+                    passport_no = document.getElementsByName("passport_no")[i];
+                    if(passport_no.value == "" || passport_no.value == null)
+                    {
+                        passport_no.style.borderBottom = "0.1em solid red";
+                        cond = false;
+                    }
+                    else
+                    {
+                        passport_no.style.borderBottom = "0.1em solid grey";
+                    }
+                    expiry = document.getElementsByName("expiry")[i];
+                    if(expiry.value == "" || expiry.value == null)
+                    {
+                        expiry.style.borderBottom = "0.1em solid red";
+                        cond = false;
+                    }
+                    else
+                    {
+                        expiry.style.borderBottom = "0.1em solid grey";
+                    }
+                }
+
+                if(cond)
+                {
+                    doDatabaseThings();
+                }
+            }
+
+            function doDatabaseThings()
+            {
+                window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
+                let request = window.indexedDB.open("TripAnywhere",1), db, tx, store, index;
+                request.onupgradeneeded = function(e)
+                {
+                    let db = request.result,
+                    store = db.createObjectStore("Flights",{autoIncrement: true});
+                }
+                
+                request.onerror = function(e)
+                {
+                    console.log("There was an error: "+e.target.errorCode);
+                }
+
+                request.onsuccess = function(e)
+                {
+                    db = request.result;
+                    tx = db.transaction("Flights","readwrite");
+                    store = tx.objectStore("Flights");
+                    db.onerror = function(e)
+                    {
+                        console.log("ERROR "+e.target.errorCode);
+                    }
+                    var name, gender, nationality, dob, passport_no, expiry;
+                    for(i=0;i<mTravellers;i++)
+                    {
+                        name = document.getElementsByName("name")[i].value;
+                        gender = document.getElementsByName("gender")[i].value;
+                        nationality = document.getElementsByName("nationality")[i].value;
+                        dob = document.getElementsByName("dob")[i].value;
+                        passport_no = document.getElementsByName("passport_no")[i].value;
+                        expiry = document.getElementsByName("expiry")[i].value;
+                        store.put({"name":name,"gender":gender,"nationality":nationality,"dob":dob,"passport_no":passport_no,"expiry":expiry, "dep":mDep,"vreturn":mVreturn, "from":mFrom, "to":mTo,"travellers":mTravellers,"fromIata":mFromIata,"toIata":mToIata,"fromName":mFromName,"toName":mToName,"price":mPrice,"carrier":mCarrier});
+                        tx.oncomplete = function()
+                        {
+                            db.close();
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

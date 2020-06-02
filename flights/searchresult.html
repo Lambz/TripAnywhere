@@ -14,7 +14,7 @@
     <body>
         <header>
             <div class="mobile">
-                <a href="../index.html" >
+                <a href="index.html" >
                     <img src="../images/back.png"/>
                 </a>
                 <div id="to-from"></div>
@@ -266,11 +266,22 @@
                 }
                 var vreturn = document.getElementById("return").value;
                 //console.log(vreturn);
+                //console.log("1. document.getElementById('return').disabled: "+document.getElementById("return").disabled+" vreturn: "+vreturn);
+                if(document.getElementById("return").disabled)
+                {
+                    vreturn = "";
+                }
+                //console.log("2. document.getElementById('return').disabled: "+document.getElementById("return").disabled+" vreturn: "+vreturn);
                 if(!document.getElementById("return").disabled && vreturn == "")
                 {
                     document.getElementById("return").style.borderBottom = "0.1em solid red";
                     cond = false;
                 }
+                // else
+                // {
+                //     vreturn = "";
+                // }
+                //console.log("3. document.getElementById('return').disabled: "+document.getElementById("return").disabled+" vreturn: "+vreturn);
                 var travellers = document.getElementById("travellers").value;
                 //console.log(travellers);
                 if(travellers == "")
@@ -381,7 +392,7 @@
                     $.ajax(settings).done(function (response) {
                         console.log("response: "+response+" "+typeof(response));
                         var v = JSON.stringify(response);
-                        console.log("v: "+v+" "+typeof(v));
+                        //console.log("v: "+v+" "+typeof(v));
                         response1 = JSON.parse(v);
                         document.getElementById("progres_div").style.display = "none";
                         var quotes = response.Quotes;

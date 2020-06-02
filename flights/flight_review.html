@@ -14,7 +14,7 @@
     <body>
         <header>
             <div class="mobile">
-                <a href="../index.html" >
+                <a href="index.html" >
                     <img src="../images/back.png"/>
                 </a>
                 <div id="to-from">Review your Booking</div>
@@ -73,6 +73,18 @@
         <script type="text/javascript" src="../scripts/basicFunctions.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script>
+            var mDep;
+            var mVreturn;
+            var mFrom;
+            var mTo;
+            var mTravellers;
+            var mFromIata;
+            var mToIata;
+            var mFromName;
+            var mToName;
+            var mPrice;
+            var mCarrier;
+
             window.onload = function()
             {
                 var to_from_div = document.getElementById("to-from");
@@ -101,6 +113,17 @@
                     var to_IATA = getIataCode(element.OutboundLeg.DestinationId, response);
                     var from_Name = getName(element.OutboundLeg.OriginId, response);
                     var to_Name = getName(element.OutboundLeg.DestinationId, response);
+                    mDep = element.OutboundLeg.DepartureDate;
+                    mVreturn = vreturn;
+                    mFrom = from;
+                    mTo = to;
+                    mTravellers = travellers;
+                    mFromIata = from_IATA;
+                    mToIata = to_IATA;
+                    mFromName = from_Name;
+                    mToName = to_Name;
+                    mPrice = price;
+                    mCarrier = carrier;
                     var is_direct;
                     if(element.Direct)
                     {
@@ -132,7 +155,7 @@
 
             function continueButtonPressed()
             {
-
+                window.location.href = "personal_details.html?from="+mFrom+"&to="+mTo+"&dep="+mDep+"&vreturn="+mVreturn+"&travellers="+mTravellers+"&from_iata="+mFromIata+"&to_iata="+mToIata+"&from_name="+mFromName+"&to_name="+mToName+"&price="+mPrice+"&carrier="+mCarrier;
             }
         </script>
     </body>

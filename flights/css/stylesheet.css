@@ -393,7 +393,7 @@ header div span
 .seperator
 {
     overflow: unset;
-    font-size: 2em;
+    font-size: 1em;
     background-color: #f0f0f0;
 }
 
@@ -412,7 +412,7 @@ header div span
     text-align: right;
 }
 
-.continue_button_div button
+.continue_button_div button, .travellers_details_button_div button
 {
     font-size: 4vw;
     border: 0;
@@ -457,6 +457,70 @@ header div span
 .travellers
 {
     font-size: 2.5vw;
+}
+
+.personal_details_top
+{
+    font-size: 3vw;
+    margin-top: 2%;
+}
+
+.personal_details_top p
+{
+    padding: 0 0 0 2%;
+    margin: 0;
+}
+
+.personal_details_top div ~ div
+{
+    margin-top: 2%;
+}
+
+.to_from_info
+{
+    font-weight: bold;
+    font-size: 4vw;
+}
+
+.personal_info_div
+{
+    padding-top: 2%;
+}
+
+.personal_info_div p
+{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+
+.personal_info_div input, .personal_info_div select
+{
+    width: 100%;
+    box-sizing:border-box;
+    font-size: 4vw;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-top: 2%;
+}
+
+.personal_info_div_top
+{
+    font-size: 5vw;
+    padding: 0;
+    margin: 0;
+}
+
+.personal_info_div .seperator
+{
+    margin-top: 5%;
+}
+
+.travellers_details_button_div
+{
+    text-align: right;
+    margin: 2%;
 }
 
 @media (orientation: landscape)
@@ -704,6 +768,7 @@ header div span
         box-shadow: 0 0 2em grey;
         border-radius: 2em;
         margin-top: 2%;
+        margin-bottom: 2%;
     }
 
     .top_info
@@ -753,16 +818,16 @@ header div span
         display: none;
     }
 
-    .flight_review ~ .flight_review
+    /* .flight_review ~ .flight_review
     {
         margin-bottom: 2%;
-    }
+    } */
 
     .continue_button_div
     {
         width: 24%;
         float: right;
-        margin-top: -75vw;
+        margin-top: -75vh;
         margin-right: 2%;
         border-radius: 2em;
     }
