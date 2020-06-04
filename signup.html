@@ -10,8 +10,17 @@
 <body>
   <h2>Signup now to get started!</h2>
   <progress value="0" max="100"></progress>
-  <form action=""></form>
+  <form action="">
+    <label for="gender">Gender: </label>
+    <input type="radio" id="male" name="genders" value="male" checked>
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="genders" value="female" >
+    <label for="female">Female</label>
+    <a href="javascript: submitForm()">Search</A>
+
+  </form>
 
   <script src="./scripts/show-progress.js"></script>
+  <script src="./scripts/database.js"></script>
 </body>
 </html>
