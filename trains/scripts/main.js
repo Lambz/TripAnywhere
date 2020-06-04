@@ -6,17 +6,16 @@ if(!window.indexedDB) {
 }
 
 // Static dummy data for the search results
-var routes = [{trainName: "Via Rail 003", src: "Toronto", dest: "Ottawa"},
-{trainName: "Via Rail 021", src: "Montreal" , dest: "Calgary", duration: "21 hours" },
-{trainName: "Via Rail 112", src: "Vancouver", dest: "Waterloo"},
-{trainName: "Via Rail 091", src: "Edmonton", dest: "Oshawa"},
-{trainName: "Via Rail 023", src: "Hamilton", dest: "Montreal"}
+var routes = [{trainName: "Via Rail 003", src: "Toronto", dest: "Ottawa", duration: "3 hours"},
+{trainName: "Via Rail 021", src: "Montreal" , dest: "Calgary", duration: "21 hours"},
+{trainName: "Via Rail 112", src: "Vancouver", dest: "Waterloo", duration: "36 hours"},
+{trainName: "Via Rail 091", src: "Edmonton", dest: "Oshawa", duration: "12 hours"},
+{trainName: "Via Rail 023", src: "Hamilton", dest: "Montreal", duration: "15 hours"}
 ];
 
 // method to be invoked on form submission
 
 document.getElementById('mobile_search').addEventListener('click', searchTrains);
-
 
 function searchTrains() {
   src = document.getElementById('source').value;

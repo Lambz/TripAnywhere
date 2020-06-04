@@ -1,21 +1,24 @@
+// This is a indexedDb checker
+// In case the db is not supported, it shows an alert to user
+
+if(!window.indexedDB) {
+  alert("Your browser does not support our website's storage system. You can continue browsing, but you won't be able to login!");
+}
+
+// login logic
 let login = document.getElementById('login_button');
 login.addEventListener('click', doLogin);
 let db = null;
 
-// function called for signup
+// fetches databases for site
 function doLogin() {
-  openDb();
-  checkUser();
-}
-
-// fteches databases for site
-function createDb() {
   const request = indexedDB.open("Trip_Anywhere", 1);
 
   // on success needed
 
   request.onsuccess = e => {
     db = e.target.result;
+    checkUser();
   }
 
   // on error
@@ -26,7 +29,7 @@ function createDb() {
 }
 
 // checks user credentials
-function addUser() {
+function checkUser() {
 // gets form data
   let useremail = document.getElementById('email').value;
   let password = document.getElementById('password').value;
@@ -43,6 +46,8 @@ function addUser() {
     // checks if entry exists
     if(cursor) {
       if(cursor.key === useremail && cursor.value.pwd === password) {
+        // sets user as active user
+        sessionStorage.setItem("activeUser", useremail);
         afterLogin();
       }
     else {

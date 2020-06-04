@@ -1,3 +1,10 @@
+// This is a indexedDb checker
+// In case the db is not supported, it shows an alert to user
+
+if(!window.indexedDB) {
+  alert("Your browser does not support our website's storage system. You can continue browsing, but you won't be able to signup!");
+}
+
 let signup = document.getElementById('signup_button');
 signup.addEventListener('click', doSignup);
 let db = null;
@@ -63,6 +70,8 @@ function addUser() {
   const userAdd = tx.objectStore("user");
 // adds user 
   userAdd.add(user);
+  // adds user as active user to track
+  sessionStorage.setItem("activeUser", user.email);
 }
 // clears screen and shows homepage button and message
 function afterRegister() {
