@@ -1,79 +1,153 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Trains Anywhere</title>
-        <meta name="description" content="trains booking services page">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./css/styles.css">
-    </head>
-    <body>
-        <header>
-          <div class="banner">
-              <div class="desktop">
-                <div class="logo">
-                  <img src="./media/images/trains-logo.JPG" alt="Trains anywhere logo">
-                </div>
-              </div>
-              <div class="login_signup">
-                  <button class="menu_button" onclick="toggleLogin()">
-                      <img src="../images/account.png"/>
-                      <div class="mobile">
-                        <img src="./media/logos/down-arrow.png" alt="down arrow">
-                      </div>
-                      <div class="desktop">
-                        <div class="login-signup-links">
-                            <a href="login.html">Login</a> / 
-                            <a href="signup.html">Sign-up</a>
-                        </div>
-                      </div>
-                  </button>
-              </div>
-              
-           </div>
-        </header>
-        <nav>
-            <div class="nav_card">
-                <div class="nav_button">
-                    <a href="flights/index.html">
-                        <img src="images/flight.png" />
-                        <p>Flights</p>
-                    </a>
-                </div>
-                <div class="nav_button">
-                    <a href="trains/index.html">
-                        <img src="images/train.png" />
-                        <p>Trains</p>
-                    </a>
-                </div>
-                <div class="nav_button">
-                    <a href="hotels/index.html">
-                        <img src="images/hotel.png" />
-                        <p>Hotels</p>
-                    </a>
-                </div>
-            </div>
-        </nav>
-        <main></main>
-        <footer>
-            <p>&copy; Copyright 2020. All Rights Reserved.</p>
-        </footer>
-        <script>
-            function toggleLogin() 
-            {
-                var x = document.getElementById("login-signup-buttons");
-                if (x.style.display === "none")
-                {
-                    x.style.display = "block";
-                } else 
-                {
-                    x.style.display = "none";
-                }
-            }
-        </script>
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/pagetemplatestyle.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/card.css">
+</head>
+<body>
+  <!-- sticky header div for larger screen size -->
+  <div id="stickyheader">
+    <header>
+      <div class="login">
+        <a href="../login.html"><img src="./resources/logos/account.png" alt="Account Logo"></a>
+      </div>
+      <div class="mobile">
+        <h1>Trains Anywhere</h1>
+      </div>
+      <div class="desktop" id="trainslogo">
+        <img src="./resources/images/logo.JPG" alt="Trains Anywhere logo" id="logo">
+      </div>
+      <div class="desktop" id="desktop_form">
+        <h2>Find your next train</h2>
+        <div class="form">
+          <input type="text" placeholder="From" id="source">
+          <input type="text" placeholder="To" id="destination">
+          <input type="date" name="date" id="date">
+          <a href="Search">SEARCH</a>
+        </div>
+      </div>
+    </header>
+    <!-- services links bar -->
+    <div class="mobile">
+      <nav id="service_links">
+        <ul>
+          <li><a href="../flights/index.html"><img src="./resources/logos/flight.png" alt="Flights"></a></li>
+          <li><a href="../trains/index.html"><img src="./resources/logos/train.png" alt="Trains"></a></li>
+          <li><a href="../hotels/index.html"><img src="./resources/logos/hotel.png" alt="Hotels"></a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- navigation link bar for the site -->
+    <nav id="navigation_links">
+      <ul>
+        <li><a href="../index.html" id="home">Home</a></li>
+        <div class="desktop" id="desktop_nav">
+          <li><a href="../flights/index.html" id="hotels">Hotels</a></li>
+          <li><a href="../hotels/index.html" id="trains">Trains</a></li>
+        </div>
+        <li><a href="../aboutus.html" id="aboutus">About</a></li>
+        <li><a href="../contactus.html" id="contactus">Contact</a></li>
+      </ul>  
+    </nav>
+  </div>
+  <!-- site body -->
+  <main>
+    <!-- main content of the site -->
+    <div class="main_content">
+      <div class="user_data">
+
+      </div>
+      <div class="mobile">
+        <h2><i>Find your next train</i></h2>
+        <div class="form">
+          <label for="source">From</label>
+          <input type="text" name="From" id="source">
+          <label for="destination">To</label>
+          <input type="text" id="destination">
+          <label for="date">When</label>
+          <input type="date" name="date" id="date">
+          <a href="./search-result.html" id="mobile_search">Search</a>
+        </div>
+      </div>
+      <div class="desktop">
+        <p>Welcome to Trains Anywhere&trade;, a Trip Anywhere company dedicated to provide you the best
+          train travel experience possible. It simple, easy and fast. Just like your other Trip Anywhere services
+          you only need to search for your train, book it and relax. We will take care of the rest.<br/>
+        </p>
+        <p>What are you waiting for? Book your next trip on Train Anywhere now!</p>
+      </div>
+
+      <h2>Popular Routes</h2>
+      <div class="scroll">
+        <div id="routes">
+          <div class="card">
+            <img src="./resources/images/montreal.jpg" alt="Destination image">
+            <h3>Montreal to Calgary</h3>
+            <p>
+              Known for the beauty of its terrain and the cultural spectacles, Montreal to Calgary is a feast for 
+              eyes if you are a fan of European splash on the places, people and the city itself. You will get to
+              explore a lot of unchartered beauty of the place.
+            </p>
+            <a href="">Book Now</a>
+          </div>
+         
+          <div class="card">
+            <img src="" alt="Destination image">
+            <h3>Vancouver to Waterloo</h3>
+            <p>
+              Known for its surreal beauty, the land of British Columbia is described aptly in the city of Vancouver.
+              Explore the dream land of Canada, exploring beauty of the country with a trip which is among largest
+              train routes.
+            </p>
+            <a href="">Book Now</a>
+          </div>
+  
+          <div class="card">
+            <img src="" alt="Destination image">
+            <h3>Toronto to Ottawa</h3>
+            <p>
+  
+            </p>
+            <a href="">Book Now</a>
+          </div>
+  
+          <div class="card">
+            <img src="" alt="Destination image">
+            <h3>Edmonton to Oshawa</h3>
+            <p>
+  
+            </p>
+            <a href="">Book Now</a>
+          </div>
+          
+          <div class="card">
+            <img src="" alt="Destination image">
+            <h3>Hamilton to Montreal</h3>
+            <p>
+  
+            </p>
+            <a href="">Book Now</a>
+          </div>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </main>
+  <footer>
+    <p>All Rights Reserved.<br />&copy;Trip Anywhere
+    </p>
+  </footer>
+  <!-- sticky button for reference to navigation bar -->
+  <div id="fixed" class="mobile">
+    <a href="#navigation_links">Menu</a>
+  </div>
+  <script src="./scripts/main.js"></script>
+</body>
 </html>

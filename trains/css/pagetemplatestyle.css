@@ -1,0 +1,260 @@
+/* page basic layout styles */
+
+/* mobile-first styles */
+
+/* custom fonts used in site */
+@font-face {
+  font-family: ContentFont;
+  src: url(../resources/fonts/Raleway-Regular.ttf);
+}
+@font-face {
+  font-family: HeaderFont;
+  src: url(../resources/fonts/OleoScript-Bold.ttf);
+  font-weight: bold;
+}
+/* for smooth scrolling for menu floater */
+html {
+  scroll-behavior: smooth;
+}
+
+.mobile {
+display: inline;
+}
+
+.tablet {
+display: none;
+}
+
+.desktop {
+display: none;
+}
+/* general styles for body content */
+body {
+font-family: ContentFont;
+margin: 0;
+align-content: center;
+overflow-x: hidden;
+}
+
+.login {
+  display: flex;
+  position: absolute;
+  display: flex;
+  background-color: white;
+  opacity: 70%;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3em;
+  height: 3vh;
+  top: 0;
+  right: 5vh;
+  border-radius: 20%;
+}
+
+.login img {
+  max-height: 3vh;
+}
+
+/* header styles */
+header {
+display: flex;
+justify-content: center;
+align-items: center;
+font-weight: 400;
+line-height: 1.1;
+font-family: HeaderFont;
+color: white;
+text-align: center;
+background-color:rgb(48, 34, 124);
+/* background: #f2f2f2;
+background-repeat: no-repeat;
+background-image: -webkit-linear-gradient(top, #051322, #15457c);
+background-image: -moz-linear-gradient(top, #051322, #15457c);
+background-image: -o-linear-gradient(top, #051322, #15457c);
+background-image: linear-gradient(to bottom, #051322, #15457c); */
+padding: 1em 2em;
+box-shadow: 0em 0em 0.5em gray;
+height: 8vh;
+}
+
+/* services links styling */
+#service_links {
+clear: both;
+text-align: center;
+background-color: #fff;
+padding: 0.1em 0em;
+}
+
+#service_links ul {
+list-style: none;
+padding: 0em 2em;
+}
+
+#service_links ul li {
+display: inline;
+padding: 0em 1em;
+}
+
+#service_links img {
+  padding: 0.5em;
+  border-radius: 50%;
+  border: 0.2em solid rgb(48, 34, 124);
+  box-shadow: 0em 0em 0.3em gray;
+}
+/* navigation bar styling */
+#navigation_links {
+clear: both;
+text-align: center;
+background-color: #fff;
+padding: 0.1em 0em;
+}
+
+#navigation_links ul {
+list-style: none;
+padding: 0em 1em;
+}
+
+#navigation_links ul li {
+border: 0.2em solid rgb(48, 34, 124);
+background-color: yellow;
+display: block;
+padding: 1em;
+margin: 0.2em 0em;
+}
+
+#navigation_links a {
+text-decoration: none;
+color: black;
+font-weight: bold;
+letter-spacing: 0.1em;
+}
+/* footer styling */
+footer {
+clear: both;
+font-family: HeaderFont;
+font-size: 16px;
+line-height: 1.58;
+text-align: center;
+/* background: #f2f2f2;
+background-repeat: no-repeat;
+background-image: -webkit-linear-gradient(top, #051322, #15457c);
+background-image: -moz-linear-gradient(top, #051322, #15457c);
+background-image: -o-linear-gradient(top, #051322, #15457c);
+background-image: linear-gradient(to bottom, #051322, #15457c); */
+background-color: rgb(48, 34, 124);
+color: white;
+padding: 0.5em 1em;
+font-size: small;
+font-weight: bold;
+}
+
+#fixed {
+  bottom: 0;
+  right: 2em;
+  background-color: grey;
+  position: fixed;
+  padding: 0.5em 1em;
+  font-size: small;
+  opacity: 50%;
+}
+
+#fixed a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* styling for main section */
+.main_content {
+  padding: 1em;
+  box-sizing: border-box;
+}
+/* styling for aside section */
+.aside_content {
+  padding: 1em;
+  box-sizing: border-box;
+  font-size: small;
+  line-height: 1.4em;
+}
+
+.aside_content ul {
+  list-style: square;
+  padding: 0.5em;
+}
+
+.aside_content li {
+  padding: 0.3em 0em;
+}
+
+.aside_content a {
+  color: black;
+  font-weight: bolder;
+}
+
+@media only screen and (min-width: 799px) {
+  main {
+    width: 90%;
+    margin: 0em auto;
+  }
+}
+/* media query for desktop site */
+@media only screen and (min-width: 999px) {
+  .mobile {
+    display: none;
+    }
+    
+  .tablet {
+    display: inline;
+    }
+    
+  .desktop {
+    display: inline;
+    }
+  /* made header sticky */
+  #stickyheader {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  header {
+    background-image: url(../resources/images/banner.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 20vh;
+    box-shadow: none;
+  }
+
+  #trainslogo img {
+    transform: rotate(-10deg);
+    border: 0.2em dashed black;
+    height: 20vh;
+  }
+
+  /* changed nav bar style */
+  #navigation_links {
+  text-align: center;
+  padding: 0.5em;
+  box-shadow: 0em 0em 0.5em gray;
+  background-color: yellow;
+  }
+  /* changed nav bar links style */
+  #navigation_links ul {
+  padding : 0em 1em;
+  list-style: none;
+  }
+  
+  #navigation_links ul li {
+  display: inline;
+  padding: 1em 2em;
+  margin: 0em 2em;
+  border: 0.2em solid black;
+  }
+  
+  #navigation_links a {
+  letter-spacing: 0em;
+  }
+}

@@ -1,0 +1,85 @@
+/* styling for main service page */
+/* link decoration for page */
+.main_content a {
+  text-decoration: none;
+}
+/* form styling */
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 0vh 2vh;
+}
+
+.form input {
+  margin: 1vh 0vh;
+  border: none;
+  border-bottom-color: lightgray;
+  border-bottom-width: 0.2em;
+  border-bottom-style: solid;
+}
+
+.form label {
+  margin: 1vh 0vh;
+  font-variant: small-caps;
+}
+
+.form a {
+  background-color: rgb(48, 34, 124);
+  padding: 1vh;
+  color: white;
+  margin: 4vh 0vh;
+  text-align: center;
+}
+/* css to make card view scrollable horizontally */
+#routes {
+  display: flex;
+  min-height: min-content;
+}
+
+.scroll {
+  flex: 1;
+  display: flex;
+  overflow: auto;
+}
+
+@media only screen and (min-width: 999px) {
+  header {
+    justify-content: space-between;
+  }
+
+  #desktop_form {
+    margin-left: auto;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-right: 3vh;
+  }
+  
+  .form {
+    flex-direction: row;
+    border: 0.2em solid black;
+    padding: 0em;
+  }
+
+  .form input {
+    margin: 0;
+    padding: 0.2em;
+    border: none;
+    border-right-color: black;
+    border-right-width: 0.2em;
+    border-right-style: solid ;
+    font-variant: small-caps;
+  }
+
+  .form a {
+    margin: 0;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: small;
+  }
+
+  main {
+    width: 80%;
+    margin: 0 auto; 
+  }
+}
