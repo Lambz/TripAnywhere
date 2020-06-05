@@ -42,6 +42,23 @@
   overflow: auto;
 }
 
+/* css to make search results scrollable */
+#search_results {
+  flex: 1;
+  display: flex;
+  overflow: auto;
+}
+
+#result_cards {
+  display: flex;
+  min-height: min-content;
+}
+
+#gen_header {
+  font-weight: bold;
+  font-size: x-large;
+}
+
 @media only screen and (min-width: 999px) {
   header {
     justify-content: space-between;
