@@ -1,3 +1,4 @@
+// to update the bar as form is filled
 let progressBar = document.querySelector('progress');
 
 if(!(document.getElementById("first_name").value.length === 0))   {

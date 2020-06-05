@@ -3,22 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/form.css">
   <title>Document</title>
 </head>
 <body>
-  
+  <div id="if_logged">
+    <h2>Hi <span id="usrname"></span>.</h2>
+    <p> Want to log out?</p>
+    <button id="logout">Logout</button>
+  </div>
+  <div id="login_form">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password">
+    <button id="login_button">Login</button>
+  </div>
+  <div id="signup">
+    <p>New here? Click on button below to sign up!</p>
+    <button id="signupbtn">Signup</button>
+  </div>
   <script>
-    let checkCookie = document.cookie;
-    if(checkCookie) {
-      // show the already logged in here
-      // show user details
-      // and option to logout the user
-      // document.cookie = "user=;expires=Sun, 04 Jun 2020 00:00:0000 UTC;path=/;"
-    }
-    else {
-      // create cookie here
-      // document.cookie = "user=EMAIL; expires=NEXT_DAY;path=/;"
-    }
   </script>
   <script src="./scripts/login.js"></script>
 </body>

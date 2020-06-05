@@ -4,11 +4,31 @@
 if(!window.indexedDB) {
   alert("Your browser does not support our website's storage system. You can continue browsing, but you won't be able to login!");
 }
-
+else {
 // login logic
-let login = document.getElementById('login_button');
-login.addEventListener('click', doLogin);
-let db = null;
+// checks if already logged in
+  if(sessionStorage.getItem("activeUser")) {
+    // hides the rest of elements
+    document.getElementById("login_form").style.display = "none";
+    document.getElementById("signup").style.display = "none";
+    // shows email of user on screen
+    document.getElementById("usrname").innerHTML = sessionStorage.getItem("activeUser");
+    document.getElementById("logout").addEventListener("click", logoutUser);
+  }
+  else {
+    // flow for login
+    document.getElementById("if_logged").style.display = "none";
+    let login = document.getElementById('login_button');
+    login.addEventListener('click', doLogin);
+    let db = null;
+  }
+}
+
+// logs out user
+function logoutUser() {
+  sessionStorage.removeItem("activeUser");
+  window.location.href = "./index.html";
+}
 
 // fetches databases for site
 function doLogin() {

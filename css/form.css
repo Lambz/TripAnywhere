@@ -5,11 +5,10 @@ body {
   align-items: center;
 }
 
-#signup_form {
+#signup_form, #login_form, #signup, #if_logged {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0em 0em 0.2em gray;
 }
 
 #name, #gender, #emaildiv, #pwddiv {
@@ -19,4 +18,8 @@ body {
 #signup_button {
   margin: 1em;
   padding: 1em;
+}
+
+progress {
+  max-width: 100%;
 }
