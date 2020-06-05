@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Booking Details</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/stylesheet.css">
+    </head>
+    <body class="personal_details_body">
+        <header>
+            <div class="mobile">
+                <a href="index.html" >
+                    <img src="../images/back.png"/>
+                </a>
+                <div id="to-from">Booking Details</div>
+                <div id="search-info"></div>
+                <div class="login-signup">
+                    <img src="../images/account.png"/>
+                    <div class="login-signup-links">
+                        <a href="../login.html">Login</a>
+                        <a href="../signup.html">Sign-up</a>
+                    </div>
+                </div>
+            </div>
+            <div class="desktop">
+                <div class="logo_div">
+                    <img src="../images/logo-white.png"/>
+                    <p>We makes it easy for you</p>
+                </div>
+                <div class="login-signup">
+                    <img src="../images/account-white.png"/>
+                    <div class="login-signup-links">
+                        <a href="login.html">Login</a>
+                        <a href="signup.html">Sign-up</a>
+                    </div>
+                </div>
+                
+            </div>
+        </header>
+        <nav class="flight-nav">
+            <div id="nav_card" class="desktop">
+                <div class="nav_button">
+                    <a href="index.html">
+                        <img src="../images/flight.png" />
+                        <p>Flights</p>
+                    </a>
+                </div>
+                <div class="nav_button">
+                    <a href="../trains/index.html">
+                        <img src="../images/train.png" />
+                        <p>Trains</p>
+                    </a>
+                </div>
+                <div class="nav_button">
+                    <a href="../hotels/index.html">
+                        <img src="../images/hotel.png" />
+                        <p>Hotels</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <main class="review_flight_main">
+            <div id="flight_info_container"></div>
+        </main>
+        <footer>
+            <p>&copy; Copyright 2020. All Rights Reserved.</p>
+            <p><a href="../about_us.html">About us</a>&emsp;&emsp;<a href="../contact_us.html">Contact us</a></p>
+        </footer>
+        <script type="text/javascript" src="../scripts/basicFunctions.js"></script>
+        <script>
+
+            window.onload = function()
+            {
+                var url = new URL(window.location.href);
+                var index= url.searchParams.get("index");
+                if(index == null || index == "")
+                {
+                    window.location.href = "index.html";
+                }
+                var details = []
+                window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
+                let request = window.indexedDB.open("TripAnywhere",1), db, tx, store;
+                request.onupgradeneeded = function(e)
+                {
+                    let db = request.result,
+                    store = db.createObjectStore("Flights",{autoIncrement: true});
+                }
+                
+                request.onerror = function(e)
+                {
+                    console.log("There was an error: "+e.target.errorCode);
+                }
+
+                request.onsuccess = function(e)
+                {
+                    db = request.result;
+                    tx = db.transaction("Flights","readonly");
+                    store = tx.objectStore("Flights");
+                    db.onerror = function(e)
+                    {
+                        console.log("ERROR "+e.target.errorCode);
+                    }
+                    var allrecords = store.getAll();
+                    allrecords.onsuccess = function()
+                    {
+                        printRecord(allrecords.result[index]);
+                        // var n = allrecords.result.length;
+                        // //console.log(allrecords.result[5]);
+                        // for(i=n-travellers;i<n;i++)
+                        // {
+                        //     console.log(allrecords.result[i]);
+                        //     printRecord(allrecords.result[i]);
+                        // }
+                    }
+                }
+            }
+
+            function printRecord(record)
+            {
+                var name = record.name;
+                var gender = record.gender;
+                var dep = new Date(record.dep);
+                var dep1 = record.dep;
+                var vreturn = record.vreturn;
+                var from = record.from;
+                var to = record.to;
+                var from_IATA = record.fromIata;
+                var to_IATA = record.toIata;
+                var from_Name = record.fromName;
+                var to_Name = record.toName;
+                var price = record.price;
+                var carrier = record.carrier;
+                var is_direct = record.direct;
+                var vclass = record.vclass;
+                if(record.vreturn != "")
+                {
+                    const div = "<div class='book_confirmed'><div class='top_info'><p class='confirmed_name'>"+name+" - "+gender+"</p><span>DEPART</span>&emsp;&emsp;<span>"+from_IATA+"-"+to_IATA+"</span></div><div class='top_info'><span>"+getDateMonth(dep1)+"</span>&emsp;&emsp;<span>"+is_direct+" | "+vclass+"</span></div><hr/><p class='carrier_name'>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div class='lower_info'>"+from+"</div><div class='lower_info'>"+from_Name+"</div></div><div class='side_info'><div>"+is_direct+"</div><div class='lower_info'>"+to+"</div><div class='lower_info'>"+to_Name+"</div></div><div class='side_info price'>$"+price+"</div><div class='fare_type_box'><p id='fare_type'>FARE TYPE | "+vclass+"</p><p><img src='../images/tick-green.png'>&emsp;Cabin baggage <b>7 Kgs</b>, Hand baggage only</p><p><img src='../images/tick-green.png'>&emsp;Cacellation fees apply</p><p><img src='../images/tick-green.png'>&emsp;Free date change allowed</p><p><img src='../images/tick-green.png'>&emsp;Free seats available</p></div><hr/><div class='baggage_div'><p><img src='../images/cabin-bag.png'/>&emsp;&emsp;Cabin Bag - 7 Kgs (1 PC x 7 Kgs) each</p><p><img src='../images/checkin-bag.png'/>&emsp;&emsp;Check-in Bag - 23 Kgs (1 PC x 23 Kgs) each</p></div><div class='seperator'>&emsp;</div></div>"+
+                    "<div class='booking_confirmed'><div class='top_info'><p class='confirmed_name'>"+name+" - "+gender+"</p><span>DEPART</span>&emsp;&emsp;<span>"+to_IATA+"-"+from_IATA+"</span></div><div class='top_info'><span>"+getDateMonth(vreturn)+"</span>&emsp;&emsp;<span>"+is_direct+" | "+vclass+"</span></div><hr/><p class='carrier_name'>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div class='lower_info'>"+to+"</div><div class='lower_info'>"+to_Name+"</div></div><div class='side_info'><div>"+is_direct+"</div><div class='lower_info'>"+from+"</div><div class='lower_info'>"+from_Name+"</div></div><div class='side_info price'>$"+price+"</div><div class='fare_type_box'><p id='fare_type'>FARE TYPE | "+vclass+"</p><p><img src='../images/tick-green.png'>&emsp;Cabin baggage <b>7 Kgs</b>, Hand baggage only</p><p><img src='../images/tick-green.png'>&emsp;Cacellation fees apply</p><p><img src='../images/tick-green.png'>&emsp;Free date change allowed</p><p><img src='../images/tick-green.png'>&emsp;Free seats available</p></div><hr/><div class='baggage_div'><p><img src='../images/cabin-bag.png'/>&emsp;&emsp;Cabin Bag - 7 Kgs (1 PC x 7 Kgs) each</p><p><img src='../images/checkin-bag.png'/>&emsp;&emsp;Check-in Bag - 23 Kgs (1 PC x 23 Kgs) each</p></div></div>";
+                    document.getElementById("flight_info_container").innerHTML = document.getElementById("flight_info_container").innerHTML + div;
+                    price *= 2;
+                }
+                else
+                {
+                    const div = "<div class='booking_confirmed'><div class='top_info'><p class='confirmed_name'>"+name+" - "+gender+"</p><span>DEPART</span>&emsp;&emsp;<span>"+from_IATA+"-"+to_IATA+"</span></div><div class='top_info'><span>"+getDateMonth(dep1)+"</span>&emsp;&emsp;<span>"+is_direct+" | "+vclass+"</span></div><hr/><p class='carrier_name'>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div class='lower_info'>"+from+"</div><div class='lower_info'>"+from_Name+"</div></div><div class='side_info'><div>"+is_direct+"</div><div class='lower_info'>"+to+"</div><div class='lower_info'>"+to_Name+"</div></div><div class='side_info price'>$"+price+"</div><div class='fare_type_box'><p id='fare_type'>FARE TYPE | "+vclass+"</p><p><img src='../images/tick-green.png'>&emsp;Cabin baggage <b>7 Kgs</b>, Hand baggage only</p><p><img src='../images/tick-green.png'>&emsp;Cacellation fees apply</p><p><img src='../images/tick-green.png'>&emsp;Free date change allowed</p><p><img src='../images/tick-green.png'>&emsp;Free seats available</p></div><hr/><div class='baggage_div'><p><img src='../images/cabin-bag.png'/>&emsp;&emsp;Cabin Bag - 7 Kgs (1 PC x 7 Kgs) each</p><p><img src='../images/checkin-bag.png'/>&emsp;&emsp;Check-in Bag - 23 Kgs (1 PC x 23 Kgs) each</p></div><div class='seperator'>&emsp;</div></div>";
+                    document.getElementById("flight_info_container").innerHTML = document.getElementById("flight_info_container").innerHTML + div; 
+                }
+            }
+        </script>
+    </body>
+</html>
