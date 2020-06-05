@@ -64,7 +64,7 @@ function addUser() {
 // creates transaction
   const tx = db.transaction("user", "readwrite");
   tx.onerror = e => {
-    msgDiv.innerHTML = "User alreadt exists!";
+    msgDiv.innerHTML = "User already exists!";
   }
 
   const userAdd = tx.objectStore("user");

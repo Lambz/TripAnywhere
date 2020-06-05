@@ -6,6 +6,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="./css/pagetemplatestyle.css">
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/form.css">
 </head>
 <body>
   <!-- sticky header div for larger screen size -->
@@ -57,11 +58,17 @@
   <main>
     <!-- main content of the site -->
     <div class="main_content">
-      <div class="user_data">
-
+      <div id="confirm_form">
+        <h2>Confirm details before booking the train</h2>
+        <h4>Source:</h4><p id="srcName"></p><br /><br />
+        <h4>Destination:</h4><p id="destName"></p><br /><br />
+        <h4>Date:</h4><p id="date"></p><br /><br />
+        <h4>Journey Duration:</h4><p id="duration"></p><br /><br />
+        <textarea name="instr" id="instr" cols="30" rows="10" placeholder="Your instruction for us"></textarea><br />
+        <button id="bookTicket">Confirm</button>  
       </div>
-    </div>
-    
+     </div>
+
   </main>
   <footer>
     <p>All Rights Reserved.<br />&copy;Trip Anywhere
@@ -71,5 +78,6 @@
   <div id="fixed" class="mobile">
     <a href="#navigation_links">Menu</a>
   </div>
+  <script src="./scripts/confirmBooking.js"></script>
 </body>
 </html>
