@@ -23,7 +23,7 @@
   font-variant: small-caps;
 }
 
-.form a {
+.form button {
   background-color: rgb(48, 34, 124);
   padding: 1vh;
   color: white;
@@ -71,7 +71,7 @@
     font-variant: small-caps;
   }
 
-  .form a {
+  .form button {
     margin: 0;
     text-decoration: none;
     font-weight: bold;

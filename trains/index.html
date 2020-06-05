@@ -24,10 +24,10 @@
       <div class="desktop" id="desktop_form">
         <h2>Find your next train</h2>
         <div class="form">
-          <input type="text" placeholder="From" id="source">
-          <input type="text" placeholder="To" id="destination">
-          <input type="date" name="date" id="date">
-          <a href="Search">SEARCH</a>
+          <input type="text" placeholder="From" id="desktop_source">
+          <input type="text" placeholder="To" id="desktop_destination">
+          <input type="date" name="date" id="desktop_date">
+          <button id="desktop_search">SEARCH</button>
         </div>
       </div>
     </header>
@@ -65,12 +65,12 @@
         <h2><i>Find your next train</i></h2>
         <div class="form">
           <label for="source">From</label>
-          <input type="text" name="From" id="source">
+          <input type="text" name="From" id="mobile_source">
           <label for="destination">To</label>
-          <input type="text" id="destination">
+          <input type="text" id="mobile_destination">
           <label for="date">When</label>
-          <input type="date" name="date" id="date">
-          <a href="./search-result.html" id="mobile_search">Search</a>
+          <input type="date" name="date" id="mobile_date">
+          <button id="mobile_search">Search</button>
         </div>
       </div>
       <div class="desktop">
@@ -149,6 +149,5 @@
     <a href="#navigation_links">Menu</a>
   </div>
   <script src="./scripts/main.js"></script>
-  <script src="./scripts/loadData.js"></script>
 </body>
 </html>
