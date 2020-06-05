@@ -4,10 +4,11 @@
 if(!window.indexedDB) {
   alert("Your browser does not support our website's storage system. You can continue browsing, but you won't be able to signup!");
 }
-
-let signup = document.getElementById('signup_button');
-signup.addEventListener('click', doSignup);
-let db = null;
+else {
+  let signup = document.getElementById('signup_button');
+  signup.addEventListener('click', doSignup);
+  let db = null;
+}
 
 // function called for signup
 function doSignup() {

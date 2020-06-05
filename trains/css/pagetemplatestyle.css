@@ -9,7 +9,7 @@
 }
 @font-face {
   font-family: HeaderFont;
-  src: url(../resources/fonts/OleoScript-Bold.ttf);
+  src: url(../resources/fonts/Piedra-Regular.ttf);
   font-weight: bold;
 }
 /* for smooth scrolling for menu floater */
@@ -251,6 +251,7 @@ font-weight: bold;
   }
   
   #navigation_links a {
+  font-family: HeaderFont;
   letter-spacing: 0em;
   }
 

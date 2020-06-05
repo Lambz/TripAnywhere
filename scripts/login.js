@@ -59,6 +59,8 @@ function checkUser() {
 }
 // clears screen and shows homepage button and message
 function afterLogin() {
+  document.getElementById('email').value = "";
+  document.getElementById('password').value = "";
   let page = `<h2>Logged in Successfully</h2><br /><a href="./index.html">Back to homepage</a>`;
   document.querySelector('body').innerHTML = page;
 }

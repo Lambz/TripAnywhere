@@ -4,21 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="./css/form.css">
   <!-- script to check the progress bar compatibility -->
   <script src="./scripts/modernizr-custom.js"></script>
 </head>
 <body>
-  <h2>Signup now to get started!</h2>
-  <progress value="0" max="100"></progress>
-  <form action="">
-    <label for="gender">Gender: </label>
-    <input type="radio" id="male" name="genders" value="male" checked>
-    <label for="male">Male</label>
-    <input type="radio" id="female" name="genders" value="female" >
-    <label for="female">Female</label>
-    <a href="javascript: submitForm()">Search</A>
-
-  </form>
+  
+  <div id="signup_form">
+    <progress value="0" max="100"></progress>
+    <h2>Signup now to get started!</h2>
+    <div id="name">
+      <label for="first_name">First Name</label>
+      <input type="text" id="first_name">
+      <label for="last_name">Last Name</label>
+      <input type="text" id="last_name">
+    </div>
+    <div id="gender">
+      <label for="gender">Gender: </label>
+      <input type="radio" id="male" name="genders" value="male">
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="genders" value="female" >
+      <label for="female">Female</label>
+    </div>
+    <div id="emaildiv">
+      <label for="email">Email</label>
+      <input type="email" id="email">
+    </div>
+    <div id="pwddiv">
+      <label for="password">Password</label>
+      <input type="password" id="password">
+    </div>
+    <button id="signup_button">Signup Now</button>
+    </div>
 
   <script src="./scripts/show-progress.js"></script>
   <script src="./scripts/database.js"></script>

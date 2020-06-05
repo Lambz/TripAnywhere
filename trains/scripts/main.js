@@ -64,10 +64,13 @@ function getMobileQuery() {
   // saves data to session storage
   src = document.getElementById('mobile_source').value;
   sessionStorage.setItem("source", src);
+  document.getElementById('mobile_source').value = "";
   dest = document.getElementById('mobile_destination').value;
   sessionStorage.setItem("destination", dest);
+  document.getElementById('mobile_destination').value = "";
   date = document.getElementById('mobile_date').value;
   sessionStorage.setItem("date", date);
+  document.getElementById('mobile_date').value = "";
   window.location.href = "./search-result.html";
 }
 
@@ -75,9 +78,12 @@ function getDesktopQuery() {
   // saves data to session storage
   src = document.getElementById('desktop_source').value;
   sessionStorage.setItem("source", src);
+  document.getElementById('desktop_source').value = "";
   dest = document.getElementById('desktop_destination').value;
   sessionStorage.setItem("destination", dest);
+  document.getElementById('desktop_destination').value = "";
   date = document.getElementById('desktop_date').value;
   sessionStorage.setItem("date", date);
+  document.getElementById('desktop_date').value = "";
   window.location.href = "./search-result.html";
 }

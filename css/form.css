@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#signup_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0em 0em 0.2em gray;
+}
+
+#name, #gender, #emaildiv, #pwddiv {
+  margin: 1em;
+}
+
+#signup_button {
+  margin: 1em;
+  padding: 1em;
+}
