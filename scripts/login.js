@@ -20,6 +20,7 @@ else {
     document.getElementById("if_logged").style.display = "none";
     let login = document.getElementById('login_button');
     login.addEventListener('click', doLogin);
+    document.getElementById("signupBtn").addEventListener("click", signupRdrct);
     let db = null;
   }
 }
@@ -83,4 +84,8 @@ function afterLogin() {
   document.getElementById('password').value = "";
   let page = `<h2>Logged in Successfully</h2><br /><a href="./index.html">Back to homepage</a>`;
   document.querySelector('body').innerHTML = page;
+}
+
+function signupRdrct() {
+  window.location.href = "./signup.html";
 }
