@@ -139,11 +139,14 @@
             window.onload = function()
             {
                 window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
-                let request = window.indexedDB.open("TripAnywhere",1), db, tx, store, index;
+                let request = window.indexedDB.open("Trip_Anywhere",1), db, tx, store, index;
                 request.onupgradeneeded = function(e)
                 {
                     let db = request.result,
-                    store = db.createObjectStore("Flights",{autoIncrement: true});
+                    store = db.createObjectStore("user", {keyPath: "email"});
+                    db.createObjectStore("trains", { keypath: "bookingNo" });
+                    db.createObjectStore("Flights",{autoIncrement: true})
+                    db.createObjectStore("hotels", { keypath: "bookingNo" });
                 }
                 
                 request.onerror = function(e)

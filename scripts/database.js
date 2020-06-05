@@ -6,16 +6,9 @@ if(!window.indexedDB) {
 }
 else {
   let signup = document.getElementById('signup_button');
-  signup.addEventListener('click', doSignup);
-  let db = null;
+  signup.addEventListener('click', createDb);
 }
 
-// function called for signup
-function doSignup() {
-  createDb();
-  addUser();
-  afterRegister();
-}
 
 // creates databases for site
 function createDb() {
@@ -35,6 +28,8 @@ function createDb() {
 
   request.onsuccess = e => {
     db = e.target.result;
+    addUser();
+    afterRegister();
   }
 
   // on error
