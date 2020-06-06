@@ -51,6 +51,8 @@
         <main>
             <p class="section-title">Recent Flights</p>
             <div class="recent-flights" id="recent-flights"></div>
+            <p class="section-title">Recent Train Rides</p>
+            <div class="recent-flights" id="recent-train"></div>
             <p class="section-title">Travel during Pandemic</p>
             <div class="safety">
                 <div class="safety-card">
@@ -168,7 +170,7 @@
                         var n = allrecords.result.length;
                         if(n==0)
                         {
-                            var div = "None"
+                            var div = "<p>None</p>"
                             document.getElementById("recent-flights").innerHTML += div;
                         }
                         for(i=0;i<n;i++)
@@ -176,6 +178,7 @@
                             //console.log(allrecords.result[i]);
                             printRecord(allrecords.result[i], i);
                         }
+                        addTrainDetails();
                     }
                 }
             }
@@ -218,6 +221,61 @@
             function getDetails(index)
             {
                 window.location.href = "flights/booking_details.html?index="+index;
+            }
+
+            function addTrainDetails()
+            {
+                window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
+                let request = window.indexedDB.open("Trip_Anywhere",1), db, tx, store, index;
+                
+                request.onerror = function(e)
+                {
+                    console.log("There was an error: "+e.target.errorCode);
+                }
+
+                request.onsuccess = function(e)
+                {
+                    //console.log("hello");
+                    db = request.result;
+                    tx = db.transaction("trains","readonly");
+                    store = tx.objectStore("trains");
+                    db.onerror = function(e)
+                    {
+                        console.log("ERROR "+e.target.errorCode);
+                    }
+                    var allrecords = store.getAll();
+                    allrecords.onsuccess = function()
+                    {
+                        var n = allrecords.result.length;
+                        //console.log(allrecords.result);
+                        if(n==0)
+                        {
+                            var div = "<p>None</p>"
+                            document.getElementById("recent-train").innerHTML += div;
+                        }
+                        for(i=0;i<n;i++)
+                        {
+                            //console.log(allrecords.result[i]);
+                            printTrainRecord(allrecords.result[i], i);
+                        }
+                        //addTrainDetails();
+                    }
+                }
+            }
+
+            function printTrainRecord(record, index)
+            {
+                var user = sessionStorage.getItem("activeUser");
+                if(record.email == user)
+                {
+                    var train = record.train;
+                    var date = record.date;
+                    var dest = record.destination;
+                    var dur = record.duration;
+                    var source = record.source;
+                    const div = "<div class='recent_train_card'><p class='train_detail'>"+train+"<p><p>"+getDateMonth(date)+"&emsp;&emsp;"+dur+"</p><p>"+source+" to "+dest+"</p></div>";
+                    document.getElementById("recent-train").innerHTML += div;
+                }
             }
         </script>
     </body>

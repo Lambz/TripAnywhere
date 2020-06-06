@@ -155,7 +155,7 @@ footer
     overflow-x: auto;
 }
 
-.rss-story, .safety-card ,.recent_flight_card
+.rss-story, .safety-card ,.recent_flight_card, .recent_train_card
 {
     flex: 0 0 auto;
     width: 40%;
@@ -510,6 +510,23 @@ footer p a:hover
 {
     margin-top: 5%;
     font-size: 2vw;
+}
+
+.recent_train_card {
+    display: inline-block;
+    margin: 2%;
+    padding: 2%;
+    width: 10%;
+}
+
+.recent_train_card p
+{
+    font-size: 1.25vw;
+}
+
+.train_detail
+{
+    font-weight: bold;
 }
 
 @media (orientation: landscape)
