@@ -1,6 +1,6 @@
 /* styling for card view */
 
-.card {
+.card_res {
   display: flex;
   flex-direction: column;
   height: 15em;
@@ -9,7 +9,7 @@
   margin: 3vh 1.5vh;
 }
 
-.card button {
+.card_res button {
   background-color: rgb(48, 34, 124);
   padding: 1vh;
   color: white;
@@ -18,7 +18,7 @@
   margin: 3em 0.5em;
 }
 
-.card p {
+.card_res p {
   margin: 0.5em;
 }
 
@@ -34,7 +34,7 @@
 
 /* change style of card for desktop */
 @media only screen and (min-width: 999px) {
-  .card {
+  .card_res {
     border: 0.2em dashed black;
     padding: 0.5em;
     box-shadow: none;
