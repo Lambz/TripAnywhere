@@ -2,350 +2,354 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Home</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/stylesheet.css">
-    </head>
-    <body>
-        <header>
-            <div class="logo_div">
-                <img src="images/logo-black.png"/>
-                <p>We makes it easy for you</p>
-            </div>
-            <div class="mobile"></div>
-            <div class="login-signup">
-                <img src="images/account.png"/>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/stylesheet.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo_div">
+            <img src="images/logo-black.png" />
+            <p>We makes it easy for you</p>
+        </div>
+        <div class="mobile"></div>
+        <div class="login-signup">
+            <div id="login-signup-div" class="login-signup-div">
+                <img src="images/account.png" />
                 <div class="login-signup-links">
-                    <a href="login.html">Login</a> / 
+                    <a href="login.html">Login</a> /
                     <a href="signup.html">Sign-up</a>
                 </div>
             </div>
-        </header>
-        <nav>
-            <div class="nav_card">
-                <div class="nav_button">
-                    <a href="flights/index.html">
-                        <img src="images/flight.png" />
-                        <p>Flights</p>
-                    </a>
-                </div>
-                <div class="nav_button">
-                    <a href="trains/index.html">
-                        <img src="images/train.png" />
-                        <p>Trains</p>
-                    </a>
-                </div>
-                <div class="nav_button">
-                    <a href="hotels/index.html">
-                        <img src="images/hotel.png" />
-                        <p>Hotels</p>
-                    </a>
-                </div>
+            <div id="already-logged-div" class="already-logged-div">
+                Hi, <span id="name_span"></span>
+                <button onclick="logout()">Logout</button>
             </div>
-        </nav>
-        <main>
-            <p class="section-title" id="recent-flights-title">Recent Bookings</p>
-            <div class="recent-flights" id="recent-flights"></div>
-            <p class="section-title">Travel during Pandemic</p>
-            <div class="safety">
-                <div class="safety-card">
-                    <p class="card-title">
-                        Test yourself
-                    </p>
-                    <p class="card-info">
-                        The first thing that you need to do is get yourself tested for the virus to ensure that you are not a carrier. 
-                        Anyone exhibiting mild signs of illness and is unable to provide a report showing that he isn't infected can't travel.
-                    </p>
-                </div>
-                <div class="safety-card">
-                    <p class="card-title">
-                        Get medical history
-                    </p>
-                    <p class="card-info">
-                        Your medical history is your best friend under these circumstances. Make sure that you have all the necessary paperwork to 
-                        prove that you haven't faced an illness that might indicate that you were a carrier of the virus.
-                    </p>
-                </div>
-                <div class="safety-card">
-                    <p class="card-title">
-                        Get travel history
-                    </p>
-                    <p class="card-info">
-                        The most common way of contracting this virus is by  traveling  from one place to another and coming in contact with different people. 
-                        Any person who has been in another part of the world in the past 14 days have the same risks.
-                    </p>
-                </div>
-                <div class="safety-card">
-                    <p class="card-title">
-                        Carry all essentials
-                    </p>
-                    <p class="card-info">
-                        Make sure that you have all the necessary things that you need to ensure exceptional hygiene. Wear a pair of gloves, carry alcohol wipes 
-                        and hand sanitizers, and remember that the face mask isn't must to wear. 
-                    </p>
-                </div>
-                <div class="safety-card">
-                    <p class="card-title">
-                        Remember the guidelines
-                    </p>
-                    <p class="card-info">
-                        And on top of all this, remember the  fundamental guidelines  issued to ensure your safety. Maintain a safe distance of about two meters from everyone, 
-                        avoid touching things or people, and don't step into crowded places. 
-                    </p>
-                </div>
+        </div>
+    </header>
+    <nav>
+        <div class="nav_card">
+            <div class="nav_button">
+                <a href="flights/index.html">
+                    <img src="images/flight.png" />
+                    <p>Flights</p>
+                </a>
             </div>
-            <div class="personal_info">
-                
+            <div class="nav_button">
+                <a href="trains/index.html">
+                    <img src="images/train.png" />
+                    <p>Trains</p>
+                </a>
             </div>
-            <p class="section-title">Blog</p>
-            <div class="rss" id="rss">
+            <div class="nav_button">
+                <a href="hotels/index.html">
+                    <img src="images/hotel.png" />
+                    <p>Hotels</p>
+                </a>
             </div>
-        </main>
-        <footer>
-            <p>&copy; Copyright 2020. All Rights Reserved.</p>
-            <p><a href="about-us.html">About us</a>&emsp;&emsp;<a href="contact-us.html">Contact us</a></p>
-        </footer>
-        <script src="scripts/basicFunctions.js" type="text/javascript"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-        <script>
-            var empty = 0;
-            $(document).ready(function() {
-                //feed to parse
-                var feed = "https://www.statravel.com/blog/feed/";
-                
-                $.ajax(feed, {
-                    accepts:{
-                        xml:"application/rss+xml"
-                    },
-                    dataType:"xml",
-                    success:function(data) {
+        </div>
+    </nav>
+    <main>
+        <p class="section-title" id="recent-flights-title">Recent Bookings</p>
+        <div class="recent-flights" id="recent-flights"></div>
+        <p class="section-title">Travel during Pandemic</p>
+        <div class="safety">
+            <div class="safety-card">
+                <p class="card-title">
+                    Test yourself
+                </p>
+                <p class="card-info">
+                    The first thing that you need to do is get yourself tested for the virus to ensure that you are not
+                    a carrier.
+                    Anyone exhibiting mild signs of illness and is unable to provide a report showing that he isn't
+                    infected can't travel.
+                </p>
+            </div>
+            <div class="safety-card">
+                <p class="card-title">
+                    Get medical history
+                </p>
+                <p class="card-info">
+                    Your medical history is your best friend under these circumstances. Make sure that you have all the
+                    necessary paperwork to
+                    prove that you haven't faced an illness that might indicate that you were a carrier of the virus.
+                </p>
+            </div>
+            <div class="safety-card">
+                <p class="card-title">
+                    Get travel history
+                </p>
+                <p class="card-info">
+                    The most common way of contracting this virus is by traveling from one place to another and coming
+                    in contact with different people.
+                    Any person who has been in another part of the world in the past 14 days have the same risks.
+                </p>
+            </div>
+            <div class="safety-card">
+                <p class="card-title">
+                    Carry all essentials
+                </p>
+                <p class="card-info">
+                    Make sure that you have all the necessary things that you need to ensure exceptional hygiene. Wear a
+                    pair of gloves, carry alcohol wipes
+                    and hand sanitizers, and remember that the face mask isn't must to wear.
+                </p>
+            </div>
+            <div class="safety-card">
+                <p class="card-title">
+                    Remember the guidelines
+                </p>
+                <p class="card-info">
+                    And on top of all this, remember the fundamental guidelines issued to ensure your safety. Maintain a
+                    safe distance of about two meters from everyone,
+                    avoid touching things or people, and don't step into crowded places.
+                </p>
+            </div>
+        </div>
+        <div class="personal_info">
 
-                        $(data).find("item").each(function () { // or "item" or whatever suits your feed
-                            var el = $(this);
-                            $('#rss').append("<div class=\"rss-story\">"+el.find("description").text()+"</div>")
-                        });
-                
+        </div>
+        <p class="section-title">Blog</p>
+        <div class="rss" id="rss">
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Copyright 2020. All Rights Reserved.</p>
+        <p><a href="about-us.html">About us</a>&emsp;&emsp;<a href="contact-us.html">Contact us</a></p>
+    </footer>
+    <script src="scripts/basicFunctions.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script>
+        var empty = 0;
+        $(document).ready(function () {
+            //feed to parse
+            var feed = "https://www.statravel.com/blog/feed/";
 
-                    }	
-                });
-                
+            $.ajax(feed, {
+                accepts: {
+                    xml: "application/rss+xml"
+                },
+                dataType: "xml",
+                success: function (data) {
+
+                    $(data).find("item").each(function () { // or "item" or whatever suits your feed
+                        var el = $(this);
+                        $('#rss').append("<div class=\"rss-story\">" + el.find("description").text() + "</div>")
+                    });
+
+
+                }
             });
 
-            window.onload = function()
+        });
+
+        window.onload = function () {
+            var user = sessionStorage.getItem("fname");
+            if(user != null)
             {
-                getFlights();
-                addTrainDetails();
-                getHotels();
+                document.getElementById("login-signup-div").style.display = "none";
+                document.getElementById("already-logged-div").style.display = "block";
+                document.getElementById("name_span").innerHTML = user;
+            }
+            getFlights();
+            addTrainDetails();
+            getHotels();
+        }
+
+        function getFlights() {
+            window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
+            let request = window.indexedDB.open("Trip_Anywhere", 1), db, tx, store, index;
+            request.onupgradeneeded = function (e) {
+                let db = request.result,
+                    store = db.createObjectStore("user", { autoIncrement: true });
+                db.createObjectStore("trains", { autoIncrement: true });
+                db.createObjectStore("Flights", { autoIncrement: true })
+                db.createObjectStore("hotels", { autoIncrement: true });
             }
 
-            function getFlights()
-            {
-                window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
-                let request = window.indexedDB.open("Trip_Anywhere",1), db, tx, store, index;
-                request.onupgradeneeded = function(e)
-                {
-                    let db = request.result,
-                    store = db.createObjectStore("user", {autoIncrement: true});
-                    db.createObjectStore("trains", {autoIncrement: true});
-                    db.createObjectStore("Flights",{autoIncrement: true})
-                    db.createObjectStore("hotels", {autoIncrement: true});
-                }
-                
-                request.onerror = function(e)
-                {
-                    console.log("There was an error: "+e.target.errorCode);
-                }
+            request.onerror = function (e) {
+                console.log("There was an error: " + e.target.errorCode);
+            }
 
-                request.onsuccess = function(e)
-                {
-                    db = request.result;
-                    tx = db.transaction("Flights","readonly");
-                    store = tx.objectStore("Flights");
-                    db.onerror = function(e)
+            request.onsuccess = function (e) {
+                db = request.result;
+                tx = db.transaction("Flights", "readonly");
+                store = tx.objectStore("Flights");
+                db.onerror = function (e) {
+                    console.log("ERROR " + e.target.errorCode);
+                }
+                var allrecords = store.getAll();
+                allrecords.onsuccess = function () {
+                    var n = allrecords.result.length;
+                    if (n == 0) 
                     {
-                        console.log("ERROR "+e.target.errorCode);
-                    }
-                    var allrecords = store.getAll();
-                    allrecords.onsuccess = function()
-                    {
-                        var n = allrecords.result.length;
-                        if(n==0)
-                        {
-                            empty += 1;
-                            // var div = "<p>None</p>"
-                            // document.getElementById("recent-flights").innerHTML += div;
-                        }
-                        for(i=0;i<n;i++)
-                        {
-                            //console.log(allrecords.result[i]);
-                            printRecord(allrecords.result[i], i);
-                        }
                         
+                        // var div = "<p>None</p>"
+                        // document.getElementById("recent-flights").innerHTML += div;
                     }
+                    for (i = 0; i < n; i++) {
+                        //console.log(allrecords.result[i]);
+                        printRecord(allrecords.result[i], i);
+                    }
+
                 }
             }
+        }
 
-            function printRecord(record, index)
+        function printRecord(record, index) {
+            var user = sessionStorage.getItem("activeUser");
+            if ((user == null && record.user == null) || record.user == user) 
             {
-                var user = sessionStorage.getItem("activeUser");
-                if((user == null && record.user == null) || record.user == user)
-                {
-                    var name = record.name;
-                    var gender = record.gender;
-                    var dep = new Date(record.dep);
-                    var dep1 = record.dep;
-                    var vreturn = record.vreturn;
-                    var from = record.from;
-                    var to = record.to;
-                    var from_IATA = record.fromIata;
-                    var to_IATA = record.toIata;
-                    var from_Name = record.fromName;
-                    var to_Name = record.toName;
-                    var price = record.price;
-                    var carrier = record.carrier;
-                    var is_direct = record.direct;
-                    var vclass = record.vclass;
-                    if(record.vreturn != "")
-                    {
-                        const div = "<div class='recent_flight_card' onclick=\"getDetails('"+index+"')\"><div class='recent_flight_card_top_info'><p class='recent_flight_card_confirmed_name'>"+name+" - "+gender+"</p><span>DEPART</span>&emsp;&emsp;<span>"+from_IATA+"-"+to_IATA+"</span></div><div class='recent_flight_card_top_info'><span>"+getDateMonth(dep1)+"</span>&emsp;&emsp;<span>"+is_direct+" | "+vclass+"</span></div><hr/><p class='recent_flight_card_carrier_name'>"+carrier+"</p><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+from+"</div><div class='recent_flight_card_lower_info'>"+from_Name+"</div></div><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+to+"</div><div class='recent_flight_card_lower_info'>"+to_Name+"</div></div></div>"+
-                        "<div class='recent_flight_card' onclick=\"getDetails('"+index+"')\"><div class='recent_flight_card_top_info'><p class='confirmed_name'>"+name+" - "+gender+"</p><span>DEPART</span>&emsp;&emsp;<span>"+to_IATA+"-"+from_IATA+"</span></div><div class='recent_flight_card_top_info'><span>"+getDateMonth(vreturn)+"</span>&emsp;&emsp;<span>"+is_direct+" | "+vclass+"</span></div><hr/><p class='recent_flight_card_carrier_name'>"+carrier+"</p><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+to+"</div><div class='recent_flight_card_lower_info'>"+to_Name+"</div></div><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+from+"</div><div class='recent_flight_card_lower_info'>"+from_Name+"</div></div></div>";
-                        document.getElementById("recent-flights").innerHTML += div;
-                        price *= 2;
-                    }
-                    else
-                    {
-                        const div = "<div class='recent_flight_card' onclick=\"getDetails('"+index+"')\"><div class='recent_flight_card_top_info'><p class='recent_flight_card_confirmed_name'>"+name+" - "+gender+"</p><span>DEPART</span>&emsp;&emsp;<span>"+from_IATA+"-"+to_IATA+"</span></div><div class='recent_flight_card_top_info'><span>"+getDateMonth(dep1)+"</span>&emsp;&emsp;<span>"+is_direct+" | "+vclass+"</span></div><hr/><p class='recent_flight_card_carrier_name'>"+carrier+"</p><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+from+"</div><div class='recent_flight_card_lower_info'>"+from_Name+"</div></div><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+to+"</div><div class='recent_flight_card_lower_info'>"+to_Name+"</div></div></div>";
-                        document.getElementById("recent-flights").innerHTML += div; 
-                    }
+                empty += 1;
+                var name = record.name;
+                var gender = record.gender;
+                var dep = new Date(record.dep);
+                var dep1 = record.dep;
+                var vreturn = record.vreturn;
+                var from = record.from;
+                var to = record.to;
+                var from_IATA = record.fromIata;
+                var to_IATA = record.toIata;
+                var from_Name = record.fromName;
+                var to_Name = record.toName;
+                var price = record.price;
+                var carrier = record.carrier;
+                var is_direct = record.direct;
+                var vclass = record.vclass;
+                if (record.vreturn != "") {
+                    const div = "<div class='recent_flight_card' onclick=\"getDetails('" + index + "')\"><div class='recent_flight_card_top_info'><p class='recent_flight_card_confirmed_name'>" + name + " - " + gender + "</p><span>DEPART</span>&emsp;&emsp;<span>" + from_IATA + "-" + to_IATA + "</span></div><div class='recent_flight_card_top_info'><span>" + getDateMonth(dep1) + "</span>&emsp;&emsp;<span>" + is_direct + " | " + vclass + "</span></div><hr/><p class='recent_flight_card_carrier_name'>" + carrier + "</p><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>" + from + "</div><div class='recent_flight_card_lower_info'>" + from_Name + "</div></div><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>" + to + "</div><div class='recent_flight_card_lower_info'>" + to_Name + "</div></div></div>" +
+                        "<div class='recent_flight_card' onclick=\"getDetails('" + index + "')\"><div class='recent_flight_card_top_info'><p class='confirmed_name'>" + name + " - " + gender + "</p><span>DEPART</span>&emsp;&emsp;<span>" + to_IATA + "-" + from_IATA + "</span></div><div class='recent_flight_card_top_info'><span>" + getDateMonth(vreturn) + "</span>&emsp;&emsp;<span>" + is_direct + " | " + vclass + "</span></div><hr/><p class='recent_flight_card_carrier_name'>" + carrier + "</p><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>" + to + "</div><div class='recent_flight_card_lower_info'>" + to_Name + "</div></div><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>" + from + "</div><div class='recent_flight_card_lower_info'>" + from_Name + "</div></div></div>";
+                    document.getElementById("recent-flights").innerHTML += div;
+                    price *= 2;
                 }
-            }
-
-            function getDetails(index)
-            {
-                window.location.href = "flights/booking_details.html?index="+index;
-            }
-
-            function addTrainDetails()
-            {
-                window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
-                let request = window.indexedDB.open("Trip_Anywhere",1), db, tx, store, index;
-                
-                request.onerror = function(e)
-                {
-                    console.log("There was an error: "+e.target.errorCode);
-                }
-
-                request.onsuccess = function(e)
-                {
-                    //console.log("hello");
-                    db = request.result;
-                    tx = db.transaction("trains","readonly");
-                    store = tx.objectStore("trains");
-                    db.onerror = function(e)
-                    {
-                        console.log("ERROR "+e.target.errorCode);
-                    }
-                    var allrecords = store.getAll();
-                    allrecords.onsuccess = function()
-                    {
-                        var n = allrecords.result.length;
-                        //console.log(allrecords.result);
-                        if(n==0)
-                        {
-                            empty += 1;
-                            // var div = "<p>None</p>"
-                            // document.getElementById("recent-train").innerHTML += div;
-                        }
-                        for(i=0;i<n;i++)
-                        {
-                            //console.log(allrecords.result[i]);
-                            printTrainRecord(allrecords.result[i], i);
-                        }
-                        //addTrainDetails();
-                    }
-                }
-            }
-
-            function printTrainRecord(record, index)
-            {
-                var user = sessionStorage.getItem("activeUser");
-                if(record.email == user)
-                {
-                    var train = record.train;
-                    var date = record.date;
-                    var dest = record.destination;
-                    var dur = record.duration;
-                    var source = record.source;
-                    const div = "<div class='recent_train_card'><p class='train_detail'>"+train+"<p><p>"+getDateMonth(date)+"&emsp;&emsp;"+dur+"</p><p>"+source+" to "+dest+"</p></div>";
+                else {
+                    const div = "<div class='recent_flight_card' onclick=\"getDetails('" + index + "')\"><div class='recent_flight_card_top_info'><p class='recent_flight_card_confirmed_name'>" + name + " - " + gender + "</p><span>DEPART</span>&emsp;&emsp;<span>" + from_IATA + "-" + to_IATA + "</span></div><div class='recent_flight_card_top_info'><span>" + getDateMonth(dep1) + "</span>&emsp;&emsp;<span>" + is_direct + " | " + vclass + "</span></div><hr/><p class='recent_flight_card_carrier_name'>" + carrier + "</p><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>" + from + "</div><div class='recent_flight_card_lower_info'>" + from_Name + "</div></div><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>" + to + "</div><div class='recent_flight_card_lower_info'>" + to_Name + "</div></div></div>";
                     document.getElementById("recent-flights").innerHTML += div;
                 }
             }
+        }
 
-            function getHotels()
-            {
-                window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
-                let request = window.indexedDB.open("Trip_Anywhere",1), db, tx, store, index;
-                
-                request.onerror = function(e)
-                {
-                    console.log("There was an error: "+e.target.errorCode);
-                }
+        function getDetails(index) {
+            window.location.href = "flights/booking_details.html?index=" + index;
+        }
 
-                request.onsuccess = function(e)
-                {
-                    //console.log("hello");
-                    db = request.result;
-                    tx = db.transaction("hotels","readonly");
-                    store = tx.objectStore("hotels");
-                    db.onerror = function(e)
-                    {
-                        console.log("ERROR "+e.target.errorCode);
-                    }
-                    var allrecords = store.getAll();
-                    allrecords.onsuccess = function()
-                    {
-                        var n = allrecords.result.length;
-                        //console.log(allrecords.result);
-                        if(n==0)
-                        {
-                            if(empty == 2)
-                            {
-                                document.getElementById("recent-flights-title").style.display = "none";
-                                document.getElementById("recent-flights").style.display = "none";
-                            }
-                            // var div = "<p>None</p>"
-                            // document.getElementById("recent-hotels").innerHTML += div;
-                        }
-                        for(i=0;i<n;i++)
-                        {
-                            //console.log(allrecords.result[i]);
-                            printHotelRecord(allrecords.result[i], i);
-                        }
-                        //addTrainDetails();
-                    }
-                }
+        function addTrainDetails() {
+            window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
+            let request = window.indexedDB.open("Trip_Anywhere", 1), db, tx, store, index;
+
+            request.onerror = function (e) {
+                console.log("There was an error: " + e.target.errorCode);
             }
 
-            function printHotelRecord(record, index)
-            {
-                var user = sessionStorage.getItem("activeUser");
-                //console.log(record.user+" "+user);
-                if((user == null && record.user == null) || record.user == user)
-                {
-                    var name = record.name;
-                    var numg = record.numguest;
-                    var numroom = record.numroom;
-                    var range = record.range;
-                    var room = record.room;
-                    const div = "<div class='recent_hotel_card'><p class='hotel_name'>"+name+"</p><p>Room Type: "+room+"</p><p>Number of Guests: "+numg+"</p><p>Number of Rooms: "+numroom+"</p><p>"+range+"</p></div>";
-                    document.getElementById("recent-flights").innerHTML += div;
+            request.onsuccess = function (e) {
+                //console.log("hello");
+                db = request.result;
+                tx = db.transaction("trains", "readonly");
+                store = tx.objectStore("trains");
+                db.onerror = function (e) {
+                    console.log("ERROR " + e.target.errorCode);
+                }
+                var allrecords = store.getAll();
+                allrecords.onsuccess = function () {
+                    var n = allrecords.result.length;
+                    //console.log(allrecords.result);
+                    if (n == 0) {
+                        // var div = "<p>None</p>"
+                        // document.getElementById("recent-train").innerHTML += div;
+                    }
+                    for (i = 0; i < n; i++) {
+                        //console.log(allrecords.result[i]);
+                        printTrainRecord(allrecords.result[i], i);
+                    }
+                    //addTrainDetails();
                 }
             }
-        </script>
-    </body>
+        }
+
+        function printTrainRecord(record, index) {
+            var user = sessionStorage.getItem("activeUser");
+            if (record.email == user) {
+                empty += 1;
+                var train = record.train;
+                var date = record.date;
+                var dest = record.destination;
+                var dur = record.duration;
+                var source = record.source;
+                const div = "<div class='recent_train_card'><p class='train_detail'>" + train + "<p><p>" + getDateMonth(date) + "&emsp;&emsp;" + dur + "</p><p>" + source + " to " + dest + "</p></div>";
+                document.getElementById("recent-flights").innerHTML += div;
+            }
+        }
+
+        function getHotels() {
+            window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
+            let request = window.indexedDB.open("Trip_Anywhere", 1), db, tx, store, index;
+
+            request.onerror = function (e) {
+                console.log("There was an error: " + e.target.errorCode);
+            }
+
+            request.onsuccess = function (e) {
+                //console.log("hello");
+                db = request.result;
+                tx = db.transaction("hotels", "readonly");
+                store = tx.objectStore("hotels");
+                db.onerror = function (e) {
+                    console.log("ERROR " + e.target.errorCode);
+                }
+                var allrecords = store.getAll();
+                allrecords.onsuccess = function () {
+                    var n = allrecords.result.length;
+                    //console.log(allrecords.result);
+                    if (n == 0) 
+                    {
+                        // var div = "<p>None</p>"
+                        // document.getElementById("recent-hotels").innerHTML += div;
+                    }
+                    for (i = 0; i < n; i++) {
+                        //console.log(allrecords.result[i]);
+                        printHotelRecord(allrecords.result[i], i);
+                    }
+                    if (empty == 0) 
+                    {
+                            document.getElementById("recent-flights-title").style.display = "none";
+                            document.getElementById("recent-flights").style.display = "none";
+                    }
+                    //addTrainDetails();
+                }
+            }
+        }
+
+        function printHotelRecord(record, index) {
+            var user = sessionStorage.getItem("activeUser");
+            //console.log(record.user+" "+user);
+            if ((user == null && record.user == null) || record.user == user) {
+                empty += 1;
+                var name = record.name;
+                var numg = record.numguest;
+                var numroom = record.numroom;
+                var range = record.range;
+                var room = record.room;
+                const div = "<div class='recent_hotel_card'><p class='hotel_name'>" + name + "</p><p>Room Type: " + room + "</p><p>Number of Guests: " + numg + "</p><p>Number of Rooms: " + numroom + "</p><p>" + range + "</p></div>";
+                document.getElementById("recent-flights").innerHTML += div;
+            }
+        }
+
+        function logout()
+        {
+            document.getElementById("login-signup-div").style.display = "block";
+            document.getElementById("already-logged-div").style.display = "none";
+            sessionStorage.clear();
+        }
+    </script>
+</body>
+
 </html>

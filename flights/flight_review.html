@@ -20,10 +20,16 @@
                 <div id="to-from">Review your Booking</div>
                 <div id="search-info"></div>
                 <div class="login-signup">
-                    <img src="../images/account.png"/>
-                    <div class="login-signup-links">
-                        <a href="../login.html">Login</a>
-                        <a href="../signup.html">Sign-up</a>
+                    <div id="login-signup-div" class="login-signup-div">
+                        <img src="../images/account.png" />
+                        <div class="login-signup-links">
+                            <a href="../login.html">Login</a>
+                            <a href="../signup.html">Sign-up</a>
+                        </div>
+                    </div>
+                    <div id="already-logged-div" class="already-logged-div">
+                        Hi, <span id="name_span"></span>
+                        <button onclick="logout()">Logout</button>
                     </div>
                 </div>
             </div>
@@ -33,13 +39,18 @@
                     <p>We makes it easy for you</p>
                 </div>
                 <div class="login-signup">
-                    <img src="../images/account-white.png"/>
-                    <div class="login-signup-links">
-                        <a href="../login.html">Login</a>
-                        <a href="../signup.html">Sign-up</a>
+                    <div id="login-signup-div-desktop" class="login-signup-div">
+                        <img src="../images/account-white.png" />
+                        <div class="login-signup-links">
+                            <a href="../login.html">Login</a>
+                            <a href="../signup.html">Sign-up</a>
+                        </div>
+                    </div>
+                    <div id="already-logged-div-desktop" class="already-logged-div">
+                        Hi, <span id="name_span-desktop"></span>
+                        <button onclick="logout()">Logout</button>
                     </div>
                 </div>
-                
             </div>
         </header>
         <nav class="flight-nav">
@@ -90,6 +101,18 @@
 
             window.onload = function()
             {
+                var user = sessionStorage.getItem("fname");
+                console.log("user: "+user);
+                if(user != null)
+                {
+                    console.log("inside");
+                    document.getElementById("login-signup-div").style.display = "none";
+                    document.getElementById("already-logged-div").style.display = "block";
+                    document.getElementById("name_span").innerHTML = user;
+                    document.getElementById("login-signup-div-desktop").style.display = "none";
+                    document.getElementById("already-logged-div-desktop").style.display = "block";
+                    document.getElementById("name_span-desktop").innerHTML = user;
+                }
                 var to_from_div = document.getElementById("to-from");
                 var url = new URL(window.location.href);
                 var response = JSON.parse(url.searchParams.get("data"));
@@ -167,6 +190,15 @@
             function goBack()
             {
                 window.location.href = "../index.html";
+            }
+
+            function logout()
+            {
+                document.getElementById("login-signup-div").style.display = "block";
+                document.getElementById("already-logged-div").style.display = "none";
+                document.getElementById("login-signup-div-desktop").style.display = "block";
+                document.getElementById("already-logged-div-desktop").style.display = "none";
+                sessionStorage.clear();
             }
         </script>
     </body>

@@ -19,10 +19,16 @@
             </div>
             <div class="mobile"></div>
             <div class="login-signup">
-                <img src="images/account.png"/>
-                <div class="login-signup-links">
-                    <a href="login.html">Login</a> / 
-                    <a href="signup.html">Sign-up</a>
+                <div id="login-signup-div" class="login-signup-div">
+                    <img src="images/account.png" />
+                    <div class="login-signup-links">
+                        <a href="login.html">Login</a> /
+                        <a href="signup.html">Sign-up</a>
+                    </div>
+                </div>
+                <div id="already-logged-div" class="already-logged-div">
+                    Hi, <span id="name_span"></span>
+                    <button onclick="logout()">Logout</button>
                 </div>
             </div>
         </header>
@@ -83,6 +89,23 @@
             function goBack()
             {
                 window.location.href = "index.html";
+            }
+
+            window.onload = function()
+            {
+                var user = sessionStorage.getItem("fname");
+                if(user != null)
+                {
+                    document.getElementById("login-signup-div").style.display = "none";
+                    document.getElementById("already-logged-div").style.display = "block";
+                    document.getElementById("name_span").innerHTML = user;
+                }
+            }
+            function logout()
+            {
+                document.getElementById("login-signup-div").style.display = "block";
+                document.getElementById("already-logged-div").style.display = "none";
+                sessionStorage.clear();
             }
         </script>
     </body>

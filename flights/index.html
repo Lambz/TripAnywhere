@@ -20,10 +20,16 @@
                 </a>
                 <div>Flight <span>Search</span></div>
                 <div class="login-signup">
-                    <img src="../images/account.png"/>
-                    <div class="login-signup-links">
-                        <a href="../login.html">Login</a>
-                        <a href="../signup.html">Sign-up</a>
+                    <div id="login-signup-div" class="login-signup-div">
+                        <img src="../images/account.png" />
+                        <div class="login-signup-links">
+                            <a href="../login.html">Login</a>
+                            <a href="../signup.html">Sign-up</a>
+                        </div>
+                    </div>
+                    <div id="already-logged-div" class="already-logged-div">
+                        Hi, <span id="name_span"></span>
+                        <button onclick="logout()">Logout</button>
                     </div>
                 </div>
             </div>
@@ -33,13 +39,18 @@
                     <p>We makes it easy for you</p>
                 </div>
                 <div class="login-signup">
-                    <img src="../images/account-white.png"/>
-                    <div class="login-signup-links">
-                        <a href="../login.html">Login</a>
-                        <a href="../signup.html">Sign-up</a>
+                    <div id="login-signup-div-desktop" class="login-signup-div">
+                        <img src="../images/account-white.png" />
+                        <div class="login-signup-links">
+                            <a href="../login.html">Login</a>
+                            <a href="../signup.html">Sign-up</a>
+                        </div>
+                    </div>
+                    <div id="already-logged-div-desktop" class="already-logged-div">
+                        Hi, <span id="name_span-desktop"></span>
+                        <button onclick="logout()">Logout</button>
                     </div>
                 </div>
-                
             </div>
         </header>
         <nav>
@@ -120,7 +131,7 @@
                     <button onclick="search()">SEARCH</button>
                 </div>
             </div>
-            <p class="section-title">Recent Flights</p>
+            <p class="section-title" id="recent-flights-title">Recent Flights</p>
             <div class="recent-flights" id="recent-flights"></div>
             <div class="custom-info" id="custom-info"></div>
             <p class="section-title">Travel during Pandemic</p>
@@ -178,7 +189,7 @@
         </footer>
         <script src="../scripts/basicFunctions.js" type="text/javascript"></script>
         <script>
-
+            var empty = 0;
             function updateSearch(type)
             {
                 if(type == "one")
@@ -253,6 +264,18 @@
 
             window.onload = function()
             {
+                var user = sessionStorage.getItem("fname");
+                console.log("user: "+user);
+                if(user != null)
+                {
+                    console.log("inside");
+                    document.getElementById("login-signup-div").style.display = "none";
+                    document.getElementById("already-logged-div").style.display = "block";
+                    document.getElementById("name_span").innerHTML = user;
+                    document.getElementById("login-signup-div-desktop").style.display = "none";
+                    document.getElementById("already-logged-div-desktop").style.display = "block";
+                    document.getElementById("name_span-desktop").innerHTML = user;
+                }
                 window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
                 let request = window.indexedDB.open("Trip_Anywhere",1), db, tx, store, index;
                 request.onupgradeneeded = function(e)
@@ -279,15 +302,20 @@
                     allrecords.onsuccess = function()
                     {
                         var n = allrecords.result.length;
-                        if(n==0)
-                        {
-                            var div = "None"
-                            document.getElementById("recent-flights").innerHTML += div;
-                        }
+                        // if(n==0)
+                        // {
+                        //     var div = "None"
+                        //     document.getElementById("recent-flights").innerHTML += div;
+                        // }
                         for(i=0;i<n;i++)
                         {
                             //console.log(allrecords.result[i]);
                             printRecord(allrecords.result[i], i);
+                        }
+                        if(empty == 0)
+                        {
+                            document.getElementById("recent-flights-title").style.display = "none";
+                            document.getElementById("recent-flights").style.display = "none";
                         }
                     }
                 }
@@ -298,6 +326,7 @@
                 var user = sessionStorage.getItem("activeUser");
                 if((user == null && record.user == null) || record.user == user)
                 {
+                    empty += 1;
                     var name = record.name;
                     var gender = record.gender;
                     var dep = new Date(record.dep);
@@ -336,6 +365,14 @@
             function goBack()
             {
                 window.location.href = "../index.html";
+            }
+            function logout()
+            {
+                document.getElementById("login-signup-div").style.display = "block";
+                document.getElementById("already-logged-div").style.display = "none";
+                document.getElementById("login-signup-div-desktop").style.display = "block";
+                document.getElementById("already-logged-div-desktop").style.display = "none";
+                sessionStorage.clear();
             }
         </script>
     </body>

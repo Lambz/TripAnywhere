@@ -546,6 +546,19 @@ footer p a:hover
     font-weight: bold;
 }
 
+.already-logged-div
+{
+    font-size: 1.5em;
+    display: none;
+}
+
+.already-logged-div button
+{
+    border: none;
+    background: transparent;
+    font-size: 1.2em;
+}
+
 @media (orientation: landscape)
 {
     .logo_div
