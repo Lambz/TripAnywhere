@@ -69,7 +69,7 @@
         </main>
         <footer>
             <p>&copy; Copyright 2020. All Rights Reserved.</p>
-            <p><a href="../about_us.html">About us</a>&emsp;&emsp;<a href="../contact_us.html">Contact us</a></p>
+            <p><a href="../about-us.html">About us</a>&emsp;&emsp;<a href="../contact_us.html">Contact us</a></p>
         </footer>
         <script type="text/javascript" src="../scripts/basicFunctions.js"></script>
         <script>
@@ -148,6 +148,11 @@
                     const div = "<div class='booking_confirmed'><div class='top_info'><p class='confirmed_name'>"+name+" - "+gender+"</p><span>DEPART</span>&emsp;&emsp;<span>"+from_IATA+"-"+to_IATA+"</span></div><div class='top_info'><span>"+getDateMonth(dep1)+"</span>&emsp;&emsp;<span>"+is_direct+" | "+vclass+"</span></div><hr/><p class='carrier_name'>"+carrier+"</p><div class='side_info'><div>"+('0' + dep.getHours()).slice(-2)+":"+('0' + dep.getMinutes()).slice(-2)+"</div><div class='lower_info'>"+from+"</div><div class='lower_info'>"+from_Name+"</div></div><div class='side_info'><div>"+is_direct+"</div><div class='lower_info'>"+to+"</div><div class='lower_info'>"+to_Name+"</div></div><div class='side_info price'>$"+price+"</div><div class='fare_type_box'><p id='fare_type'>FARE TYPE | "+vclass+"</p><p><img src='../images/tick-green.png'>&emsp;Cabin baggage <b>7 Kgs</b>, Hand baggage only</p><p><img src='../images/tick-green.png'>&emsp;Cacellation fees apply</p><p><img src='../images/tick-green.png'>&emsp;Free date change allowed</p><p><img src='../images/tick-green.png'>&emsp;Free seats available</p></div><hr/><div class='baggage_div'><p><img src='../images/cabin-bag.png'/>&emsp;&emsp;Cabin Bag - 7 Kgs (1 PC x 7 Kgs) each</p><p><img src='../images/checkin-bag.png'/>&emsp;&emsp;Check-in Bag - 23 Kgs (1 PC x 23 Kgs) each</p></div><div class='seperator'>&emsp;</div></div>";
                     document.getElementById("flight_info_container").innerHTML = document.getElementById("flight_info_container").innerHTML + div; 
                 }
+            }
+
+            function goBack()
+            {
+                window.location.href = "index.html";
             }
         </script>
     </body>
