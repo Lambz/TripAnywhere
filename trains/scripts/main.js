@@ -9,11 +9,17 @@ if(!window.indexedDB) {
 
 // user previous data showing logic
 // run while document loads
+let msg = "";
 let db = null;
+// method to be invoked on form submission
+// stores seach results
+document.getElementById('mobile_search').addEventListener('click', getMobileQuery);
+document.getElementById('desktop_search').addEventListener('click', getDesktopQuery);
 // checks if any user logged in
 if(sessionStorage.getItem("activeUser")) {
   openDb();
 }
+
 // opens db to check user bookings
 function openDb() {
   const request = indexedDB.open("Trip_Anywhere", 1);
@@ -35,13 +41,16 @@ function showData() {
 
   data.onsuccess = e => {
     // div where the data will be showed
-    let userData = document.getElementsByClassName('user_data');
+    let userData = document.getElementById('result_cards');
     let cursor = e.target.result;
-    let msg = "";
     if(cursor) {
       if(cursor.value.email === sessionStorage.getItem("activeUser")) {
         // adds the item to msg
-        msg = msg + cursor.value + "<br />";
+        let card = `<div class="card_res"><p class="card_head">Train Name: 
+        ${cursor.value.train}</p><br /><p class="card_body"><b>Source:</b> ${cursor.value.source}<br />
+      <br /><b>Destination:</b> ${cursor.value.destination}</p><p class="card_dest"><br />
+      <b>Date of Journey:</b> ${cursor.value.date}<br /><br /><b>Journey duration:</b> ${cursor.value.duration}</p></div>`;
+        msg += card;
         cursor.continue();
       }
       else {
@@ -52,12 +61,6 @@ function showData() {
     userData.innerHTML = msg;
   }
 }
-
-// method to be invoked on form submission
-// stores seach results
-let index = [];
-document.getElementById('mobile_search').addEventListener('click', getMobileQuery);
-document.getElementById('desktop_search').addEventListener('click', getDesktopQuery);
 
 // invokes the data search on basis of the user input
 function getMobileQuery() {
