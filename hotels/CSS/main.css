@@ -871,8 +871,24 @@ input[type=submit]:focus{
 
 
 
+#sub
+{
+    padding: 2%;
+    background: transparent;
+    border: 0.05em solid white;
+    color: white;
+}
 
 
+.booking_confirmed
+{
+    text-align: center;
+    padding: 2%;
+    font-size: 5vw;
+    color: white;
+    text-align: center;
+    display: none;
+}
 
 
 
