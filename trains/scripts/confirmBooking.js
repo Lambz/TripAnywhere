@@ -38,7 +38,6 @@ function confirmDetails() {
 function bookTicket() {
   if(sessionStorage.getItem("activeUser")) {
     openDb();
-
   }
   else {
     alert("Please login before booking the tickets!")
@@ -61,11 +60,11 @@ function openDb() {
 
 // adds data to db
 function addData() {
-  const tx = db.transaction("trains");
+  const tx = db.transaction("trains", "readwrite");
   const addTrain = tx.objectStore("trains");
 
   let entry = {
-    bookingNo: Math.random(),
+    train: booked.trainName,
     source: booked.src,
     destination: booked.dest,
     date: sessionStorage.getItem("date"),
@@ -78,6 +77,7 @@ function addData() {
   // confirmation message shown
   document.getElementById("instr").value = "";
   document.querySelector('main').innerHTML = "";
-  let msg = document.getElementById("msgDiv").innerHTML = "Booking Confirmed!";
+  // loads up page after that
+  window.location.href = "./index.html";
 }
 

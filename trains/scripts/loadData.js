@@ -52,7 +52,7 @@ function showResult() {
     let msg = `<div id="result_cards">`;
     index.forEach(function(node) {
       // adds card to the html code
-      let card = `<div class="card"><p class="card_head">Train Name: ${node.trainName}</p><br /><p class="card_body"><b>Source:</b> ${node.src}<br />
+      let card = `<div class="card_res"><p class="card_head">Train Name: ${node.trainName}</p><br /><p class="card_body"><b>Source:</b> ${node.src}<br />
       <b>Destination:</b> ${node.dest}</p><p class="card_dest"><b>Journey duration:</b> ${node.duration}</p><button id=${node.id} onclick="getBooking(this.id)">Book Now</button></div>`;
       msg += card;  
     }); 
