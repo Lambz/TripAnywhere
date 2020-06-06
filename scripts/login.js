@@ -5,7 +5,6 @@ if (!window.indexedDB) {
 	alert("Your browser does not support our website's storage system. You can continue browsing, but you won't be able to login!");
 }
 else {
-<<<<<<< HEAD
 	// login logic
 	// checks if already logged in
 	if (sessionStorage.getItem("activeUser")) {
@@ -24,26 +23,6 @@ else {
 		login.addEventListener('click', doLogin);
 		let db = null;
 	}
-=======
-// login logic
-// checks if already logged in
-  if(sessionStorage.getItem("activeUser")) {
-    // hides the rest of elements
-    document.getElementById("login_form").style.display = "none";
-    document.getElementById("signup").style.display = "none";
-    // shows email of user on screen
-    document.getElementById("usrname").innerHTML = sessionStorage.getItem("activeUser");
-    document.getElementById("logout").addEventListener("click", logoutUser);
-  }
-  else {
-    // flow for login
-    document.getElementById("if_logged").style.display = "none";
-    let login = document.getElementById('login_button');
-    login.addEventListener('click', doLogin);
-    document.getElementById("signupBtn").addEventListener("click", signupRdrct);
-    let db = null;
-  }
->>>>>>> 96579623ae23feff6bb11d0410d70643d305fb9f
 }
 
 // logs out user
@@ -105,7 +84,6 @@ function doLogin() {
 
 // clears screen and shows homepage button and message
 function afterLogin() {
-<<<<<<< HEAD
 	document.getElementById("login_success").style.display = "block";
 	document.getElementById("if_logged").style.display = "block";
 	document.getElementById("login_div").style.display = "none";
@@ -119,14 +97,3 @@ function afterLogin() {
 function signupbtnClicked() {
 	window.location.href = "signup.html";
 }
-=======
-  document.getElementById('email').value = "";
-  document.getElementById('password').value = "";
-  let page = `<h2>Logged in Successfully</h2><br /><a href="./index.html">Back to homepage</a>`;
-  document.querySelector('body').innerHTML = page;
-}
-
-function signupRdrct() {
-  window.location.href = "./signup.html";
-}
->>>>>>> 96579623ae23feff6bb11d0410d70643d305fb9f
