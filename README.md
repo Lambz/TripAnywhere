@@ -1,8 +1,15 @@
 # TripAnywhere
 
-Jquey Plugins used for the website
+A complete travel solution for your travel needs. You can book flights, trains and hotels without worrying about the hassle of planning your trip.
 
-    Image slider - Slick Slider - https://github.com/kenwheeler/slick
-    Scroll to top - Scrollup - https://github.com/markgoodyear/scrollup
-    Datepicker - pickmeup - https://github.com/nazar-pc/PickMeUp
-    Spinner buttons - Handle Counter - https://github.com/nick-running/handle-counter
+<b>Modules :</b>
+
+<ul>
+    <li>Flight Anywhere</li>
+    <li>Train Anywhere</li>
+    <li>Hotel Anywhere</li>
+</ul>
+
+Created by Chaitanya Sanoriya, Chetan Singh and Swati Rathour for the project submission.
+
+<b>Live link:</b> https://lambz.github.io/TripAnywhere/
