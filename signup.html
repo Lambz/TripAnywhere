@@ -1,43 +1,116 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./css/form.css">
-  <!-- script to check the progress bar compatibility -->
-  <script src="./scripts/modernizr-custom.js"></script>
-</head>
-<body>
-  
-  <div id="signup_form">
-    <progress value="0" max="100"></progress>
-    <h2>Signup now to get started!</h2>
-    <div id="name">
-      <label for="first_name">First Name</label>
-      <input type="text" id="first_name">
-      <label for="last_name">Last Name</label>
-      <input type="text" id="last_name">
-    </div>
-    <div id="gender">
-      <label for="gender">Gender: </label>
-      <input type="radio" id="male" name="genders" value="male">
-      <label for="male">Male</label>
-      <input type="radio" id="female" name="genders" value="female" >
-      <label for="female">Female</label>
-    </div>
-    <div id="emaildiv">
-      <label for="email">Email</label>
-      <input type="email" id="email">
-    </div>
-    <div id="pwddiv">
-      <label for="password">Password</label>
-      <input type="password" id="password">
-    </div>
-    <button id="signup_button">Signup Now</button>
-    </div>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
-  <script src="./scripts/show-progress.js"></script>
-  <script src="./scripts/database.js"></script>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Home</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/stylesheet.css">
+</head>
+
+<body>
+	<header>
+		<div class="logo_div" onclick="goBack()">
+			<img src="images/logo-black.png" />
+			<p>We makes it easy for you</p>
+		</div>
+		<div class="mobile"></div>
+	</header>
+	<nav>
+		<div class="nav_card">
+			<div class="nav_button">
+				<a href="flights/index.html">
+					<img src="images/flight.png" />
+					<p>Flights</p>
+				</a>
+			</div>
+			<div class="nav_button">
+				<a href="trains/index.html">
+					<img src="images/train.png" />
+					<p>Trains</p>
+				</a>
+			</div>
+			<div class="nav_button">
+				<a href="hotels/index.html">
+					<img src="images/hotel.png" />
+					<p>Hotels</p>
+				</a>
+			</div>
+		</div>
+	</nav>
+	<main>
+		<div class="signup_conainer">
+			<div id="signup_form">
+				<div class="user_already_exists" id="user_already_exists">User Already Exists</div>
+				<div class="signup_section">
+					<progress id="progress_bar" value="0" max="100"></progress>
+				</div>
+				<div class="signup_section">
+					<h2>Signup now to get started!</h2>
+				</div>
+				<div id="name">
+					<input type="text" id="first_name" class="moo" placeholder="First Name">
+					<input type="text" id="last_name" class="moo" placeholder="Last Name">
+				</div>
+				<div id="gender">
+					<label for="gender">Gender: </label>
+					<input type="radio" id="male" name="genders" class="moo" value="male">
+					<label for="male">Male</label>
+					<input type="radio" id="female" name="genders" class="moo" value="female">
+					<label for="female">Female</label>
+				</div>
+				<div id="emaildiv">
+					<input type="email" id="email" class="moo" placeholder="Email">
+				</div>
+				<div id="pwddiv">
+					<input type="password" id="password" class="moo" placeholder="Password">
+				</div>
+				<div class="signup_section_button">
+					<button id="signup_button">Signup Now</button>
+				</div>
+				<div class="signup_successful" id="signup_successful">Sign-up Successful!</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<p>&copy; Copyright 2020. All Rights Reserved.</p>
+		<p><a href="about_us.html">About us</a>&emsp;&emsp;<a href="contact_us.html">Contact us</a></p>
+	</footer>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" type="text/javascript"></script>
+	<script>
+		$(function () {
+			if(sessionStorage.getItem("activeUser"))
+			{
+				window.location.href = "login.html";
+			}
+			document.getElementById("progress_bar").value = "0";
+			$(".moo").change(function () {
+				var pbVal = 0;
+				if ($("#first_name").val().length > 0) pbVal += 20;
+				if ($("#last_name").val().length > 0) pbVal += 20;
+				if ($('input[name ="genders"]').val().length > 0) pbVal += 20;
+				if ($("#email").val().length > 0) pbVal += 20;
+				if ($("#password").val().length > 0) pbVal += 20;
+				console.log("called");
+				document.getElementById("progress_bar").value = ""+pbVal;
+				return false;
+			});
+		});
+
+		function goBack()
+		{
+			window.location.href = "index.html";
+		}
+	</script>
+	<script src="./scripts/database.js"></script>
 </body>
+
 </html>

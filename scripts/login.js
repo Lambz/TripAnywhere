@@ -45,7 +45,8 @@ function doLogin() {
 		document.getElementById('password').style.borderBottom = "0.1em solid red";
 		cond = false;
 	}
-	if (cond) {
+	if (cond) 
+	{
 		window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
 		let request = window.indexedDB.open("Trip_Anywhere", 1), db, tx, store, index;
 
