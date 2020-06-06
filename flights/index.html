@@ -35,8 +35,8 @@
                 <div class="login-signup">
                     <img src="../images/account-white.png"/>
                     <div class="login-signup-links">
-                        <a href="login.html">Login</a>
-                        <a href="signup.html">Sign-up</a>
+                        <a href="../login.html">Login</a>
+                        <a href="../signup.html">Sign-up</a>
                     </div>
                 </div>
                 
@@ -174,7 +174,7 @@
         </main>
         <footer>
             <p>&copy; Copyright 2020. All Rights Reserved.</p>
-            <p><a href="../about-us.html">About us</a>&emsp;&emsp;<a href="../contact_us.html">Contact us</a></p>
+            <p><a href="../about-us.html">About us</a>&emsp;&emsp;<a href="../contact-us.html">Contact us</a></p>
         </footer>
         <script src="../scripts/basicFunctions.js" type="text/javascript"></script>
         <script>
@@ -295,32 +295,36 @@
 
             function printRecord(record, index)
             {
-                var name = record.name;
-                var gender = record.gender;
-                var dep = new Date(record.dep);
-                var dep1 = record.dep;
-                var vreturn = record.vreturn;
-                var from = record.from;
-                var to = record.to;
-                var from_IATA = record.fromIata;
-                var to_IATA = record.toIata;
-                var from_Name = record.fromName;
-                var to_Name = record.toName;
-                var price = record.price;
-                var carrier = record.carrier;
-                var is_direct = record.direct;
-                var vclass = record.vclass;
-                if(record.vreturn != "")
+                var user = sessionStorage.getItem("activeUser");
+                if((user == null && record.user == null) || record.user == user)
                 {
-                    const div = "<div class='recent_flight_card' onclick=\"getDetails('"+index+"')\"><div class='recent_flight_card_top_info'><p class='recent_flight_card_confirmed_name'>"+name+" - "+gender+"</p><span>DEPART</span>&emsp;&emsp;<span>"+from_IATA+"-"+to_IATA+"</span></div><div class='recent_flight_card_top_info'><span>"+getDateMonth(dep1)+"</span>&emsp;&emsp;<span>"+is_direct+" | "+vclass+"</span></div><hr/><p class='recent_flight_card_carrier_name'>"+carrier+"</p><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+from+"</div><div class='recent_flight_card_lower_info'>"+from_Name+"</div></div><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+to+"</div><div class='recent_flight_card_lower_info'>"+to_Name+"</div></div></div>"+
-                    "<div class='recent_flight_card' onclick=\"getDetails('"+index+"')\"><div class='recent_flight_card_top_info'><p class='confirmed_name'>"+name+" - "+gender+"</p><span>DEPART</span>&emsp;&emsp;<span>"+to_IATA+"-"+from_IATA+"</span></div><div class='recent_flight_card_top_info'><span>"+getDateMonth(vreturn)+"</span>&emsp;&emsp;<span>"+is_direct+" | "+vclass+"</span></div><hr/><p class='recent_flight_card_carrier_name'>"+carrier+"</p><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+to+"</div><div class='recent_flight_card_lower_info'>"+to_Name+"</div></div><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+from+"</div><div class='recent_flight_card_lower_info'>"+from_Name+"</div></div></div>";
-                    document.getElementById("recent-flights").innerHTML += div;
-                    price *= 2;
-                }
-                else
-                {
-                    const div = "<div class='recent_flight_card' onclick=\"getDetails('"+index+"')\"><div class='recent_flight_card_top_info'><p class='recent_flight_card_confirmed_name'>"+name+" - "+gender+"</p><span>DEPART</span>&emsp;&emsp;<span>"+from_IATA+"-"+to_IATA+"</span></div><div class='recent_flight_card_top_info'><span>"+getDateMonth(dep1)+"</span>&emsp;&emsp;<span>"+is_direct+" | "+vclass+"</span></div><hr/><p class='recent_flight_card_carrier_name'>"+carrier+"</p><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+from+"</div><div class='recent_flight_card_lower_info'>"+from_Name+"</div></div><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+to+"</div><div class='recent_flight_card_lower_info'>"+to_Name+"</div></div></div>";
-                    document.getElementById("recent-flights").innerHTML += div; 
+                    var name = record.name;
+                    var gender = record.gender;
+                    var dep = new Date(record.dep);
+                    var dep1 = record.dep;
+                    var vreturn = record.vreturn;
+                    var from = record.from;
+                    var to = record.to;
+                    var from_IATA = record.fromIata;
+                    var to_IATA = record.toIata;
+                    var from_Name = record.fromName;
+                    var to_Name = record.toName;
+                    var price = record.price;
+                    var carrier = record.carrier;
+                    var is_direct = record.direct;
+                    var vclass = record.vclass;
+                    if(record.vreturn != "")
+                    {
+                        const div = "<div class='recent_flight_card' onclick=\"getDetails('"+index+"')\"><div class='recent_flight_card_top_info'><p class='recent_flight_card_confirmed_name'>"+name+" - "+gender+"</p><span>DEPART</span>&emsp;&emsp;<span>"+from_IATA+"-"+to_IATA+"</span></div><div class='recent_flight_card_top_info'><span>"+getDateMonth(dep1)+"</span>&emsp;&emsp;<span>"+is_direct+" | "+vclass+"</span></div><hr/><p class='recent_flight_card_carrier_name'>"+carrier+"</p><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+from+"</div><div class='recent_flight_card_lower_info'>"+from_Name+"</div></div><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+to+"</div><div class='recent_flight_card_lower_info'>"+to_Name+"</div></div></div>"+
+                        "<div class='recent_flight_card' onclick=\"getDetails('"+index+"')\"><div class='recent_flight_card_top_info'><p class='confirmed_name'>"+name+" - "+gender+"</p><span>DEPART</span>&emsp;&emsp;<span>"+to_IATA+"-"+from_IATA+"</span></div><div class='recent_flight_card_top_info'><span>"+getDateMonth(vreturn)+"</span>&emsp;&emsp;<span>"+is_direct+" | "+vclass+"</span></div><hr/><p class='recent_flight_card_carrier_name'>"+carrier+"</p><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+to+"</div><div class='recent_flight_card_lower_info'>"+to_Name+"</div></div><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+from+"</div><div class='recent_flight_card_lower_info'>"+from_Name+"</div></div></div>";
+                        document.getElementById("recent-flights").innerHTML += div;
+                        price *= 2;
+                    }
+                    else
+                    {
+                        const div = "<div class='recent_flight_card' onclick=\"getDetails('"+index+"')\"><div class='recent_flight_card_top_info'><p class='recent_flight_card_confirmed_name'>"+name+" - "+gender+"</p><span>DEPART</span>&emsp;&emsp;<span>"+from_IATA+"-"+to_IATA+"</span></div><div class='recent_flight_card_top_info'><span>"+getDateMonth(dep1)+"</span>&emsp;&emsp;<span>"+is_direct+" | "+vclass+"</span></div><hr/><p class='recent_flight_card_carrier_name'>"+carrier+"</p><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+from+"</div><div class='recent_flight_card_lower_info'>"+from_Name+"</div></div><div class='recent_flight_card_side_info'><div class='recent_flight_card_lower_info'>"+to+"</div><div class='recent_flight_card_lower_info'>"+to_Name+"</div></div></div>";
+                        document.getElementById("recent-flights").innerHTML += div; 
+                    }
                 }
             }
 

@@ -1,30 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/form.css">
-  <title>Document</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Home</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/stylesheet.css">
 </head>
+
 <body>
-  <div id="if_logged">
-    <h2>Hi <span id="usrname"></span>.</h2>
-    <p> Want to log out?</p>
-    <button id="logout">Logout</button>
-  </div>
-  <div id="login_form">
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email">
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
-    <button id="login_button">Login</button>
-  </div>
-  <div id="signup">
-    <p>New here? Click on button below to sign up!</p>
-    <button id="signupbtn">Signup</button>
-  </div>
-  <script>
-  </script>
-  <script src="./scripts/login.js"></script>
+	<header>
+		<div class="logo_div" onclick="goBack()">
+			<img src="images/logo-black.png" />
+			<p>We makes it easy for you</p>
+		</div>
+		<div class="mobile"></div>
+	</header>
+	<nav>
+		<div class="nav_card">
+			<div class="nav_button">
+				<a href="flights/index.html">
+					<img src="images/flight.png" />
+					<p>Flights</p>
+				</a>
+			</div>
+			<div class="nav_button">
+				<a href="trains/index.html">
+					<img src="images/train.png" />
+					<p>Trains</p>
+				</a>
+			</div>
+			<div class="nav_button">
+				<a href="hotels/index.html">
+					<img src="images/hotel.png" />
+					<p>Hotels</p>
+				</a>
+			</div>
+		</div>
+	</nav>
+	<main>
+		<div class="login_main_container">
+			<div class="login_box">
+				<div id="if_logged">
+					<h2>Hi <span id="usrname"></span>.</h2>
+					<p> Want to log out?</p>
+					<button id="logout">Logout</button>
+				</div>
+				<div id="login_div" class="login_div">
+					<div id="login_form">
+						<div id="login_inavlid" class="login_inavlid">Invalid Username or Password</div>
+						<div class="login_top">
+							Login
+						</div>
+						<div class="login_section">
+							<input type="email" name="email" id="email" placeholder="Email">
+						</div>
+						<div class="login_section">
+							<input type="password" name="password" id="password" placeholder="Password">
+						</div>
+						<br />
+						<div class="login_section_button">
+							<button id="login_button">Login</button>
+						</div>
+					</div>
+					<div id="signup">
+						<p>New here? Click on button below to sign up!</p>
+						<button id="signupbtn" onclick="signupbtnClicked()">Signup</button>
+					</div>
+				</div>
+				<div class="login_success" id="login_success">
+					Login Successful!
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<p>&copy; Copyright 2020. All Rights Reserved.</p>
+		<p><a href="about_us.html">About us</a>&emsp;&emsp;<a href="contact-us.html">Contact us</a></p>
+	</footer>
+	<script src="./scripts/login.js"></script>
+	<script>
+		function goBack()
+		{
+			window.location.href = "index.html";
+		}
+	</script>
 </body>
+
 </html>

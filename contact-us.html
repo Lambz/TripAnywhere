@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/stylesheet.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo_div" onclick="goBack()">
+            <img src="images/logo-black.png" />
+            <p>We makes it easy for you</p>
+        </div>
+        <div class="mobile"></div>
+        <div class="login-signup">
+            <img src="images/account.png" />
+            <div class="login-signup-links">
+                <a href="login.html">Login</a> /
+                <a href="signup.html">Sign-up</a>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <div class="nav_card">
+            <div class="nav_button">
+                <a href="flights/index.html">
+                    <img src="images/flight.png" />
+                    <p>Flights</p>
+                </a>
+            </div>
+            <div class="nav_button">
+                <a href="trains/index.html">
+                    <img src="images/train.png" />
+                    <p>Trains</p>
+                </a>
+            </div>
+            <div class="nav_button">
+                <a href="hotels/index.html">
+                    <img src="images/hotel.png" />
+                    <p>Hotels</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="contact_main_container">
+            <section class="tm-booking">
+
+                <form>
+                    <div class="tm-form1">
+                        <p>
+                            <input type="text" name="name" placeholder="Name">
+                        </p>
+                        <p><input type="email" name="email" placeholder="E-mail">
+                        </p>
+                        <p><textarea placeholder="Your message..." rows="5"></textarea>
+                        </p>
+                        <input type="submit" id="sub2" value="Send">
+
+                    </div>
+                </form>
+
+                <div class="vertical-line"> </div>
+
+                <div class="tm-form2">
+                    <div class="tm-cl">
+                        <p class="here">We are situated over here</p>
+
+                        <div id="map"></div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Copyright 2020. All Rights Reserved.</p>
+        <p><a href="about_us.html">About us</a>&emsp;&emsp;<a href="contact-us.html">Contact us</a></p>
+    </footer>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJoB9abmip914aBti5-Vsa8Lb_Ha23PqY&callback=initMap">
+    </script>
+    <script>
+        function initMap() {
+            // The location of Uluru
+            var uluru = {lat: 43.773431, lng:-79.336124};
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 4, center: uluru});
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({position: uluru, map: map});
+        }
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+
+</html>

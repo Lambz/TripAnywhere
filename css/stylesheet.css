@@ -315,6 +315,203 @@ footer p a:hover
     border-radius: 0.4em;
 }
 
+.login_main_container, .signup_conainer
+{
+    padding: 10%;
+}
+
+.login_box, #signup_form
+{
+    box-shadow: 0 0 1em grey;
+    border-radius: 1em;
+    padding: 2%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login_section
+{
+    margin-top: 2em;
+}
+
+.login_top
+{
+    text-align: center;
+    font-size: 4vw;
+}
+
+#email, #password
+{
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 2vw;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.login_section_button
+{
+    margin-top: 2em;
+    text-align: center;
+}
+
+.login_section_button #login_button, #if_logged button
+{
+    font-size: 2vw;
+    border: 0;
+    padding: 2% 10% 2% 10%;
+    background-image: -webkit-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:    -moz-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:     -ms-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:      -o-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:         linear-gradient(left, #3f9ffc, #075bf3);
+    border-radius: 1em;
+    color: white;
+    outline: none;
+}
+
+#signup
+{
+    text-align: center;
+}
+
+#signup p
+{
+    display: inline-block;
+}
+
+#signup button
+{
+    background: transparent;
+    border: none;
+    font-weight: bold;
+}
+
+.login_inavlid
+{
+    color: red;
+    text-align: center;
+    padding: 2%;
+    font-size: 2em;
+    display: none;
+}
+
+.login_success
+{
+    text-align: center;
+    padding: 2%;
+    font-size: 2em;
+    display: none;
+}
+
+#if_logged
+{
+    text-align: center;
+    font-size: 2vw;
+}
+
+.signup_section
+{
+    margin-top: 4%;
+}
+
+
+.signup_section progress
+{
+    width: 100%;
+}
+
+.signup_section h2
+{
+    text-align: center;
+}
+
+#name input
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 48%;
+    font-size: 2vw;
+}
+
+#name, #gender, #emaildiv, #pwddiv
+{
+    margin-top: 4%;
+    font-size: 2vw;
+}
+
+.signup_section_button
+{
+    margin-top: 4%;
+    text-align: center;
+}
+
+
+.signup_section_button button, #sub2
+{
+    font-size: 2vw;
+    border: 0;
+    padding: 2% 10% 2% 10%;
+    background-image: -webkit-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:    -moz-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:     -ms-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:      -o-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:         linear-gradient(left, #3f9ffc, #075bf3);
+    border-radius: 1em;
+    color: white;
+    outline: none;
+}
+
+.user_already_exists
+{
+    font-size: 2em;
+    color: red;
+    text-align: center;
+    display: none;
+}
+
+.signup_successful
+{
+    margin-top: 5%;
+    font-size: 2em;
+    text-align: center;
+    display: none;
+}
+
+.contact_main_container
+{
+    margin: 5%;
+}
+
+.contact_main_container input, .contact_main_container textarea
+{
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 2vw;
+}
+
+.contact_main_container input
+{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+#map 
+{
+    height: 400px;
+    background-color: grey;
+}
+
+.tm-form2
+{
+    margin-top: 5%;
+    font-size: 2vw;
+}
+
 @media (orientation: landscape)
 {
     .logo_div
@@ -423,5 +620,70 @@ footer p a:hover
     {
         font-size: 2vw;
         padding: 1%;
+    }
+
+    .tm-booking {
+        position: relative;
+    }
+    
+    .tm-booking::after {
+        content: " ";
+        display: block;
+        clear: both;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    
+    form {
+        display: block;
+        margin-top: 0em;
+    }
+    
+    .tm-form1 {
+        float: left;
+        max-width: 40%;
+        width: 40%;
+    }
+    .tm-form1, .tm-form2 {
+        padding: 2% 5%;
+    }
+    
+    div.vertical-line {
+        width: 0.15%;
+        background-color: #3d5dec;
+        height: 90%;
+        position: absolute;
+        top: 6%;
+        left: 50%;
+    }
+    
+    .tm-form2 {
+        float: right;
+        max-width: 40%;
+        width: 40%;
+    }
+    
+    .tm-form1 p input, .tm-form1 p textarea
+    {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .tm-form1 input
+    {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .tm-form1 p
+    {
+        margin-top: 2%;
+    }
+
+    .tm-form2
+    {
+        margin-top: 0;
     }
 }   

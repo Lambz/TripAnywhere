@@ -1,91 +1,100 @@
 // This is a indexedDb checker
 // In case the db is not supported, it shows an alert to user
 
-if(!window.indexedDB) {
-  alert("Your browser does not support our website's storage system. You can continue browsing, but you won't be able to login!");
+if (!window.indexedDB) {
+	alert("Your browser does not support our website's storage system. You can continue browsing, but you won't be able to login!");
 }
 else {
-// login logic
-// checks if already logged in
-  if(sessionStorage.getItem("activeUser")) {
-    // hides the rest of elements
-    document.getElementById("login_form").style.display = "none";
-    document.getElementById("signup").style.display = "none";
-    // shows email of user on screen
-    document.getElementById("usrname").innerHTML = sessionStorage.getItem("activeUser");
-    document.getElementById("logout").addEventListener("click", logoutUser);
-  }
-  else {
-    // flow for login
-    document.getElementById("if_logged").style.display = "none";
-    let login = document.getElementById('login_button');
-    login.addEventListener('click', doLogin);
-    document.getElementById("signupBtn").addEventListener("click", signupRdrct);
-    let db = null;
-  }
+	// login logic
+	// checks if already logged in
+	if (sessionStorage.getItem("activeUser")) {
+		// hides the rest of elements
+		document.getElementById("login_success").style.display = "none";
+		document.getElementById("if_logged").style.display = "block";
+		document.getElementById("login_div").style.display = "none";
+		// shows email of user on screen
+		document.getElementById("usrname").innerHTML = sessionStorage.getItem("activeUser");
+		document.getElementById("logout").addEventListener("click", logoutUser);
+	}
+	else {
+		// flow for login
+		document.getElementById("if_logged").style.display = "none";
+		let login = document.getElementById('login_button');
+		login.addEventListener('click', doLogin);
+		let db = null;
+	}
 }
 
 // logs out user
 function logoutUser() {
-  sessionStorage.removeItem("activeUser");
-  window.location.href = "./index.html";
+	// sessionStorage.removeItem("activeUser");
+	sessionStorage.clear();
+	window.location.href = "./index.html";
 }
 
 // fetches databases for site
 function doLogin() {
-  const request = indexedDB.open("Trip_Anywhere", 1);
+	var cond = true;
+	let useremail = document.getElementById('email').value;
+	let password = document.getElementById('password').value;
+	if (useremail == "") {
+		document.getElementById('email').style.borderBottom = "0.1em solid red";
+		cond = false;
+	}
+	if (password == "") {
+		document.getElementById('password').style.borderBottom = "0.1em solid red";
+		cond = false;
+	}
+	if (cond) 
+	{
+		window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
+		let request = window.indexedDB.open("Trip_Anywhere", 1), db, tx, store, index;
 
-  // on success needed
+		request.onerror = function (e) {
+			console.log("There was an error: " + e.target.errorCode);
+		}
 
-  request.onsuccess = e => {
-    db = e.target.result;
-    checkUser();
-  }
+		request.onsuccess = function (e) {
+			cond1 = true;
+			db = request.result;
+			tx = db.transaction("user", "readonly");
+			store = tx.objectStore("user");
+			db.onerror = function (e) {
+				console.log("ERROR " + e.target.errorCode);
+			}
+			var allrecords = store.getAll();
+			allrecords.onsuccess = function () {
+				var n = allrecords.result.length;
+				for (i = 0; i < n; i++) {
+					if (allrecords.result[i].email == useremail && allrecords.result[i].pwd == password) {
+						sessionStorage.setItem("activeUser", useremail);
+						sessionStorage.setItem("fname", allrecords.result[i].fname)
+						afterLogin();
+						cond1 = false;
+						break;
+					}
+				}
 
-  // on error
-
-  request.onerror = e => {
-    alert(`Error: Couldn't fetch records. ErrorName: ${e.target.error.message}`);
-  }
+				if (cond1) {
+					document.getElementById("login_inavlid").style.display = "block";
+				}
+			}
+		}
+	}
 }
 
-// checks user credentials
-function checkUser() {
-// gets form data
-  let useremail = document.getElementById('email').value;
-  let password = document.getElementById('password').value;
-  // to show the message to user
-  let msgDiv = document.getElementById('msgDiv');
-
-// creates transaction
-  const tx = db.transaction("user");
-  const userChk = tx.objectStore("user");
-  let data = userChk.openCursor();
-
-  data.onsuccess = e => {
-    let cursor = e.target.result;
-    // checks if entry exists
-    if(cursor) {
-      if(cursor.key === useremail && cursor.value.pwd === password) {
-        // sets user as active user
-        sessionStorage.setItem("activeUser", useremail);
-        afterLogin();
-      }
-    else {
-      cursor.continue();
-    }
-    }
-  }
-
-}
 // clears screen and shows homepage button and message
 function afterLogin() {
-  document.getElementById('email').value = "";
-  document.getElementById('password').value = "";
-  let page = `<h2>Logged in Successfully</h2><br /><a href="./index.html">Back to homepage</a>`;
-  document.querySelector('body').innerHTML = page;
+	document.getElementById("login_success").style.display = "block";
+	document.getElementById("if_logged").style.display = "block";
+	document.getElementById("login_div").style.display = "none";
+	document.getElementById("usrname").innerHTML = sessionStorage.getItem("activeUser");
+	window.setTimeout(function()
+	{
+        window.location.href = "index.html";
+    }, 2000);
 }
 
-function signupRdrct() {
-  window.location.href = "./signup.html";
+function signupbtnClicked() {
+	window.location.href = "signup.html";
 }
