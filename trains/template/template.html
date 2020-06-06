@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/pagetemplatestyle.css">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <!-- sticky header div for larger screen size -->
+  <div id="stickyheader">
+    <header>
+      <div class="login">
+        <a href="../login.html"><img src="./resources/logos/account.png" alt="Account Logo"></a>
+      </div>
+      <div class="mobile">
+        <h1>Trains Anywhere</h1>
+      </div>
+      <div class="desktop" id="trainslogo">
+        <img src="./resources/images/logo.JPG" alt="Trains Anywhere logo" id="logo">
+      </div>
+      <div class="desktop" id="desktop_form">
+        <h2>Find your next train</h2>
+        <div class="form">
+          <input type="text" placeholder="From" id="source">
+          <input type="text" placeholder="To" id="destination">
+          <input type="date" name="date" id="date">
+          <button id="desktop_search">SEARCH</button>
+        </div>
+      </div>
+    </header>
+    <!-- services links bar -->
+    <div class="mobile">
+      <nav id="service_links">
+        <ul>
+          <li><a href="../flights/index.html"><img src="./resources/logos/flight.png" alt="Flights"></a></li>
+          <li><a href="../trains/index.html"><img src="./resources/logos/train.png" alt="Trains"></a></li>
+          <li><a href="../hotels/index.html"><img src="./resources/logos/hotel.png" alt="Hotels"></a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- navigation link bar for the site -->
+    <nav id="navigation_links">
+      <ul>
+        <li><a href="../index.html" id="home">Home</a></li>
+        <div class="desktop" id="desktop_nav">
+          <li><a href="../flights/index.html" id="hotels">Flights</a></li>
+          <li><a href="../hotels/index.html" id="trains">Hotels</a></li>
+        </div>
+        <li><a href="../aboutus.html" id="aboutus">About</a></li>
+        <li><a href="../contactus.html" id="contactus">Contact</a></li>
+      </ul>  
+    </nav>
+  </div>
+  <!-- site body -->
+  <main>
+    <!-- main content of the site -->
+    <div class="main_content">
+      <div class="user_data">
+
+      </div>
+    </div>
+    
+  </main>
+  <footer>
+    <p>All Rights Reserved.<br />&copy;Trip Anywhere
+    </p>
+  </footer>
+  <!-- sticky button for reference to navigation bar -->
+  <div id="fixed" class="mobile">
+    <a href="#navigation_links">Menu</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+#confirm_form h4 {
+  display: inline;
+  padding: 1em;
+}
+
+#confirm_form p {
+  display: inline;
+  clear: right;
+}
+
+#confirm_form textarea {
+  margin: 1em;
+  font-style: italic;
+}
+
+#confirm_form button {
+  clear: both;
+  background-color: rgb(48, 34, 124);
+  padding: 1vh;
+  color: white;
+  text-align: center;
+  align-self: flex-start;
+  margin: 1em;
+}

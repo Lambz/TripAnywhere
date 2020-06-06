@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/pagetemplatestyle.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/card.css">
+</head>
+<body>
+  <!-- sticky header div for larger screen size -->
+  <div id="stickyheader">
+    <header>
+      <div class="login">
+        <a href="../login.html"><img src="./resources/logos/account.png" alt="Account Logo"></a>
+      </div>
+      <div class="mobile">
+        <h1>Trains Anywhere</h1>
+      </div>
+      <div class="desktop" id="trainslogo">
+        <img src="./resources/images/logo.JPG" alt="Trains Anywhere logo" id="logo">
+      </div>
+      <div class="desktop" id="desktop_form">
+        <h2>Find your next train</h2>
+        <div class="form">
+          <input type="text" placeholder="From" id="desktop_source">
+          <input type="text" placeholder="To" id="desktop_destination">
+          <input type="date" name="date" id="desktop_date">
+          <button id="desktop_search">SEARCH</button>
+        </div>
+      </div>
+    </header>
+    <!-- services links bar -->
+    <div class="mobile">
+      <nav id="service_links">
+        <ul>
+          <li><a href="../flights/index.html"><img src="./resources/logos/flight.png" alt="Flights"></a></li>
+          <li><a href="../trains/index.html"><img src="./resources/logos/train.png" alt="Trains"></a></li>
+          <li><a href="../hotels/index.html"><img src="./resources/logos/hotel.png" alt="Hotels"></a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- navigation link bar for the site -->
+    <nav id="navigation_links">
+      <ul>
+        <li><a href="../index.html" id="home">Home</a></li>
+        <div class="desktop" id="desktop_nav">
+          <li><a href="../flights/index.html" id="hotels">Flights</a></li>
+          <li><a href="../hotels/index.html" id="trains">Hotels</a></li>
+        </div>
+        <li><a href="../aboutus.html" id="aboutus">About</a></li>
+        <li><a href="../contactus.html" id="contactus">Contact</a></li>
+      </ul>  
+    </nav>
+  </div>
+  <!-- site body -->
+  <main>
+    <!-- main content of the site -->
+    <div class="main_content">
+      <div class="user_data">
+
+      </div>
+      <div class="mobile">
+        <h2><i>Find your next train</i></h2>
+        <div class="form">
+          <label for="source">From</label>
+          <input type="text" name="From" id="mobile_source">
+          <label for="destination">To</label>
+          <input type="text" id="mobile_destination">
+          <label for="date">When</label>
+          <input type="date" name="date" id="mobile_date">
+          <button id="mobile_search">Search</button>
+        </div>
+      </div>
+      <div class="desktop">
+        <p>Welcome to Trains Anywhere&trade;, a Trip Anywhere company dedicated to provide you the best
+          train travel experience possible. It simple, easy and fast. Just like your other Trip Anywhere services
+          you only need to search for your train, book it and relax. We will take care of the rest.<br/>
+        </p>
+        <p>What are you waiting for? Book your next trip on Train Anywhere now!</p>
+      </div>
+
+      <h2>Know the Experience</h2>
+      <p>
+        Want to know what's in it for you once you decide to go with Train Anywhere? As you would expect, we have made
+         sure that you get the best experience on your time for yourself.
+      </p>
+      <a href="./train-experience.html">Check it out</a>
+      <h2>Popular Routes</h2>
+      <div class="scroll">
+        <div id="routes">
+          <div class="card">
+            <img src="./resources/images/montreal.jpg" alt="Destination image">
+            <h3>Montreal to Calgary</h3>
+            <p>
+              Known for the beauty of its terrain and the cultural spectacles, Montreal to Calgary is a feast for 
+              eyes if you are a fan of European splash on the places, people and the city itself. You will get to
+              explore a lot of unchartered beauty of the place.
+            </p>
+            <a href="">Book Now</a>
+          </div>
+         
+          <div class="card">
+            <img src="./resources/images/vancouver.jpg" alt="Destination image">
+            <h3>Vancouver to Waterloo</h3>
+            <p>
+              Known for its surreal beauty, the land of British Columbia is described aptly in the city of Vancouver.
+              Explore the dream land of Canada, exploring beauty of the country with a trip which is among largest
+              train routes and feast your eyes on its magnificence.
+            </p>
+            <a href="">Book Now</a>
+          </div>
+  
+          <div class="card">
+            <img src="./resources/images/ottawa.jpg" alt="Destination image">
+            <h3>Toronto to Ottawa</h3>
+            <p>
+              Experience the two most iconic cities of Canada, one having reputation of being the most populated and 
+              vibrant city in Canada, and the other ozzing the Canadian culture. See the striking yet pleasant 
+              contrast between the them and get to know what connects them both.
+            </p>
+            <a href="">Book Now</a>
+          </div>
+  
+          <div class="card">
+            <img src="./resources/images/edmonton.jpg" alt="Destination image">
+            <h3>Edmonton to Oshawa</h3>
+            <p>
+              Experience the journey between two major cities of Canada of two major provinces, Alberta and Ontario,
+               on a route with lots of scenic beauty. See the striking yet pleasant contrast between them and get to
+                know what connects the cities, their people and the cultures.
+            </p>
+            <a href="">Book Now</a>
+          </div>
+          
+          <div class="card">
+            <img src="./resources/images/hamilton.jpg" alt="Destination image">
+            <h3>Hamilton to Montreal</h3>
+            <p>
+              Known for the beauty of its terrain and the cultural spectacles, Hamilton to Montreal is a feast for 
+              eyes if you are a fan of European splash on the places, people and the city itself. You will get to
+              explore a lot of unchartered beauty of the place.
+            </p>
+            <a href="">Book Now</a>
+          </div>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </main>
+  <footer>
+    <div class="social_media">
+      <div class="mobile">
+        <a href="www.facebook.com"><img src="./resources/logos/facebook.png" alt="Facebook Logo"></a>
+        <a href="www.twitter.com"><img src="./resources/logos/twitter.png" alt="Twitter Logo"></a>
+        <a href="www.instagram.com"><img src="./resources/logos/instagram.png" alt="Instagram Logo"></a>
+      </div>
+      <div class="desktop">
+        <a href="www.facebook.com"><img src="./resources/logos/facebook_desktop.png" alt="Facebook Logo"></a>
+        <a href="www.twitter.com"><img src="./resources/logos/twitter_desktop.png" alt="Twitter Logo"></a>
+        <a href="www.instagram.com"><img src="./resources/logos/instagram_desktop.png" alt="Instagram Logo"></a>
+      </div>
+    </div>
+    <p>All Rights Reserved.<br />&copy;Trip Anywhere
+    </p>
+  </footer>
+  <!-- sticky button for reference to navigation bar -->
+  <div id="fixed" class="mobile">
+    <a href="#navigation_links">Menu</a>
+  </div>
+  <script src="./scripts/main.js"></script>
+</body>
+</html>

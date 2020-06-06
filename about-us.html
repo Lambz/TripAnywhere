@@ -6,14 +6,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Home</title>
+        <title>About Us</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/stylesheet.css">
     </head>
     <body>
-        <header>
-            <div class="logo_div">
+        <header class="header_for_about_us">
+            <div class="logo_div" onclick="goBack()">
                 <img src="images/logo-black.png"/>
                 <p>We makes it easy for you</p>
             </div>
@@ -25,17 +25,9 @@
                     <a href="signup.html">Sign-up</a>
                 </div>
             </div>
-            <div class="login-signup-buttons" id="login-signup-buttons">
-                <div class="button">
-                    <a href="login.html">Login</a>
-                </div>
-                <div class="button">
-                    <a href="signup.html">Sign-up</a>
-                </div>
-            </div>
         </header>
         <nav>
-            <div class="nav_card">
+            <div class="nav_card nav_for_about_us">
                 <div class="nav_button">
                     <a href="flights/index.html">
                         <img src="images/flight.png" />
@@ -56,12 +48,42 @@
                 </div>
             </div>
         </nav>
-        <main></main>
+        <main>
+            <div class="main_container_for_about_us">
+                <img src="images/front.png"/>
+                <p class="about_us_start">We are Developers</p>
+                <p class="para2_about_us">
+                    Proud Students of Lambton College in Toronto
+                    <br/>
+                    Learning Mobile Application Design and Development.
+                </p>
+                <p class="para3_about_us">
+                    while(noSuccess)
+                    <br/>
+                    {
+                    <br />
+                    &emsp;tryAgain();
+                    <br/>
+                    &emsp;if(Dead)
+                    <br/>
+                    &emsp;&emsp;break;
+                    <br/>
+                    }
+                </p>
+                <div>
+                    <a href="https://github.com/Lambz/TripAnywhere">VIEW GITHUB</a>
+                </div>
+            </div>
+        </main>
         <footer>
             <p>&copy; Copyright 2020. All Rights Reserved.</p>
             <p><a href="about_us.html">About us</a>&emsp;&emsp;<a href="contact_us.html">Contact us</a></p>
         </footer>
         <script>
+            function goBack()
+            {
+                window.location.href = "index.html";
+            }
         </script>
     </body>
 </html>
