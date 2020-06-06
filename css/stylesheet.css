@@ -155,7 +155,7 @@ footer
     overflow-x: auto;
 }
 
-.rss-story, .safety-card ,.recent_flight_card, .recent_train_card
+.rss-story, .safety-card ,.recent_flight_card, .recent_train_card, .recent_hotel_card
 {
     flex: 0 0 auto;
     width: 40%;
@@ -516,15 +516,32 @@ footer p a:hover
     display: inline-block;
     margin: 2%;
     padding: 2%;
-    width: 10%;
+    width: 20%;
 }
 
 .recent_train_card p
 {
-    font-size: 1.25vw;
+    font-size: 2vw;
 }
 
 .train_detail
+{
+    font-weight: bold;
+}
+
+.recent_hotel_card {
+    display: inline-block;
+    margin: 2%;
+    padding: 2%;
+    width: 25%;
+}
+
+.recent_hotel_card p
+{
+    font-size: 2vw;
+}
+
+.hotel_name
 {
     font-weight: bold;
 }
@@ -702,5 +719,23 @@ footer p a:hover
     .tm-form2
     {
         margin-top: 0;
+    }
+
+    .recent_train_card {
+        width: 15%;
+    }
+    
+    .recent_train_card p
+    {
+        font-size: 1.5vw;
+    }
+    
+    .recent_hotel_card {
+        width: 20%;
+    }
+
+    .recent_hotel_card p
+    {
+        font-size: 1.5vw;
     }
 }   
