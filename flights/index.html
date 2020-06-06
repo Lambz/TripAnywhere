@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="desktop">
-                <div class="logo_div">
+                <div class="logo_div" onclick="goBack()">
                     <img src="../images/logo-white.png"/>
                     <p>We makes it easy for you</p>
                 </div>
@@ -254,7 +254,7 @@
             window.onload = function()
             {
                 window.indexedDB = window.indexedDB || window.mozIndexedBD || window.webkitIndexedDB || window.msIndexedDB;
-                let request = window.indexedDB.open("TripAnywhere",1), db, tx, store, index;
+                let request = window.indexedDB.open("Trip_Anywhere",1), db, tx, store, index;
                 request.onupgradeneeded = function(e)
                 {
                     let db = request.result,
@@ -327,6 +327,11 @@
             function getDetails(index)
             {
                 window.location.href = "booking_details.html?index="+index;
+            }
+
+            function goBack()
+            {
+                window.location.href = "../index.html";
             }
         </script>
     </body>
