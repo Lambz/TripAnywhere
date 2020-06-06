@@ -139,12 +139,12 @@ footer
     color: white;
     text-align: center;
     width: 100%;
-    padding: 0;
+    padding: 0.2%;
     margin: 0;
     font-size: 0.7em;
 }
 
-.rss, .safety 
+.rss, .safety, .recent-flights
 {
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
@@ -155,7 +155,7 @@ footer
     overflow-x: auto;
 }
 
-.rss-story, .safety-card
+.rss-story, .safety-card ,.recent_flight_card
 {
     flex: 0 0 auto;
     width: 40%;
@@ -203,6 +203,116 @@ footer
 {
     padding: 0;
     margin: 0;
+}
+
+
+.recent_flight_card
+{
+    display: inline-block;
+    margin: 2%;
+    padding: 2%;
+    width: 40%;
+}
+
+.recent_flight_card_top_info
+{
+    font-size: 1.25em;
+}
+
+.recent_flight_card_confirmed_name
+{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.recent_flight_card_carrier_name
+{
+    font-size: 2em;
+    margin: 1%;
+}
+
+.recent_flight_card_lower_info
+{
+    font-size: 1.5em;
+}
+
+.recent_flight_card_side_info
+{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 45%;
+}
+
+footer p
+{
+    margin: 0.2%;
+    padding: 0;
+}
+
+footer p a
+{
+    color: white;
+}
+
+footer p a:hover
+{
+    color: grey;
+}
+
+/* .main_container img
+{
+    width: 100%;
+} */
+
+.header_for_about_us
+{
+    background-image: url(../images/lambton_college_banner.jpg);
+    background-size: cover;
+}
+
+.main_container_for_about_us
+{
+    padding: 2%;
+}
+
+.main_container_for_about_us img
+{
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    float: right;
+    width: 70%;
+    margin: 2%;
+}
+
+.about_us_start
+{
+    font-size: 5vw;
+    margin: 1%;
+}
+
+.para2_about_us, .para3_about_us
+{
+    font-size: 3vw;
+    margin: 1%;
+}
+
+.para3_about_us
+{
+    margin-bottom: 5%;
+}
+
+.main_container_for_about_us a
+{
+    margin: 1%;
+    padding: 2%;
+    font-size: 4vw;
+    margin-top: 10%;
+    border: 0.05em solid black;
+    border-radius: 0.4em;
 }
 
 @media (orientation: landscape)
@@ -275,4 +385,43 @@ footer
         width: 2em;
         height: 2em;
     }
-}
+
+    .recent_flight_card
+    {
+        width: 34%;
+    }
+
+    .nav_for_about_us
+    {
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+
+
+    .main_container_for_about_us img
+    {
+        width: 50%;
+    }
+
+    .about_us_start
+    {
+        font-size: 3vw;
+        margin: 1%;
+    }
+
+    .para2_about_us, .para3_about_us
+    {
+        font-size: 1.5vw;
+        margin: 1%;
+    }
+
+    .para3_about_us
+    {
+        margin-bottom: 4%;
+    }
+
+    .main_container_for_about_us a
+    {
+        font-size: 2vw;
+        padding: 1%;
+    }
+}   

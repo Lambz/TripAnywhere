@@ -1,0 +1,984 @@
+body
+{
+    margin: 0;
+    padding: 0 0 5% 0;
+    font-family: 'Times New Roman', Times, serif;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+footer
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 0.2%;
+    margin: 0;
+    font-size: 0.7em;
+}
+
+header
+{
+    padding: 4% 4% 6% 4%;
+    text-align: center;
+    box-shadow: 0 0 0.5vh grey;
+}
+
+header img
+{
+    width: 8vw;
+    height: 8vw;
+}
+
+header a
+{
+    vertical-align: middle;
+    float: left;
+}
+
+header div
+{
+    vertical-align: middle;
+    font-size: 8vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header div span
+{
+    font-weight: bold;
+}
+
+.flight-search-types
+{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 1%;
+    border-radius: 2em;
+    margin-top: -2vh;
+    box-shadow: 0 0 1em grey;
+    background-color: white;
+    vertical-align: middle;
+}
+
+.flight-search-type-active, .flight-search-type-inactive
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 46%;
+    padding: 1.5%;
+}
+
+.flight-search-type-active img, .flight-search-type-inactive img
+{
+    width: 3vw;
+    height: 3vw;
+    vertical-align: middle;
+}
+
+.flight-search-type-inactive img
+{
+    display: none;
+}
+
+.flight-search-type-active
+{
+    background-image: -webkit-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:    -moz-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:     -ms-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:      -o-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:         linear-gradient(left, #3f9ffc, #075bf3);
+    border-radius: 2em;
+}
+
+.flight-search-types p
+{   
+    display: inline;
+    margin-left: 10%;
+}
+
+.flight-search-types button
+{
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.flight-search-type-active button
+{
+    width: 100%;
+    color: white;
+}
+
+.flight-search-type-inactive button
+{
+    width: 100%;
+}
+
+.inputs
+{
+    padding-bottom: 5vh;
+    border-radius: 7vh;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.main_container p
+{
+    font-size: 1.5em;
+    padding: 0 2% 0 2%;
+    margin: 0;
+    color: grey;
+}
+
+.main_container input, .main_container select
+{
+    margin-top: 2%;
+    width: 100%;
+    font-size: 1em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    margin-bottom: 4%;
+}
+
+.inner-div
+{
+    display: inline-block;
+    width: 49%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-section
+{
+    padding-bottom: 2%;
+}
+
+.button-div
+{
+    text-align: center;
+}
+
+.button-div button
+{
+    color: white;
+    background-image: -webkit-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:    -moz-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:     -ms-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:      -o-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:         linear-gradient(left, #3f9ffc, #075bf3);
+    border: none;
+    border-radius: 50%;
+    width: 18vw;
+    height: 18vw;
+    font-size: 2.5vw;
+    margin-top: -5vh;
+    outline: none;
+}
+
+
+.section-title
+{
+    margin: 5% 2% 0 2%;
+    padding: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.safety, .recent-flights
+{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */ 
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.safety-card, .recent_flight_card
+{
+    padding: 1% 2% 1% 2%;
+    flex: 0 0 auto;
+    width: 40%;
+    box-shadow: 0 0 0.5em grey;
+    margin: 2% 2% 5% 2%;
+    border-radius: 0.5em;
+}
+
+.login-signup img
+{
+    height: 4vw;
+    width: 4vw;
+    vertical-align: middle;
+}
+
+.login-signup
+{
+    text-align: right;
+}
+
+.login-signup-links
+{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 4vw;
+}
+
+.login-signup-links a:hover
+{
+    color: grey;
+}
+
+.login-signup-links a
+{
+    margin-left: 2vw;
+    text-decoration: none;
+    color: black;
+}
+
+.desktop
+{
+    display: none;
+}
+
+#to-from
+{
+    font-size: 5vw;
+}
+
+#search-info
+{
+    font-size: 3vw;
+}
+
+.no_flights
+{
+    text-align: center;
+    margin-top: 12vh;
+    display: none;
+}
+
+.no_flights img
+{
+    width: 25vw;
+    height: 25vw;
+}
+
+.no_flights p
+{
+    font-size: 7vw;
+}
+
+.progres_div
+{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+}
+
+.progres_div progress
+{
+    width: 100%;
+    height: 2vh;
+}
+
+.flight_info
+{
+    padding: 2%;
+    text-align: center;
+    margin-top: 2%;
+    box-shadow: 0 0 1vw grey;
+}
+
+.flight_info p
+{
+    text-align: left;
+    font-size: 6vw;
+    margin-bottom: 1vh;
+}
+
+.side_info
+{
+    margin-top: 0;
+    display: inline-block;
+    width: 33%;
+    font-size: 5vw;
+}
+
+.lower_info
+{
+    font-size: 2.5vw;
+    color: grey;
+}
+
+.price
+{
+    vertical-align: top;
+}
+
+.return_flight
+{
+    padding: 2.5% 0 0 0;
+    margin-top: 0;
+    font-size: 2vw;
+    text-align: left;
+    color: grey;
+}
+
+.return_flight_name
+{
+    margin-top: 0;
+}
+
+.flight_review, .booking_confirmed
+{
+    padding: 2%;
+    text-align: center;
+    /* margin-top: 2%;
+    box-shadow: 0 0 1vw grey; */
+}
+
+.top_info
+{
+    font-size: 3.5vw;
+    text-align: left;
+}
+
+.top_info ~ .top_info
+{
+    padding-bottom: 2%;
+}
+
+.fare_type_box
+{
+    margin: 4%;
+    padding: 0 4% 0 4%;
+    border: 0.05em solid grey;
+    border-radius: 2em;
+}
+
+#fare_type
+{
+    font-size: 4vw;
+    text-align: left;
+}
+
+#fare_type ~ p img, .baggage_div p img
+{
+    vertical-align: middle;
+    width: 4vw;
+    height: 4vw;
+}
+
+#fare_type ~ p, .baggage_div p
+{
+    vertical-align: middle;
+    font-size: 3vw;
+    text-align: left;
+}
+
+.seperator
+{
+    overflow: unset;
+    font-size: 1em;
+    background-color: #e0e0e0;
+}
+
+.carrier_name
+{
+    font-size: 6vw;
+    text-align: left;
+    margin: 2%;
+}
+
+.continue_button_div
+{
+    padding:2%;
+    background-color: black;
+    overflow: auto;
+    text-align: right;
+}
+
+.continue_button_div button, .travellers_details_button_div button
+{
+    font-size: 4vw;
+    border: 0;
+    padding: 2% 10% 2% 10%;
+    background-image: -webkit-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:    -moz-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:     -ms-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:      -o-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:         linear-gradient(left, #3f9ffc, #075bf3);
+    border-radius: 1em;
+    color: white;
+}
+
+.cost_span
+{
+    float: left;
+    text-align: left;
+}
+
+.cost_span p
+{
+    white-space: normal;
+    margin: 0;
+    color: white;
+}
+
+.continue_span
+{
+    text-align: right;
+}
+
+.review_flight_main
+{
+    overflow: auto;
+}
+
+.cost
+{
+    font-size: 4vw;
+}
+
+.travellers
+{
+    font-size: 2.5vw;
+}
+
+.personal_details_top
+{
+    font-size: 3vw;
+    margin-top: 2%;
+}
+
+.personal_details_top p
+{
+    padding: 0 0 0 2%;
+    margin: 0;
+}
+
+.personal_details_top div ~ div
+{
+    margin-top: 2%;
+}
+
+.to_from_info
+{
+    font-weight: bold;
+    font-size: 4vw;
+}
+
+.personal_info_div
+{
+    padding-top: 2%;
+}
+
+.personal_info_div p
+{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+
+.personal_info_div input, .personal_info_div select
+{
+    width: 100%;
+    box-sizing:border-box;
+    font-size: 4vw;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-top: 2%;
+}
+
+.personal_info_div_top
+{
+    font-size: 5vw;
+    padding: 0;
+    margin: 0;
+}
+
+.personal_info_div .seperator
+{
+    margin-top: 5%;
+}
+
+.travellers_details_button_div
+{
+    text-align: right;
+    margin: 2%;
+}
+
+.confirmed_name
+{
+    font-size: 5vw;
+    font-weight: bold;
+    margin: 0;
+    padding: 1% 0 1% 0;
+}
+
+.recent_flight_card
+{
+    display: inline-block;
+    margin: 2%;
+    padding: 2%;
+    width: 40%;
+}
+
+.recent_flight_card_top_info
+{
+    font-size: 1.25em;
+}
+
+.recent_flight_card_confirmed_name
+{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.recent_flight_card_carrier_name
+{
+    font-size: 2em;
+    margin: 1%;
+}
+
+.recent_flight_card_lower_info
+{
+    font-size: 1.5em;
+}
+
+.recent_flight_card_side_info
+{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 45%;
+}
+
+footer p
+{
+    margin: 0.2%;
+    padding: 0;
+}
+
+footer p a
+{
+    color: white;
+}
+
+footer p a:hover
+{
+    color: grey;
+}
+
+@media (orientation: landscape)
+{
+    .mobile
+    {
+        display: none;
+    }
+
+    .desktop
+    {
+        display: inline-block;
+        margin: 0;
+        width: 100%;
+    }
+
+    header
+    {
+        overflow: auto;
+        padding: 0;
+        box-shadow: none;
+        background-image: -webkit-linear-gradient(top, #051323, #134278); 
+        background-image:    -moz-linear-gradient(top, #051323, #134278);
+        background-image:     -ms-linear-gradient(top, #051323, #134278);
+        background-image:      -o-linear-gradient(top, #051323, #134278);
+        background-image:         linear-gradient(top, #051323, #134278);
+    }
+
+    header div
+    {
+        padding-top: 1vh;
+        font-size: 0;
+    }
+    
+    .flight-search-types
+    {
+        background-color: transparent;
+        margin: 1%;
+        padding: 0;
+        box-shadow: none;
+        text-align: left;
+    }
+
+    .flight-search-type-inactive, .flight-search-type-active
+    {
+        width: 8vw;
+        margin: 0;
+        padding: 1%;
+    }
+
+    .flight-search-type-inactive img, .flight-search-type-active img
+    {
+        width: 2.5vh;
+        height: 2.5vh;
+    }
+    
+    .logo_div 
+    {
+        float: left;
+        padding: 2%;
+        margin-top: 2%;
+        vertical-align: initial;
+        font-size: 1.5vh;
+        text-align: center;
+    }
+
+    .logo_div p
+    {
+        color: white;
+    }
+
+    .login-signup
+    {
+        text-align: left;
+        float: right;
+        vertical-align: middle;
+        z-index: 999;
+        padding-top: 0;
+        padding-right: 2%;
+    }
+
+    .login-signup img
+    {
+        width: 1.5vw;
+        height: 1.5vw;
+        font-size: 0;
+        vertical-align: middle;
+    }
+
+    .login-signup-links
+    {
+        font-size: 1.5vw;
+        vertical-align: middle;
+    }
+
+    .login-signup-links a
+    {
+        color: white;
+    }
+
+    .login-signup-links a:hover
+    {
+        color: grey;
+    }
+
+    .full-section
+    {
+        width: 16vw;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .input-section
+    {
+        width: 32vw;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .main_container
+    {
+        text-align: center;
+    }
+
+    .main_container p
+    {
+        text-align: left;
+    }
+
+    .button-div button
+    {
+        border-radius: 2vw;
+        height: auto;
+        padding: 1%;
+        font-size: 1.5vw;
+    }
+
+    .safety-card
+    {
+        width: 20%;
+        margin: 2% 1% 5% 2%;
+    }
+
+    .flight_info_container
+    {
+        margin-top: 2%;
+    }
+
+    .flight_info
+    {
+        padding: 1%;
+        margin-top: 1%;
+        width: 85%;
+        border-radius: 1em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .flight_info p
+    {
+        font-size: 3vw;
+        margin-bottom: 1vh;
+        display: inline-block;
+        width: 25%;
+        text-align: center;
+    }
+
+    .side_info
+    {
+        margin-top: 0;
+        width: 25%;
+        font-size: 2vw;
+    }
+
+    .lower_info
+    {
+        font-size: 1.25vw;
+    }
+
+    .price
+    {
+        font-size: 4vw;
+    }
+
+    .flight_review
+    {
+        width: 60%;
+        margin-left: 2%;
+        box-shadow: 0 0 2em grey;
+        border-radius: 2em;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .top_info
+    {
+        font-size: 1vw;
+        font-weight: bold;
+    }
+
+    .top_info ~ .top_info
+    {
+        padding-bottom: 0.5%;
+    }
+
+    .carrier_name
+    {
+        width: 15%;
+        font-size: 3vw;
+        float: left;
+    }
+
+    .side_info
+    {
+        width: 27%;
+        font-size: 3vw;
+    }
+
+    #fare_type
+    {
+        font-size: 1.5vw;
+        margin-bottom: 1vw;
+    }
+
+    #fare_type ~ p, .baggage_div p {
+        vertical-align: middle;
+        font-size: 1vw;
+        text-align: left;
+    }
+
+    #fare_type ~ p img, .baggage_div p img {
+        vertical-align: middle;
+        width: 1vw;
+        height: 1vw;
+    }
+    
+    .flight_review .seperator
+    {
+        display: none;
+    }
+
+    /* .flight_review ~ .flight_review
+    {
+        margin-bottom: 2%;
+    } */
+
+    .continue_button_div
+    {
+        width: 24%;
+        float: right;
+        margin-top: -75vh;
+        margin-right: 2%;
+        border-radius: 2em;
+    }
+
+    .cost_span
+    {
+        float: none;
+    }
+
+    .continue_button_div dt, .continue_button_div dd
+    {
+        color: white;
+    }
+
+    .continue_button_div dt
+    {
+        text-align: left;
+        font-weight: bold;
+        font-size: 2vw;
+    }
+
+    .continue_button_div dd
+    {
+        text-align: right;
+        margin-bottom: 2%;
+        font-size: 1.5vw;
+    }
+
+    .continue_button_div button, .travellers_details_button_div button
+    {
+        font-size: 2vw;
+        /* font-size: 4vw;
+        border: 0;
+        padding: 2% 10% 2% 10%;
+        background-image: -webkit-linear-gradient(left, #3f9ffc, #075bf3); 
+        background-image:    -moz-linear-gradient(left, #3f9ffc, #075bf3); 
+        background-image:     -ms-linear-gradient(left, #3f9ffc, #075bf3); 
+        background-image:      -o-linear-gradient(left, #3f9ffc, #075bf3); 
+        background-image:         linear-gradient(left, #3f9ffc, #075bf3);
+        border-radius: 1em;
+        color: white; */
+        outline: none;
+    }
+
+    .continue_span
+    {
+        margin-top: 10%;
+    }
+
+    .personal_details_body
+    {
+        background-color: #e0e0e0;
+    }
+
+    .personal_details_top, .personal_info_div
+    {
+        background-color: white;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 0 0.25em grey;
+        border-radius: 1em;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        padding: 1%;
+    }
+
+    .personal_details_top .seperator, .personal_info_div .seperator, .booking_confirmed .seperator
+    {
+        display: none;
+    }
+
+    .to_from_info, .personal_info_div_top, .confirmed_name
+    {
+        font-size: 2vw;
+    }
+
+    .personal_details_top, .personal_info_div input, .personal_info_div select
+    {
+        font-size: 1vw;
+        margin-top: 1%;
+    }
+
+    .booking_confirmed
+    {
+        width: 80%;
+        margin-left: auto;
+        box-shadow: 0 0 2em grey;
+        border-radius: 2em;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-right: auto;
+        background-color: white;
+    }
+
+    #nav_card
+    {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+        border-radius: 1em;
+        box-shadow: 0 0 0.5em grey;
+        text-align: center;
+    }
+
+    .nav_button
+    {
+        display: inline-block;
+        margin-top: 4%;
+        width: 30%;
+        font-weight: bold;
+    }
+
+    .nav_button p:hover
+    {
+        color: grey;
+    }
+
+    .nav_button img
+    {
+        width: 5em;
+    }
+
+    .nav_button a
+    {
+        text-decoration: none;
+        color: black;
+    }
+
+    nav
+    {
+        width: 80%;
+        margin-top: -12vw;
+        background: transparent;
+        margin-left: 20vw;
+        margin-bottom: 4vw;
+    }
+
+    .recent_flight_card
+    {
+        width: 34%;
+    }
+}
