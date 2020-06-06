@@ -315,6 +315,103 @@ footer p a:hover
     border-radius: 0.4em;
 }
 
+.login_main_container
+{
+    padding: 10%;
+}
+
+.login_box
+{
+    box-shadow: 0 0 1em grey;
+    border-radius: 1em;
+    padding: 2%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login_section
+{
+    margin-top: 2em;
+}
+
+.login_top
+{
+    text-align: center;
+    font-size: 4vw;
+}
+
+#email, #password
+{
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 2vw;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.login_section_button
+{
+    margin-top: 2em;
+    text-align: center;
+}
+
+.login_section_button #login_button, #if_logged button
+{
+    font-size: 2vw;
+    border: 0;
+    padding: 2% 10% 2% 10%;
+    background-image: -webkit-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:    -moz-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:     -ms-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:      -o-linear-gradient(left, #3f9ffc, #075bf3); 
+    background-image:         linear-gradient(left, #3f9ffc, #075bf3);
+    border-radius: 1em;
+    color: white;
+    outline: none;
+}
+
+#signup
+{
+    text-align: center;
+}
+
+#signup p
+{
+    display: inline-block;
+}
+
+#signup button
+{
+    background: transparent;
+    border: none;
+    font-weight: bold;
+}
+
+.login_inavlid
+{
+    color: red;
+    text-align: center;
+    padding: 2%;
+    font-size: 2em;
+    display: none;
+}
+
+.login_success
+{
+    text-align: center;
+    padding: 2%;
+    font-size: 2em;
+    display: none;
+}
+
+#if_logged
+{
+    text-align: center;
+    font-size: 2vw;
+}
+
 @media (orientation: landscape)
 {
     .logo_div

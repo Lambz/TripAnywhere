@@ -29,7 +29,7 @@ function createDb() {
 
   request.onsuccess = e => {
     db = request.result;
-    tx = db.transaction("user","readonly");
+    tx = db.transaction("user","readwrite");
     store = tx.objectStore("user");
     db.onerror = function(e)
     {
