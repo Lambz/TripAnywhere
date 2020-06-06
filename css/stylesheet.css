@@ -450,7 +450,7 @@ footer p a:hover
 }
 
 
-.signup_section_button button
+.signup_section_button button, #sub2
 {
     font-size: 2vw;
     border: 0;
@@ -479,6 +479,37 @@ footer p a:hover
     font-size: 2em;
     text-align: center;
     display: none;
+}
+
+.contact_main_container
+{
+    margin: 5%;
+}
+
+.contact_main_container input, .contact_main_container textarea
+{
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 2vw;
+}
+
+.contact_main_container input
+{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+#map 
+{
+    height: 400px;
+    background-color: grey;
+}
+
+.tm-form2
+{
+    margin-top: 5%;
+    font-size: 2vw;
 }
 
 @media (orientation: landscape)
@@ -589,5 +620,70 @@ footer p a:hover
     {
         font-size: 2vw;
         padding: 1%;
+    }
+
+    .tm-booking {
+        position: relative;
+    }
+    
+    .tm-booking::after {
+        content: " ";
+        display: block;
+        clear: both;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    
+    form {
+        display: block;
+        margin-top: 0em;
+    }
+    
+    .tm-form1 {
+        float: left;
+        max-width: 40%;
+        width: 40%;
+    }
+    .tm-form1, .tm-form2 {
+        padding: 2% 5%;
+    }
+    
+    div.vertical-line {
+        width: 0.15%;
+        background-color: #3d5dec;
+        height: 90%;
+        position: absolute;
+        top: 6%;
+        left: 50%;
+    }
+    
+    .tm-form2 {
+        float: right;
+        max-width: 40%;
+        width: 40%;
+    }
+    
+    .tm-form1 p input, .tm-form1 p textarea
+    {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .tm-form1 input
+    {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .tm-form1 p
+    {
+        margin-top: 2%;
+    }
+
+    .tm-form2
+    {
+        margin-top: 0;
     }
 }   
