@@ -31,7 +31,7 @@ function confirmDetails() {
   booked = routes[parseInt(sessionStorage.getItem("selectedTrain"))];
   document.getElementById("srcName").innerHTML = booked.src;
   document.getElementById("destName").innerHTML = booked.dest;
-  document.getElementById("date").innerHTML = sessionStorage.getItem("date");
+  document.getElementById("dateshow").innerHTML = sessionStorage.getItem("date");
   document.getElementById("duration").innerHTML = booked.duration; 
 }
 

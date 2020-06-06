@@ -186,10 +186,40 @@ font-weight: bold;
   margin: 0em 0.2em;
 }
 
+.links {
+  background-color: rgb(48, 34, 124);
+  padding: 1vh;
+  color: white;
+  text-align: center;
+  align-self: flex-start;
+  margin: 1em 0em;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex img {
+  height: 30vh;
+  align-self: center;
+}
+
 @media only screen and (min-width: 799px) {
   main {
     width: 90%;
     margin: 0em auto;
+  }
+
+  .flex {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .flex img {
+    padding: 0.5em;
+    border: 0.2em dashed black;
+    margin: 0.2em;
   }
 }
 /* media query for desktop site */

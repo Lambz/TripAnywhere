@@ -6,7 +6,6 @@
   <title>Document</title>
   <link rel="stylesheet" href="./css/pagetemplatestyle.css">
   <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="./css/form.css">
 </head>
 <body>
   <!-- sticky header div for larger screen size -->
@@ -58,18 +57,29 @@
   <main>
     <!-- main content of the site -->
     <div class="main_content">
-      <a class="desktop" href="./index.html"><i>Train Anywhere Home</i></a>
-      <div id="confirm_form">
-        <h2>Confirm details before booking the train</h2>
-        <h4>Source:</h4><p id="srcName"></p><br /><br />
-        <h4>Destination:</h4><p id="destName"></p><br /><br />
-        <h4>Date:</h4><p id="dateshow"></p><br /><br />
-        <h4>Journey Duration:</h4><p id="duration"></p><br /><br />
-        <textarea name="instr" id="instr" cols="30" rows="10" placeholder="Your instruction for us"></textarea><br />
-        <button id="bookTicket">Confirm</button>  
+      <a href="./index.html" class="desktop"><i>Train Anywhere Home</i></a>
+      <div class="user_data">
+        <h2>Know the experience</h2>
+        <p>
+          When you book a trip on Train Anywhere, as you would expect the rest of process becomes hassle free.
+          To know what happens once you have booked a train, we have provied the rest of details here for you.
+        </p>
+        <div class="flex">
+          <img src="./resources/images/calling.png" alt="Connect image">
+          <p>You will be contacted by our representative, who, according to your instructions which you left
+            for us while booking, will present you with the packages available.</p>
+        </div>
+        <div class="flex">
+          <img class="mobile" src="./resources/images/train.jpeg" alt="Train image">
+          <p>
+            Once all of that is finalized, all you need is to board the train and experience our hospitality and service.
+            So what are you waiting for? Book a trip now!
+           </p>
+           <img class="desktop" src="./resources/images/train.jpeg" alt="Train image">
+        </div>
       </div>
-     </div>
-
+    </div>
+    
   </main>
   <footer>
     <div class="social_media">
@@ -91,6 +101,21 @@
   <div id="fixed" class="mobile">
     <a href="#navigation_links">Menu</a>
   </div>
-  <script src="./scripts/confirmBooking.js"></script>
+  <script>
+    document.getElementById('desktop_search').addEventListener('click', getDesktopQuery);
+    function getDesktopQuery() {
+      // saves data to session storage
+      src = document.getElementById('desktop_source').value;
+      sessionStorage.setItem("source", src);
+      document.getElementById('desktop_source').value = "";
+      dest = document.getElementById('desktop_destination').value;
+      sessionStorage.setItem("destination", dest);
+      document.getElementById('desktop_destination').value = "";
+      date = document.getElementById('desktop_date').value;
+      sessionStorage.setItem("date", date);
+      document.getElementById('desktop_date').value = "";
+      window.location.href = "./search-result.html";
+    }
+  </script>
 </body>
 </html>
